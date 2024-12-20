@@ -72,8 +72,4 @@
 
 ---
 
-## 3. Kết luận
-- Báo cáo đã làm rõ **sự cần thiết** và lợi ích khi xây dựng hệ thống học tập số hóa mới thay thế hệ thống cũ.  
-- Xác định các **yêu cầu chức năng** và **phi chức năng** để đảm bảo hệ thống có tính **linh hoạt, mở rộng và bảo mật cao**.  
-- Mục tiêu xây dựng hệ thống học tập số iLearn có khả năng **tùy chỉnh, tích hợp** với các dịch vụ bên thứ ba và đáp ứng nhu cầu hiện đại của giáo dục.
 
