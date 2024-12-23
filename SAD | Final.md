@@ -20,10 +20,6 @@ Hệ thống iLearn được đề xuất sử dụng kiến trúc **đa tầng 
 - **Quản lý danh tính**:  
   - Tích hợp với các hệ thống quản lý danh tính bên ngoài (ví dụ: Active Directory hoặc Google Workspace).  
 
-#### **Cơ chế tích hợp dịch vụ bên thứ ba**
-- Sử dụng giao tiếp qua API RESTful hoặc GraphQL.  
-- Cung cấp **API Gateway** để kiểm soát truy cập và quản lý giao tiếp với dịch vụ bên thứ ba.  
-
 #### **Cơ chế bảo mật**
 - **Mã hóa dữ liệu**:  
   - Mã hóa dữ liệu lưu trữ bằng **AES-256**.  
