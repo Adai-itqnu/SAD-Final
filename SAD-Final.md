@@ -1,6 +1,6 @@
-# Đề xuất kiến trúc hướng sự kiện và các cơ chế phân tích cho hệ thống học tập số Ilearn
+## 2. Phân tích ca sử dụng
 
-## **1. Kiến trúc hệ thống theo hướng sự kiện (Event-Driven Architecture)**
+## **1.Đề xuất Kiến trúc hệ thống theo hướng sự kiện (Event-Driven Architecture)**
 
 ### **Tổng quan kiến trúc**
 - **Thành phần chính:**
