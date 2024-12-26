@@ -26,15 +26,16 @@ Hệ thống iLearn được đề xuất sử dụng kiến trúc **đa tầng 
 
 ## **Ca sử dụng 1: Quản lý người dùng**
 ### Mô tả
-Hệ thống hỗ trợ quản lý tài khoản người dùng, bao gồm đăng ký, đăng nhập, chỉnh sửa thông tin cá nhân và quản lý vai trò (giáo viên, học sinh, quản trị viên).
+Hệ thống hỗ trợ quản lý tài khoản người dùng, bao gồm đăng ký, đăng nhập, chỉnh sửa thông tin cá nhân và quản lý vai trò (giáo viên, học sinh).
 
 ### Tác nhân
-- Người dùng: Học sinh, Giáo viên, Quản trị viên.
+- Người dùng: Học sinh, Giáo viên.
 
-### Cơ chế sử dụng
+### Liên hệ cơ chế:
 - **Persistency (Tính bền vững)**: Lưu trữ thông tin tài khoản người dùng trong cơ sở dữ liệu an toàn.  
-- **Security (Bảo mật)**: Sử dụng xác thực và mã hóa mật khẩu để bảo vệ thông tin tài khoản.  
+- **Security (Bảo mật)**: Phân quyền vai trò, sử dụng xác thực và mã hóa mật khẩu để bảo vệ thông tin tài khoản.  
 - **Transaction Management (Quản lý giao dịch)**: Đảm bảo thao tác đăng ký, sửa đổi thông tin được thực hiện hoàn chỉnh.
+- **Error Detection (Phát hiện lỗi)**: Hiển thị thông báo khi nhập sai.  
 
 ### Chức năng chính
 - Đăng ký tài khoản mới.  
@@ -42,9 +43,17 @@ Hệ thống hỗ trợ quản lý tài khoản người dùng, bao gồm đăng
 - Chỉnh sửa thông tin cá nhân (email, tên, ảnh đại diện, v.v.).  
 - Phân quyền và quản lý vai trò của người dùng.
 
-### Biểu đồ ca sử dụng: Quản lý người dùng
+### Biểu đồ ca sử dụng:
+## Người dùng đăng ký:
 
-![Quản lý người dùng](https://www.planttext.com/plantuml/png/P55DIWCn5Dxd58_PzmfIAKK5NLZjMi9CJ4AdBoLvqmku4151Rs1r9tGZhXgAY_GYEO5Na4vdEftfzljxNxxy-T--8swfcEQCfsGi9EVHlwJWDAe4k8CRAZA1LBDdEYmCp7NumfA-5JnLmjRqTH5NdmXaety-K9rcKusC5Kwat0b8Dg-R1vGm2MkWyAvXeipMLsh7WxkHaDgHi4S6L76rd86A_X58HV-6ilPS6gcnCGnKz4-em4M_v40g_A04qWXfM02gyB4_DimqNU2zQRpL8_AmXZdNG3Pyr-8hZboAaSc5OwoQ1dgzarRh3hvhrW7tLrcru55A1z-bTC0cfLouhMr1XyNx0hFjX_y3003__mC0)
+
+![Người dùng đăng ký](https://www.planttext.com/plantuml/png/R96nIWD154Nx-OfBAYto0rj84WDnGK8A0xRhRDWPifcDkpE5TGeBAx6m4D6GGX224GHn1qan8V_nli1Va5qZReBjSDwvxxxviij6feDKcr7C0gwJ5BLkj5wGlPS8tOUAQWWozBD1oiP1gYMNuq1fr3eoI11AifSAwfy1VnjlzdoSkYc75cHVUSaqZHRDtWvuk9uY8_k0aEmBuYB0b7IxnLYn1ke7wFiUkeBo-HXQk3SLGKk5rVLgeY8CtIVh-mMs2V3G8JkNk73F1fpo9rD1iLSnR1VPPnj1uMgtF1ol5wOQk8rZHFPEidOBzMfsJr0-Kn1aRoI6b2yrpWtbip_vfj39Z_ZCJPCgjrkheBD1wk58afseyg1NlrkLmrguHoN0onUHKFxE4PEzbQmnK67nqTy0003__mC0)
+
+## Người dùng đăng nhập:
+
+![Người dùng đăng nhập](https://www.planttext.com/plantuml/png/R94nQiD044NxFSN7LLBu0Yg2PHkC4Z0kB99saOHsiRrILYD8QXUkVO0GJAeK9WcaYRTm8UDxx0boXR2A85PmDp3lyzymtsRVAuXhAXTpnYFAD3hZzFXkpPD4N7sfj0DU82mIpNAkIKOovuhG6KcU8PRMh1JKcK3Gnlr9WBjg4u64DHzHpVWb2N_o3nmSDoYiUKPipHlchg2iwM6VCQU1xXN2mCDOsDqs1udgKwKWgN1O7vOgXQeNB0mSsNHu65cpbQVqmvyDQoWN6FOzt4XhbWkGvgU1zfLis4Vtj62gxUu5CxlR4-vBDvzjQEn_QSfcISi45zUtqylQtO55eZqCH8PSLAyvI9UFYEgpXJMhEhDMAUibAdR_-m400F__0m00)
+
+
 ---
 
 ## **Ca sử dụng 2: Tạo và quản lý khóa học**
@@ -57,7 +66,8 @@ Giáo viên có thể tạo mới, chỉnh sửa hoặc xóa các khóa học. H
 
 ### Cơ chế sử dụng
 - **Persistency (Tính bền vững)**: Lưu trữ thông tin khóa học và danh sách học viên.  
-- **Transaction Management (Quản lý giao dịch)**: Đảm bảo việc tạo, chỉnh sửa hoặc xóa khóa học diễn ra hoàn chỉnh.  
+- **Transaction Management (Quản lý giao dịch)**: Đảm bảo việc tạo, chỉnh sửa hoặc xóa khóa học diễn ra hoàn chỉnh.
+- **Process Control and Synchronization (Kiểm soát và đồng bộ tiến trình): Đồng bộ hóa tài nguyên để tránh xung đột chỉnh sửa.
 - **Information Exchange (Trao đổi thông tin)**: Đồng bộ hóa thông tin giữa giáo viên, học sinh và cơ sở dữ liệu.
 
 ### Chức năng chính
