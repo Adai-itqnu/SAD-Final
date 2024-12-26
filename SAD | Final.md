@@ -134,3 +134,45 @@ Hệ thống gửi thông báo quan trọng đến người dùng như cập nh�
 
 ### Biểu đồ ca sử dụng
 ![Gửi thông báo](https://www.planttext.com/plantuml/png/T90n3e8m58RtdkA5dIiO4WQS60HdKylJDj4seGzkuI5OJTYSO73eINe2hs0a4AFM-V-_VEz_Z_6UME8rDUSJuu9C3L6cN6UWLUwg8-0MIkH2Oht4QpzU15YbvPGMr5IeYR76ek0M8Ihzq1aWwMxw27lNcQctJNTfZPmmDwGEId1IHh-Xp8-z2a45wYgCvD8FlGun6nIesayJcsT07A_-7FFL-36pUUjI26aIrDNhbqy0003__mC0)
+# 3.Phần Tử Thiết Kế Của Hệ Thống
+
+## 1. Tầng Giao Diện Người Dùng (UI Layer)
+### Phần tử thiết kế:
+- **Giao diện người dùng (UI):** Các màn hình giao tiếp với người dùng, bao gồm trang đăng nhập, trang quản lý khóa học, trang tài liệu, và trang nhóm học tập.
+- **Form đăng nhập và đăng ký:** Giao diện cho phép người dùng nhập thông tin tài khoản để truy cập hệ thống.
+- **Danh sách khóa học và tài liệu:** Giao diện cho phép học sinh xem và tham gia khóa học, tải tài liệu.
+- **Trang nhóm học tập:** Giao diện quản lý nhóm học tập và thảo luận.
+
+
+---
+
+## 2. Tầng Dịch Vụ Ứng Dụng (Application Layer)
+### Phần tử thiết kế:
+- **Quản lý người dùng:**  
+  - **API xác thực:** Phân quyền và xác thực người dùng thông qua email và mật khẩu (xác thực JWT hoặc OAuth).
+  - **Dịch vụ quản lý người dùng:** Đăng ký, chỉnh sửa thông tin cá nhân, thay đổi mật khẩu.
+- **Quản lý khóa học:**  
+  - **API khóa học:** Xử lý tạo, sửa, xóa và quản lý danh sách học viên.
+- **Quản lý tài liệu học tập:**  
+  - **Dịch vụ tải lên tài liệu:** Cho phép giáo viên tải lên tài liệu khóa học và phân phối tài liệu cho học sinh.
+- **Quản lý nhóm học tập:**  
+  - **API nhóm học tập:** Tạo nhóm học tập, thêm/xóa thành viên, chia sẻ tài liệu.
+- **Thông báo và giao tiếp:**  
+  - **Dịch vụ gửi thông báo:** Gửi thông báo qua email hoặc thông báo đẩy đến học sinh và giáo viên.
+
+---
+
+## 3. Tầng Lưu Trữ (Data Layer)
+### Phần tử thiết kế:
+- **Cơ sở dữ liệu quan hệ :**  
+  - **Bảng người dùng:** Lưu trữ thông tin tài khoản người dùng (học sinh, giáo viên, quản trị viên).
+  - **Bảng khóa học:** Lưu trữ thông tin các khóa học, bao gồm tên, mô tả, giảng viên, học viên.
+  - **Bảng tài liệu:** Lưu trữ các tài liệu khóa học, liên kết với khóa học và học viên.
+  - **Bảng nhóm học tập:** Lưu trữ thông tin các nhóm học tập và thành viên trong nhóm.
+- **Cơ sở dữ liệu NoSQL (nếu cần):**  
+  - **Chia sẻ tài liệu hoặc nhóm học tập có thể sử dụng cơ sở dữ liệu NoSQL để lưu trữ các dữ liệu phi cấu trúc như tài liệu chia sẻ, tin nhắn, log hoạt động.
+
+
+---
+
+
