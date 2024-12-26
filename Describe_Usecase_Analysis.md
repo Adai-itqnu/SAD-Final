@@ -55,3 +55,6 @@
 1. Người dùng chọn bài tập cần nộp.
 2. Tải tệp lên hệ thống.
 3. Xác nhận hoàn tất nộp bài.
+
+## Diagram
+![markdown](https://www.planttext.com/plantuml/png/T951JWCn34NtFeMNpABY1gWZXDWKQSG8zY4nmQ9ngjYfrBEnw95w1TIP0KqrxSxnV_woVqu_nxMQArRJ5i1vomNVbCfKjY6n09mxk5ezuDqcHnQqZFr1ZL8parhlIHLxAdlsf7Efhn-93LjLZf98h04Oh4VvCSidnrhettKcjY7Slz9kwppDl66noKHN-o8nziuuozz00uljSC2xaaFrndks0tREVxju6txVFCqCbpTTeM1vsqWDsJoNN7UABqvSf36MMtn79R4gPxdauNe-K-pZyt9WJHBEd_qB003__mC0)
