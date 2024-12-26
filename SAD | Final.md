@@ -67,7 +67,7 @@ Giáo viên có thể tạo mới, chỉnh sửa hoặc xóa các khóa học. H
 
 ### Biểu đồ ca sử dụng: Tạo và quản lý khóa học
 
-![Tạo và quản lý khóa học](https://www.planttext.com/plantuml/png/P55DIWCn5Dxd58_PzmfIAKK5NLZjMi9CJ4AdBoLvqmku4151Rs1r9tGZhXgAY_GYEO5Na4vdEftfzljxNxxy-T--8swfcEQCfsGi9EVHlwJWDAe4k8CRAZA1LBDdEYmCp7NumfA-5JnLmjRqTH5NdmXaety-K9rcKusC5Kwat0b8Dg-R1vGm2MkWyAvXeipMLsh7WxkHaDgHi4S6L76rd86A_X58HV-6ilPS6gcnCGnKz4-em4M_v40g_A04qWXfM02gyB4_DimqNU2zQRpL8_AmXZdNG3Pyr-8hZboAaSc5OwoQ1dgzarRh3hvhrW7tLrcru55A1z-bTC0cfLouhMr1XyNx0hFjX_y3003__mC0)
+![Tạo và quản lý khóa học](https://www.planttext.com/plantuml/png/V98nQiCm58Ptd-BXFLSeAIwaIvR6WMxbLNvK0biAqbEkqAbtIEWMo9JD7Zhe93f1hr1gnxWMeVFtV-_fb_JTVIqTesNVr1aADXRobGf70tiLJZe7T50I2absn8-n-n3Wb9OztR2lI7EMUKS27K5UnlPeGCjmQK3sOOxjUTUdjyLBOGcPLjRutHz7XbC3BCD1os7rC62KxgjgJSqhsKbv3XVyntYYnkmfbKePsqy3jO_jMGDRez_cMd-k1-M4TquPFPc5L0WkjXrmE2YeLUpU_TpTIBH3iJKoMOLrbbql3nQBkxHyWgQA2PWrITYjbTSN6IDfemJVcB0aNVt-Xny0003__mC0)
 ---
 
 ## **Ca sử dụng 3: Quản lý tài liệu học tập**
@@ -133,4 +133,4 @@ Hệ thống gửi thông báo quan trọng đến người dùng như cập nh�
 - Học sinh nhận và xem thông báo.
 
 ### Biểu đồ ca sử dụng
-![Gửi thông báo](https://www.planttext.com/plantuml/png/V98nQiCm58Ptd-BXFLSeAIwaIvR6WMxbLNvK0biAqbEkqAbtIEWMo9JD7Zhe93f1hr1gnxWMeVFtV-_fb_JTVIqTesNVr1aADXRobGf70tiLJZe7T50I2absn8-n-n3Wb9OztR2lI7EMUKS27K5UnlPeGCjmQK3sOOxjUTUdjyLBOGcPLjRutHz7XbC3BCD1os7rC62KxgjgJSqhsKbv3XVyntYYnkmfbKePsqy3jO_jMGDRez_cMd-k1-M4TquPFPc5L0WkjXrmE2YeLUpU_TpTIBH3iJKoMOLrbbql3nQBkxHyWgQA2PWrITYjbTSN6IDfemJVcB0aNVt-Xny0003__mC0)
+![Gửi thông báo](https://www.planttext.com/plantuml/png/T90n3e8m58RtdkA5dIiO4WQS60HdKylJDj4seGzkuI5OJTYSO73eINe2hs0a4AFM-V-_VEz_Z_6UME8rDUSJuu9C3L6cN6UWLUwg8-0MIkH2Oht4QpzU15YbvPGMr5IeYR76ek0M8Ihzq1aWwMxw27lNcQctJNTfZPmmDwGEId1IHh-Xp8-z2a45wYgCvD8FlGun6nIesayJcsT07A_-7FFL-36pUUjI26aIrDNhbqy0003__mC0)
