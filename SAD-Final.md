@@ -217,7 +217,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 ### Luồng sự kiện phụ:
 - Nếu kết nối đến cơ sở dữ liệu bị gián đoạn, hệ thống sẽ hiển thị thông báo lỗi kết nối và yêu cầu thử lại sau.
   
- ![Login](https://www.planttext.com/plantuml/png/b9C_YXin6CLxdU9TO2_W8gp1iFb7cXqpjQnHHc9cfMH6Cd4PjaYHogH86GzB25amII0Ga0eNCdiFdI1N29Azu0dP8iqWzBtlq-yzQNxxtNblQ6ViLKieCxh3lESTQ8yvMMYhAjgjKFB54sLuzv8odaebOLgPJhUOMYCkURUKXyAKLDJG1UqvPlSBscD6o1ndZr1Ey494jtq54suLzklzjQgX3blBiC5LT5k3HaJtrP8ojKmdk8X-Ax4AjnOikYyMRyB0O4JqFnZ8DAbc4nITNM4PtMS58y9FLSD81HCs4etGqTqea1dE3YEBBheRBAD_-x2OjWR5wOw9_aFwka5csFqwE5MFcG4W4vKJ5D4D6a_B0aOtNEKUamzkejiPlBPfRKJOA06MA79xjZsVuFdTTvkxbs6ZmRHk9E_p42RiAlhh561qEuLQKerAHlzEWOcmLOBmjkTZ-kReyyH4glnY8mFegHoRoC37a1PXq6YZ_oX7f8zbfZ4Y-lSFIEzlwK98jBe-L8xExWRqqNz25VqtjCc69LnL9D_0inoLYduj_wd48XrQop2aE7HqWnhp_urp33zF_0yNEVYJDvXaMxGfnmnxpbML_g4_0000__y30000)
+ ![Login](https://www.planttext.com/plantuml/png/R9CnRzGm68Pt_ufNDu54_q07LEb0G5lTqeCotE8cnhQI-tnAd4eLOkfm0zDDJ4YDEe5qKf5OI8ORNFL_-1Vm5oexD62L9N6Szts-z_kS_Evt1xNbbMsM9Il51mjhK6cfB79TYSngGupnp9eARsjHWTUOpEJTZU-_QkJk5ya92pfEiXGukQYjME8Z0u2c5Xcl1IOpvRlj2jPz9znkRYz9WeQjStU5fU-s5eNotRTc4lXlQDNObF3UjHciylsFS7C_IS9gMj0Jwwuq2cLyTqtF4jJJo7h7IvrpArBSt7UjmU7f7DOKWcACykwcMP2jGiZCc4ABEX8EJ-UfUQgQ2zzVXbPyjoD8pGroxVir8LDkIohwPlnSoqULN-je3QryVkZapBK6fU-_w6XyMLMcIbslb4Pfv20AQGsKxzSHio4PRST6_iTvvBkT1Vb-ep4zUN6Cir1OQjU6_CPtBIqe2LN66iLVNwHF3T60_yHO_13szfx_EQbuZS_Zj1yMSJVCUH_pyTX2zkjLABHcuLtGZDDAdB5YwYs6vJ-8GHJaumWIo1WT-tWqZjWjOmU2yl07t0C00F__0m00)
 
 ---------
 
