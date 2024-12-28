@@ -193,7 +193,9 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 #### Ví dụ
 Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh báo và khóa tài khoản tạm thời.
 
-### Kết quả các ca sử dụng:
+---
+
+## Kết quả các ca sử dụng:
 
 ## 1. Đăng nhập hệ thống
 
