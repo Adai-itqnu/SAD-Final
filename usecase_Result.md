@@ -11,6 +11,7 @@
 - **Sai mật khẩu**: Hệ thống hiển thị thông báo và yêu cầu nhập lại.
 - **Tài khoản bị khóa**: Hệ thống cảnh báo sau nhiều lần đăng nhập sai và tạm khóa tài khoản.
 
+
 ---
 
 ## **Use Case 2: Quản lý khóa học**
