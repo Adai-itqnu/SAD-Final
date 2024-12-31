@@ -92,4 +92,3 @@
 - **Xử lý lỗi người dùng**:
   - Thành phần: Hiển thị thông báo lỗi rõ ràng và gợi ý cách khắc phục.
 
-Những phần tử này tạo thành một hệ sinh thái đầy đủ để đáp ứng nhu cầu của hệ thống iLearn, từ giao diện người dùng, bảo mật, đến khả năng mở rộng.
