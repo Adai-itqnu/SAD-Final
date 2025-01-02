@@ -258,7 +258,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   - Gợi ý các khóa học tương tự hoặc thêm học viên vào danh sách chờ (waitlist).
   - Gửi thông báo đến email hoặc trong hệ thống khi có chỗ trống.
     
- ![dangkykhoahoc](https://www.planttext.com/plantuml/png/h9AzIWDH48Nx-nI7L6wH5x2GW8M2OkCJNE-kEvTaPs5tDjXRfqXb9RZO1GFH2C9U9CM5lCTz0bz1DZ-eY920tIdEpFdEC1zkqIj55r9b0pL8hWMIex0f2M9R94Pipaff8tc1pcbm8uEXzHFkG9Uub2fEM9JQ27IxHpWufk16Z3xvkKQh3R8gk353I6T8hOxKBgRrjZCRt6q6AJJ4Fp51Yj3Kd7uVZTHkjlN6y-MiWf1_vHHY6KF_a2FMJ2XzRMX3isePuH0NeLbKCFw5OIYukxsoJe9xjF3lFuhAShPixHBSCoWFpPjfUIRPBvGsyFuBWaApa2t5NZMsC5Ex7RdoTOuRNnimXMRAaVeds3-Y-cHX_7nDtrxCZJcDbEeb7BU_zma00F__0m00)
+ ![dangkykhoahoc](https://www.planttext.com/plantuml/png/h9F1IiD048Rl-nG_ETb3Ny2353meA5xw1EicPfSs6qWcHH5FddleoPDWy5OiL2i8MQI7XRx7Fa5VGT8aK95A2htjuPlv__bdTcsMlPHuGbaqPCFWXa0n4XLAWg-IG92ADMDSK9p0EtTcB31ITgezy1Hzoln04sCbo7Ku3E3rxr8A8W_t302EJgKpOus1j0kEyYqGPSvCD4Zo2A7YdGgyKCuyHg24W-oRbg345RaEjqjhz78rpq3IVkeGf3H6zYM6pxL4QdCXQvcDpRhYp9cPQagkRHxZrkO2MhfYjiMyAjZlNrvfDL-L9iYPTyZO5L-YR3ED_eWAwSppJhc1L11siQ6Uoj7CH8STzi1OdI6wtPDsQRM1gcxj8cs7LHttIHx7k7B5CeEm7xeQV2-jW-m3ZGdfYYKrBlOQep7ptm4ToEmEgHt7mtg1zijl-mC00F__0m00)
 
 ## 4. Giáo viên thêm bài học mới
 
