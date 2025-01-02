@@ -250,15 +250,13 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 ### Luồng sự kiện chính:
 1. Học viên chọn khóa học muốn tham gia từ danh sách.
 2. Hệ thống kiểm tra tình trạng khóa học (còn chỗ trống hay không).
-3. Học viên thực hiện thanh toán qua hệ thống tích hợp (ví dụ: thẻ tín dụng, momo, vnpay,...).
-4. Hệ thống kiểm tra và xác nhận thanh toán thành công.
-5. Lưu thông tin học viên vào danh sách học viên tham gia khóa học.
-6. Gửi thông báo xác nhận đến email hoặc thông báo trong hệ thống cho học viên.
+3. Lưu thông tin học viên vào danh sách học viên tham gia khóa học.
+4. Gửi thông báo xác nhận đến email hoặc thông báo trong hệ thống cho học viên.
 
 ### Luồng sự kiện phụ:
-- Nếu thanh toán thất bại:
-  - Hệ thống hoàn tác mọi thay đổi liên quan đến đăng ký khóa học.
-  - Hiển thị thông báo lỗi và hướng dẫn học viên thử lại.
+- Nếu khóa học không còn chỗ trống:
+  - Gợi ý các khóa học tương tự hoặc thêm học viên vào danh sách chờ (waitlist).
+  - Gửi thông báo đến email hoặc trong hệ thống khi có chỗ trống.
     
  ![dangkykhoahoc](https://www.planttext.com/plantuml/png/T9E_Rjim4CPtFiN1Urx0Gv50AEgYBH34UG6QeaN2qX6WJcwDebE63aM6J5cjeKlH0FqtcGWoCEXxy0dw2WLf6P1YPHF5-tvtzttIF_TmMXEtr5GbA-MIW0nONIY2N5ifI1jaZ0io5kRKv189U0sJMN3N0jRQVyC9YtKSYrB2V5EJhE0Z0m1eQYbuBM6IgU2k4LRA_-OGdmLKJN0t2AHu1ONcamYTor8AoanZQpa4lD71NLL0bWFvxwY0RDYrMFIH2P4fALPdQwvBlj2bfisGSwc2-ob0wU0-f-OHPNoBIVoEh-GvtrGIwTdsQx-53xuLW2hixeuPcS6bjjKevktV7msGyd-m0D8OMGRogAzzArJdpDxJv0TVoyxprxWqGzYhuExqWRRmhUcFrTc9UJSEJp4Ez3FZjmWKDOytZrVHIt-VT1UcB1TSh2vaeMkoOzheHzmzk2-34ShWRlM-kJBlNrfhBFl4sE73EJbvCGovVqYtn_aTlKbrlQXW2fd_XI1KSBVFbCyFqy0KPc7tG5qrwtDI_s5yR7ZUiuQfm1GkbT-Y0X5zO4-lzpi_IMACEsPxWeVTLu95sBMQZTOC5cId4lFuB_y7003__mC0)
 
