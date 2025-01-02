@@ -1,6 +1,6 @@
 # 📑 Báo cáo Phân tích và Thiết kế Hệ thống
 
-## 1. Mô tả tóm tắt bài toán
+# 1. Mô tả tóm tắt bài toán
   #### Hệ thống iLearn là một môi trường học tập kỹ thuật số (DLE) được sử dụng để hỗ trợ việc học trong các trường học có học sinh từ 4 đến 18 tuổi. Hệ thống này được thiết kế để thay thế một hệ thống hiện có (Glow) được xây dựng đặc biệt cho mục đích này và bao gồm các ứng dụng riêng cho email, v.v. Glow là một hệ thống khép kín, nơi người dùng không thể giới thiệu các ứng dụng riêng của họ. Hệ thống này ngày càng ít được sử dụng vì các tiện ích trong các hệ thống miễn phí vượt trội hơn nhiều so với các tiện ích được cung cấp trong hệ thống khép kín.
 ### Sự cần thiết và lợi ích khi giải quyết bài toán
 #### **Sự cần thiết**
@@ -72,7 +72,7 @@
 
 ---
 
-# Phân tích ca sử dụng
+# 2. Phân tích ca sử dụng
 
 ## Mô hình kiến trúc
 
@@ -195,7 +195,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 
 ---
 
-## Kết quả các ca sử dụng:
+## Kết quả phân tích các ca sử dụng:
 
 ## 1. Đăng nhập hệ thống
 
@@ -219,7 +219,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   
  ![Login](https://www.planttext.com/plantuml/png/R9CnRzGm68Pt_ufNDu54_q07LEb0G5lTqeCotE8cnhQI-tnAd4eLOkfm0zDDJ4YDEe5qKf5OI8ORNFL_-1Vm5oexD62L9N6Szts-z_kS_Evt1xNbbMsM9Il51mjhK6cfB79TYSngGupnp9eARsjHWTUOpEJTZU-_QkJk5ya92pfEiXGukQYjME8Z0u2c5Xcl1IOpvRlj2jPz9znkRYz9WeQjStU5fU-s5eNotRTc4lXlQDNObF3UjHciylsFS7C_IS9gMj0Jwwuq2cLyTqtF4jJJo7h7IvrpArBSt7UjmU7f7DOKWcACykwcMP2jGiZCc4ABEX8EJ-UfUQgQ2zzVXbPyjoD8pGroxVir8LDkIohwPlnSoqULN-je3QryVkZapBK6fU-_w6XyMLMcIbslb4Pfv20AQGsKxzSHio4PRST6_iTvvBkT1Vb-ep4zUN6Cir1OQjU6_CPtBIqe2LN66iLVNwHF3T60_yHO_13szfx_EQbuZS_Zj1yMSJVCUH_pyTX2zkjLABHcuLtGZDDAdB5YwYs6vJ-8GHJaumWIo1WT-tWqZjWjOmU2yl07t0C00F__0m00)
 
----------
+---
 
 ## 2. Đăng ký tài khoản
 
@@ -360,5 +360,240 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 - Nếu sao lưu thất bại, hệ thống sẽ gửi thông báo đến quản trị viên để xử lý.
 
 ![Tự động sao lưu](https://www.planttext.com/plantuml/png/T9AzIWGn58NxFCLXUr_0GjH6H155iO-psIGuasZcpi8YLXOMLbQsEuYDiFZRE2csYFWUUG9VGJB-i3jgUNFF-NBlITxzTBaaxgWgSfQB0O4id9QAqDTEPAIjOOndP1rM-eKsu2LwErLihWt8HN-1eGwtfiUIc1kP2wpoxB0wsXsL90gSC02eIf7nKg2t4IQPWhAngGabjyZVxYkyNaP_OHGEet_gfHlsd9PIk4_IF67tszIF_WwvZlwymZ2CRJfum94AZqQsa6tX1jOLVq4sTFHd1SXnK9WO1R9XR32CpOkP1RUSVU7qOBHkI4YdQJHFMbCQkPKfYwOs4gH2hNysQ_sRLdv5GfogikEFVgAJwzb878JQ8e_-IgT8cgd1yU-a4tBBaXwCsWTXfupDnOM5XQNExdDLs-_krAbRJMTkB69FXR5HoDAmVrfcvchbiRaX7CIcrcosbQJVedy2OCl2zDEd_0000F__0m00)
-  
 
+---
+
+# 3. Các phần tử thiết kế trong hệ thống iLearn
+
+#### **1. Phần tử giao diện người dùng (UI Components)**
+- **Trang đăng nhập và xác thực**: 
+  - Thành phần: Form nhập thông tin (email/password), nút đăng nhập, liên kết quên mật khẩu.
+  - Giao diện thân thiện, hỗ trợ xác thực qua OAuth 2.0 hoặc SSO.
+  
+- **Dashboard chính**:
+  - Thành phần: Menu bên trái (dành cho các mục như tài liệu, khóa học, thông báo), khu vực hiển thị chính, bảng điều khiển thông báo.
+  - Hỗ trợ tùy chỉnh giao diện theo nhóm người dùng (học sinh, giáo viên, quản trị viên).
+
+- **Trang khóa học**:
+  - Thành phần: Danh sách khóa học, nút thêm/sửa/xóa khóa học, nút tải tài liệu.
+  - Hỗ trợ hiển thị lịch học, bài tập, và nội dung khóa học.
+
+- **Trang quản trị**:
+  - Thành phần: Bảng điều khiển quản lý tài khoản, danh sách học sinh/giáo viên, công cụ thống kê.
+  - Giao diện quản trị cho phép thiết lập cấu hình hệ thống.
+
+#### **2. Phần tử logic nghiệp vụ (Business Logic Components)**
+- **Xác thực và quản lý quyền**:
+  - Thành phần: Module xác thực dựa trên JWT, phân quyền dựa trên vai trò (học sinh, giáo viên, quản trị viên).
+  - Chức năng kiểm tra quyền truy cập theo từng nhóm người dùng.
+
+- **Quản lý khóa học**:
+  - Thành phần: API xử lý logic tạo, sửa, xóa khóa học.
+  - Tự động gán tài liệu, bài tập khi thêm khóa học mới.
+
+- **Thông báo và nhắc nhở**:
+  - Thành phần: Hệ thống gửi thông báo qua email, giao diện, hoặc ứng dụng di động.
+  - Tích hợp cơ chế định tuyến tin nhắn với RabbitMQ hoặc Kafka.
+
+- **Hỗ trợ thanh toán**:
+  - Thành phần: Module xử lý giao dịch qua Stripe hoặc PayPal.
+  - Tích hợp logic đảm bảo tính toàn vẹn giao dịch (ACID).
+
+#### **3. Phần tử dữ liệu (Data Components)**
+- **Cơ sở dữ liệu người dùng**:
+  - Thành phần: Bảng người dùng với thông tin cá nhân, quyền hạn, lịch sử hoạt động.
+  - Dữ liệu mã hóa (AES-256) đảm bảo an toàn.
+
+- **Cơ sở dữ liệu khóa học**:
+  - Thành phần: Bảng lưu thông tin khóa học, tài liệu, danh sách học viên.
+  - Hỗ trợ tìm kiếm và phân loại khóa học.
+
+- **Cơ sở dữ liệu nhật ký**:
+  - Thành phần: Ghi nhận nhật ký hoạt động, thay đổi tài liệu, lịch sử đăng nhập.
+  - Phục vụ mục đích giám sát và xử lý lỗi.
+
+#### **4. Phần tử tích hợp và tương tác (Integration Components)**
+- **Tích hợp dịch vụ bên ngoài**:
+  - Thành phần: API kết nối với Google Drive, Zoom, Microsoft Teams.
+  - Hỗ trợ tích hợp với hệ thống quản lý mạng trường học hiện có.
+
+- **Hệ thống hàng đợi tin nhắn**:
+  - Thành phần: RabbitMQ hoặc Kafka để xử lý thông báo hoặc các yêu cầu giao tiếp giữa các dịch vụ.
+
+#### **5. Phần tử bảo mật (Security Components)**
+- **Xác thực**:
+  - Thành phần: OAuth 2.0, quản lý phiên đăng nhập với JWT.
+  - Cơ chế kiểm tra đa yếu tố (MFA) để tăng cường bảo mật.
+
+- **Kiểm soát truy cập**:
+  - Thành phần: Module quản lý vai trò và quyền hạn dựa trên Role-Based Access Control (RBAC).
+
+- **Mã hóa dữ liệu**:
+  - Thành phần: Module mã hóa mật khẩu và dữ liệu nhạy cảm.
+
+#### **6. Phần tử hiệu năng và mở rộng (Performance & Scalability Components)**
+- **Hệ thống cân bằng tải**:
+  - Thành phần: NGINX hoặc HAProxy để phân phối tải khi số lượng người dùng tăng cao.
+
+- **Khả năng mở rộng**:
+  - Thành phần: Hỗ trợ triển khai trên đám mây (AWS, Azure).
+  - Module quản lý tài nguyên để thêm bớt máy chủ tự động.
+
+- **Cơ chế giám sát**:
+  - Thành phần: Công cụ như Prometheus hoặc New Relic để theo dõi hiệu năng hệ thống.
+
+#### **7. Phần tử giao diện cũ (Legacy Interface Components)**
+- **Thiết kế tương thích**:
+  - Thành phần: Giao diện tối giản để hỗ trợ người dùng thiết bị cũ.
+  - Module kiểm tra khả năng tương thích trình duyệt.
+
+- **Hỗ trợ nhập liệu từ hệ thống cũ**:
+  - Thành phần: Công cụ nhập và chuyển đổi dữ liệu từ hệ thống Glow.
+
+#### **8. Phần tử xử lý lỗi (Error Handling Components)**
+- **Phát hiện lỗi**:
+  - Thành phần: Module giám sát và gửi cảnh báo khi phát hiện lỗi hệ thống.
+
+- **Xử lý lỗi người dùng**:
+  - Thành phần: Hiển thị thông báo lỗi rõ ràng và gợi ý cách khắc phục.
+
+---
+
+# 4.Thiết kế hệ thống con cho iLearn
+
+#### **1. Hệ thống con quản lý người dùng (User Management Subsystem)**
+
+- **Chức năng**:
+  - Quản lý thông tin tài khoản (tạo, sửa, xóa).
+  - Xác thực người dùng (login, logout, MFA).
+  - Phân quyền theo vai trò (học sinh, giáo viên, quản trị viên).
+
+- **Thành phần**:
+  - **Authentication Service**: Xử lý xác thực bằng OAuth 2.0 và JWT.
+  - **User Profile Management**: Lưu trữ và xử lý thông tin người dùng (họ tên, email, vai trò).
+  - **Role-Based Access Control (RBAC)**: Kiểm soát quyền hạn truy cập.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `Users`**:
+      - Cột: `UserID`, `Email`, `PasswordHash`, `Role`, `Status`, `CreatedAt`, `UpdatedAt`.
+    - **Bảng `Roles`**:
+      - Cột: `RoleID`, `RoleName`, `Description`.
+    - **Bảng `Permissions`**:
+      - Cột: `PermissionID`, `RoleID`, `ServiceAccess`.
+
+  - API:
+    - POST `/api/auth/login`: Xác thực và trả JWT.
+    - GET `/api/users/{id}`: Lấy thông tin người dùng.
+    - PUT `/api/users/{id}`: Cập nhật thông tin người dùng.
+
+#### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
+
+- **Chức năng**:
+  - Tạo, sửa, xóa khóa học.
+  - Quản lý tài liệu học tập và bài tập.
+  - Gán học viên và giáo viên vào khóa học.
+
+- **Thành phần**:
+  - **Course Service**: Quản lý thông tin khóa học và logic liên quan.
+  - **Resource Manager**: Quản lý tài liệu và bài tập.
+  - **Enrollment Manager**: Quản lý danh sách học viên và giáo viên.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `Courses`**:
+      - Cột: `CourseID`, `Name`, `Description`, `TeacherID`, `CreatedAt`.
+    - **Bảng `Enrollments`**:
+      - Cột: `EnrollmentID`, `CourseID`, `UserID`, `Role` (Student/Teacher).
+    - **Bảng `Resources`**:
+      - Cột: `ResourceID`, `CourseID`, `FilePath`, `UploadedAt`.
+
+  - API:
+    - POST `/api/courses`: Tạo khóa học mới.
+    - GET `/api/courses/{id}`: Lấy thông tin khóa học.
+    - POST `/api/courses/{id}/enroll`: Gán học viên/giáo viên vào khóa học.
+
+#### **3. Hệ thống con thông báo (Notification Subsystem)**
+
+- **Chức năng**:
+  - Gửi thông báo sự kiện (qua email, giao diện, ứng dụng di động).
+  - Tích hợp với hệ thống định tuyến tin nhắn (RabbitMQ/Kafka).
+
+- **Thành phần**:
+  - **Notification Scheduler**: Lập lịch gửi thông báo.
+  - **Message Queue**: Hàng đợi tin nhắn xử lý đồng thời.
+  - **Delivery Service**: Gửi thông báo đến người dùng qua email hoặc API.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `Notifications`**:
+      - Cột: `NotificationID`, `UserID`, `Message`, `Type`, `CreatedAt`, `Status`.
+
+  - API:
+    - POST `/api/notifications`: Tạo thông báo mới.
+    - GET `/api/notifications/user/{id}`: Lấy danh sách thông báo của người dùng.
+
+#### **4. Hệ thống con quản lý tài liệu (Document Management Subsystem)**
+
+- **Chức năng**:
+  - Lưu trữ và phân phối tài liệu học tập.
+  - Hỗ trợ tải lên, chỉnh sửa, xóa tài liệu.
+
+- **Thành phần**:
+  - **Storage Service**: Lưu trữ tài liệu trên nền tảng đám mây (AWS S3, Azure Blob).
+  - **Document Manager**: Quản lý metadata và quyền truy cập tài liệu.
+  - **File Uploader**: Xử lý tải lên, kiểm tra định dạng.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `Documents`**:
+      - Cột: `DocumentID`, `UploaderID`, `CourseID`, `FileName`, `FilePath`, `UploadedAt`.
+
+  - API:
+    - POST `/api/documents/upload`: Tải tài liệu lên hệ thống.
+    - GET `/api/documents/course/{id}`: Lấy danh sách tài liệu của khóa học.
+
+#### **5. Hệ thống con thanh toán (Payment Subsystem)**
+
+- **Chức năng**:
+  - Xử lý thanh toán học phí.
+  - Quản lý trạng thái giao dịch.
+
+- **Thành phần**:
+  - **Payment Gateway**: Tích hợp với Stripe hoặc PayPal.
+  - **Transaction Manager**: Đảm bảo tính toàn vẹn giao dịch (ACID).
+  - **Invoice Generator**: Tạo hóa đơn và lưu trữ lịch sử thanh toán.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `Transactions`**:
+      - Cột: `TransactionID`, `UserID`, `Amount`, `Status`, `CreatedAt`.
+
+  - API:
+    - POST `/api/payments`: Tạo giao dịch thanh toán mới.
+    - GET `/api/payments/user/{id}`: Lấy lịch sử thanh toán của người dùng.
+
+#### **6. Hệ thống con bảo mật (Security Subsystem)**
+
+- **Chức năng**:
+  - Bảo vệ dữ liệu và hệ thống khỏi các cuộc tấn công.
+  - Mã hóa dữ liệu nhạy cảm.
+
+- **Thành phần**:
+  - **Authentication Service**: Quản lý phiên đăng nhập với JWT.
+  - **Encryption Manager**: Mã hóa dữ liệu (AES-256).
+  - **Firewall**: Tường lửa ứng dụng ngăn SQL Injection, XSS, CSRF.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `Sessions`**:
+      - Cột: `SessionID`, `UserID`, `Token`, `CreatedAt`, `ExpiresAt`.
+
+  - API:
+    - POST `/api/auth/refresh-token`: Cấp token mới khi hết hạn.
+    - POST `/api/security/verify`: Xác minh tính hợp lệ của token.
+
+---
+# **5. Thiết kế các lớp**
+
+![](https://www.planttext.com/plantuml/png/b5LDQnf16BxxAuOzjG43kIwX1BKOY9461x77HUtEW3iRrjb2QNi8EPQ2FPJIGy559218IvDBPmWvZFH_lB-WVw7igZipxXh8qUTzzfdd_VIVV3WPSo_YSJ2gz4VUU8pQ_jzV87_GXlh3VFI-Wb0LdQkP1Rk8Cfv5i5em5urvH9cV0Iy3ZuuifEjH7AdV1eRGQhAwPdwRW5XUFdlkehSX7HY1NWnYpgr0FQLc7t1Cr1tpCMKvuMDbOxv9LH9sgLgmp3b2TG9Y7jJKb5fg5p686Mkf-pEYRhrJa9_xHR4Cxb16DbfjaDyl2rAzOR2QK93NGL51g-j2QiokeeaRrJjNTnZ4pC8Q7YCTbVH9xj15BJhcnrQJNcHSNP5N1EGSH-bthjtbB0zCr2B81UqKjywiI9vbBGRvbUwaQO16dYHziqazLWFnawyc86vY5mqyFkGq6Evmpa0yfCqM_HsApgcOo5EgWv1XmyfOFrsIhah2kaf28zSDOYHArI9UJK1UMOrB9uWsudI1Z6N0899mgr5yBv_LDb6tWR6HwKzxXZQGyI8cQih8fbRxgf2rtc0McbyMCzVa6uv0phIrrseHrzUztThhWfYpOaLm129XFYOgeSMYv3gMeoO5CQCNyRkqIKMASGoyi07oKvzePnhJrZeWls0AyegvwCqezFZZpdeWborrZud720vLOfVhD5HJjbOhEbfVhhJLsf76jAEoEQdcevvTmPBHHwW9Sacre6d0Fkl77whc6fL5y-sf65VCENBGGRMAdAF3mmDdnq4fpp6VCI-5ynHAoMlv6ff2DcLdSnwLqrEyNyyOgFqaeyVxIIT3DaZ_Sly3003__mC0)
