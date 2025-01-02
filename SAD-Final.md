@@ -1,7 +1,7 @@
 # 📑 Báo cáo Phân tích và Thiết kế Hệ thống
 
 ## 1. Mô tả tóm tắt bài toán
-  ### Hệ thống iLearn là một môi trường học tập kỹ thuật số (DLE) được sử dụng để hỗ trợ việc học trong các trường học có học sinh từ 4 đến 18 tuổi. Hệ thống này được thiết kế để thay thế một hệ thống hiện có (Glow) được xây dựng đặc biệt cho mục đích này và bao gồm các ứng dụng riêng cho email, v.v. Glow là một hệ thống khép kín, nơi người dùng không thể giới thiệu các ứng dụng riêng của họ. Hệ thống này ngày càng ít được sử dụng vì các tiện ích trong các hệ thống miễn phí vượt trội hơn nhiều so với các tiện ích được cung cấp trong hệ thống khép kín.
+  #### Hệ thống iLearn là một môi trường học tập kỹ thuật số (DLE) được sử dụng để hỗ trợ việc học trong các trường học có học sinh từ 4 đến 18 tuổi. Hệ thống này được thiết kế để thay thế một hệ thống hiện có (Glow) được xây dựng đặc biệt cho mục đích này và bao gồm các ứng dụng riêng cho email, v.v. Glow là một hệ thống khép kín, nơi người dùng không thể giới thiệu các ứng dụng riêng của họ. Hệ thống này ngày càng ít được sử dụng vì các tiện ích trong các hệ thống miễn phí vượt trội hơn nhiều so với các tiện ích được cung cấp trong hệ thống khép kín.
 ### Sự cần thiết và lợi ích khi giải quyết bài toán
 #### **Sự cần thiết**
 - **Thay thế hệ thống cũ (Glow)**: Glow, một hệ thống học tập số dành riêng cho các trường học ở Scotland, đã trở nên **lỗi thời** vì:  
@@ -258,7 +258,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   - Gợi ý các khóa học tương tự hoặc thêm học viên vào danh sách chờ (waitlist).
   - Gửi thông báo đến email hoặc trong hệ thống khi có chỗ trống.
     
- ![dangkykhoahoc](https://www.planttext.com/plantuml/png/T9E_Rjim4CPtFiN1Urx0Gv50AEgYBH34UG6QeaN2qX6WJcwDebE63aM6J5cjeKlH0FqtcGWoCEXxy0dw2WLf6P1YPHF5-tvtzttIF_TmMXEtr5GbA-MIW0nONIY2N5ifI1jaZ0io5kRKv189U0sJMN3N0jRQVyC9YtKSYrB2V5EJhE0Z0m1eQYbuBM6IgU2k4LRA_-OGdmLKJN0t2AHu1ONcamYTor8AoanZQpa4lD71NLL0bWFvxwY0RDYrMFIH2P4fALPdQwvBlj2bfisGSwc2-ob0wU0-f-OHPNoBIVoEh-GvtrGIwTdsQx-53xuLW2hixeuPcS6bjjKevktV7msGyd-m0D8OMGRogAzzArJdpDxJv0TVoyxprxWqGzYhuExqWRRmhUcFrTc9UJSEJp4Ez3FZjmWKDOytZrVHIt-VT1UcB1TSh2vaeMkoOzheHzmzk2-34ShWRlM-kJBlNrfhBFl4sE73EJbvCGovVqYtn_aTlKbrlQXW2fd_XI1KSBVFbCyFqy0KPc7tG5qrwtDI_s5yR7ZUiuQfm1GkbT-Y0X5zO4-lzpi_IMACEsPxWeVTLu95sBMQZTOC5cId4lFuB_y7003__mC0)
+ ![dangkykhoahoc](https://www.planttext.com/plantuml/png/h9AzIWDH48Nx-nI7L6wH5x2GW8M2OkCJNE-kEvTaPs5tDjXRfqXb9RZO1GFH2C9U9CM5lCTz0bz1DZ-eY920tIdEpFdEC1zkqIj55r9b0pL8hWMIex0f2M9R94Pipaff8tc1pcbm8uEXzHFkG9Uub2fEM9JQ27IxHpWufk16Z3xvkKQh3R8gk353I6T8hOxKBgRrjZCRt6q6AJJ4Fp51Yj3Kd7uVZTHkjlN6y-MiWf1_vHHY6KF_a2FMJ2XzRMX3isePuH0NeLbKCFw5OIYukxsoJe9xjF3lFuhAShPixHBSCoWFpPjfUIRPBvGsyFuBWaApa2t5NZMsC5Ex7RdoTOuRNnimXMRAaVeds3-Y-cHX_7nDtrxCZJcDbEeb7BU_zma00F__0m00)
 
 ## 4. Giáo viên thêm bài học mới
 
