@@ -218,7 +218,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 - Nếu kết nối đến cơ sở dữ liệu bị gián đoạn, hệ thống sẽ hiển thị thông báo lỗi kết nối và yêu cầu thử lại sau.
   
 ### Biểu đồ luồng sự kiện:
- ![Login](https://www.planttext.com/plantuml/png/R9CnRzGm68Pt_ufNDu54_q07LEb0G5lTqeCotE8cnhQI-tnAd4eLOkfm0zDDJ4YDEe5qKf5OI8ORNFL_-1Vm5oexD62L9N6Szts-z_kS_Evt1xNbbMsM9Il51mjhK6cfB79TYSngGupnp9eARsjHWTUOpEJTZU-_QkJk5ya92pfEiXGukQYjME8Z0u2c5Xcl1IOpvRlj2jPz9znkRYz9WeQjStU5fU-s5eNotRTc4lXlQDNObF3UjHciylsFS7C_IS9gMj0Jwwuq2cLyTqtF4jJJo7h7IvrpArBSt7UjmU7f7DOKWcACykwcMP2jGiZCc4ABEX8EJ-UfUQgQ2zzVXbPyjoD8pGroxVir8LDkIohwPlnSoqULN-je3QryVkZapBK6fU-_w6XyMLMcIbslb4Pfv20AQGsKxzSHio4PRST6_iTvvBkT1Vb-ep4zUN6Cir1OQjU6_CPtBIqe2LN66iLVNwHF3T60_yHO_13szfx_EQbuZS_Zj1yMSJVCUH_pyTX2zkjLABHcuLtGZDDAdB5YwYs6vJ-8GHJaumWIo1WT-tWqZjWjOmU2yl07t0C00F__0m00)
+ ![Login](https://www.planttext.com/plantuml/png/b9C_YXin6CLxdU9TO2_W8gp1iFb7cXqpjQnHHc9cfMH6Cd4PjaYHogH86GzB25amII0Ga0eNCdiFdI1N29Azu0dP8iqWzBtlq-yzQNxxtNblQ6ViLKieCxh3lESTQ8yvMMYhAjgjKFB54sLuzv8odaebOLgPJhUOMYCkURUKXyAKLDJG1UqvPlSBscD6o1ndZr1Ey494jtq54suLzklzjQgX3blBiC5LT5k3HaJtrP8ojKmdk8X-Ax4AjnOikYyMRyB0O4JqFnZ8DAbc4nITNM4PtMS58y9FLSD81HCs4etGqTqea1dE3YEBBheRBAD_-x2OjWR5wOw9_aFwka5csFqwE5MFcG4W4vKJ5D4D6a_B0aOtNEKUamzkejiPlBPfRKJOA06MA79xjZsVuFdTTvkxbs6ZmRHk9E_p42RiAlhh561qEuLQKerAHlzEWOcmLOBmjkTZ-kReyyH4glnY8mFegHoRoC37a1PXq6YZ_oX7f8zbfZ4Y-lSFIEzlwK98jBe-L8xExWRqqNz25VqtjCc69LnL9D_0inoLYduj_wd48XrQop2aE7HqWnhp_urp33zF_0yNEVYJDvXaMxGfnmnxpbML_g4_0000__y30000)
 
 ---
 
@@ -240,7 +240,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 - Lỗi kết nối cơ sở dữ liệu:
 
 ### Biểu đồ luồng sự kiện:
- ![Đăng ký tài khoản](https://www.planttext.com/plantuml/png/X5InRXCn6Dxz59yoWTJc0JAWGbD1HSZ0bOg1nVYSEoiNN-JpLKI80NNemDI92QbL1mHIH95OY8KwNDNty1Fm2iWEIUmaWkdit_w-__-_xp__DZTxbQPArwE257oWeKieaUKQgL2SQL5AGYZJfSABYYlG2gr-TdTjpIU1jFafinPnzwZC2evaKca-mbi207N56QquMaUgde3PsNICJD0IgR3cJEBs_FPKPXWslrgEzY5ZlAfYP3_tA9qtFsG6BKBGAtdlgFagTt0megBOmJCxcseCSplxKhVRxVkUz52EQtqe1sNC-rHOSpg2LXIwcSeSkJLNOnJMd85Pyva6AJtFCIr4IZNVfEhTNTTXWIVDHOdzfDlpk8IUy2xLDCOySUabT6xDXmNsTNDP1jsvy8NCmToXf-gNMWmcIRr5flsyddZ64slUHngptBNdyS_vtD5_b59Oyr4WjUOR2eUlCPmNjv8dAEL0gL9vWVzBERIp6mrfpRbOQHEmT1_558-jcGfmPopUD9SCqWt2niWaNARU_HZzqY5S-k_iBySQxfWhbzaZtn7Y1tjtzy5Y1ESV7rdDptBbuz4ya73dZnUseuDkeEPAHhAyuQyl-rYkV3osFDhvywMbcnMiMxHMoN3TLn9N57c33dfRRGoa2oH51mbrASJ2Dcy22Q_uhlrZiH6Es-pCV--mqks0gDNvuPOczxXCtLFt1m00__y30000)
+ ![Đăng ký tài khoản](https://www.planttext.com/plantuml/png/b5JFYjf07BxFKtnuQi7r0JoKfGJQOl5YhRsEIJH39fCbcInuzh27NkgfXnwgI5cw85rAJncAXyY-npn1Nw7C9Ex66fHwYiptzpU_v8_QNgQI9ZABEA6kZ1CCKpy1JJ4aupWJ7arc6FdZDqBwoOIwlZaQ4JSMCecv1G_yv9gL1mFYKKd7DFNXx1ze2kSHtuybcp2NIXQB6gzFo10NBp3gubsIpU3gV7E5AQCnFARLZS1kiPkBASBYDnaPvB2BrqohkO0CjFg8IPn4TT1UhXzOAHaKlyGKajMLy4mMTw8DFwACjn7fV2CH1Zh_dhNHwNIUbrQ3BbvfjM6O5NUPYNQR8JJU4MH2SLqimH_kive76LIytXDC5XiH8D1gVGMkrGrShMufFAr-W9kE6Q5SmddwNmCJ0B2YJXTl3yqWYoL36CGwNmj4MdrX9bCCzs65LAkl1nv6oFZiHPOYW6kax8dvERWemtyeLYw4cPzuB7WCjwdw-n5LiSR5AguFkf7Ph-wnxdF8BzQO6jb3ir6JMQD3uwRKMQtTfyQCBNkhRf3DB76tqFbM7EoZ6vZxj4u-J_tzF7N-JMAiynKxdkTBuyYr-ioEzkLyFyixNOnRwLQlaWsqclzhrC7xZ84NFol01jnaxRJA8i8Zjanz2SEItBIBPuAU2kcSScWHayI-3ZsTRoM4LWlMkC_78p-J3E4PnRFH_ojIMUNI5vxvmFu5003__mC0)
 
 ## 3. Học viên tham gia khóa học
 
@@ -261,7 +261,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   - Gửi thông báo đến email hoặc trong hệ thống khi có chỗ trống.
 
 ### Biểu đồ luồng sự kiện:
- ![dangkykhoahoc](https://www.planttext.com/plantuml/png/h9F1IiD048Rl-nG_ETb3Ny2353meA5xw1EicPfSs6qWcHH5FddleoPDWy5OiL2i8MQI7XRx7Fa5VGT8aK95A2htjuPlv__bdTcsMlPHuGbaqPCFWXa0n4XLAWg-IG92ADMDSK9p0EtTcB31ITgezy1Hzoln04sCbo7Ku3E3rxr8A8W_t302EJgKpOus1j0kEyYqGPSvCD4Zo2A7YdGgyKCuyHg24W-oRbg345RaEjqjhz78rpq3IVkeGf3H6zYM6pxL4QdCXQvcDpRhYp9cPQagkRHxZrkO2MhfYjiMyAjZlNrvfDL-L9iYPTyZO5L-YR3ED_eWAwSppJhc1L11siQ6Uoj7CH8STzi1OdI6wtPDsQRM1gcxj8cs7LHttIHx7k7B5CeEm7xeQV2-jW-m3ZGdfYYKrBlOQep7ptm4ToEmEgHt7mtg1zijl-mC00F__0m00)
+ ![dangkykhoahoc](https://www.planttext.com/plantuml/png/X5GzQzn04EtrArvf5oQzYc2u0pia70TtS4wvjv9l5-jsGLeTkJAuS65INEKYHKuO4t0uudmrMeoBDVuV-mlo5yAkB5do4QngOTxCU_DcHd_rtNwcIAhoUH8GgcIAaSgZM2YG3ADWAdCHaNI9IJnz8rIS7XCQkz0ae5AeL2ReoJpDub6SBdWLwZMX8LdEOw5QiM4G4KMc98lHhnyaG_-9Q20LF-QKA2v5At4G12FilSOaH8zP_KdWX9bV1EvDCS-jNWaeHkQOSH9C7BGNuYst-dGEbHAer9Q5c44nK_1EyWurFmKei_h2eVHApC38qc5-Yzbkq7F5-Y76QRx4mfPNZiY5e7X7Hj37NiKxJcrvYONL7__F6v14uMrBnxQC000y_IJ4aIae1BFbfjjxPii_0fbPF-9hcyRCwXyKZ5jzvgqH34gQGdYKTsWOuhsvpa5j-JLlGx136OVYjhnJpb29oEfpodPzxl0nzyZg3H9pkrNSTJPkLLFCh0K3TQPvm6ELxSRKIrdrPDyztEJFlBrVtP-A6KxCBHPcBK4V2cHMVt7QloDnFkHDdNge1upNt9MT2swkHLKWSbeoKr3McLjTefdseJHh0MNBAuN4wshMeyit275WzORNWAaf93wqsj-9vuGdhzfXbKgtZrQVGJ6_5TKGt3Vm2aOX3blI6oUR6XuV9rdyR2XUyDIM1TyUohWb8R7wmcdk3hcPXkDtT-PBwlDESrNgmgp17cwi_YncY6pvhO9ka3JaiOW2Bx5z4VShSmdcbz3VHUSUsWhRzr2TRUkQdlRzHQM1ax4VYyZz3ly1003__mC0)
 
 ## 4. Giáo viên thêm bài học mới
 
@@ -281,7 +281,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 - Nếu tệp tải lên không hợp lệ, hệ thống sẽ hiển thị thông báo lỗi và yêu cầu thử lại.
 
 ### Biểu đồ luồng sự kiện:
-![Giáo viên thêm bài](https://www.planttext.com/plantuml/png/b9JFQjim7CVlVeelkNI3vGLoA1sb-qFB62JRtP7LICIMF5lsA6E7iaCEPR2UTkXX2Q671KfxA0oimmuAUGyzmLvXo4wMs6d6ThD-aZ_wVltzub_wvq6g_4HbKUY5z5H1IIHym1G2db2Yk1IUvnCb4_IeJnXDuATeFUTc8f5pCnCjptC7VJ48ARfdgQ8HFdW0aAMK-2b5wv1P_LbWhyVCB4BVZ3dSX22o-ehljHooIqDArDCWEA5fAaKTSCoj_XH19JxUPMTMdmimMqm41Xiw7EMGKJ9S2drDauYdAM_2NZ5RtCHGpDoB0HGNcueUAMvc6UQNLfy_GMJkeMmnVLp2ZuIYIINlfJYLTMhF5bEEqCm4bCE5tEfH1YPjyOCWvm6L9UHD74e_UCP3kjEYk_n2C0JEuW2v6MDeRWY3Oeixgwy8bDMZkCIzzKCU-8fk0qyMTzaEaxaPIv351AdLtn1OVRkKMoNXvtINonTEfO1YLb-iu7qNWM9cB1Y8crGK9jztCq9ecluZ8hJwAw-iOLZDcTNJs6sC_Z2TqQCaaSb_KSFoOoHMtwx5-VaIzD7pLjrkj_UtcjXObsTszEpXSVb6eppeOFx5fJabY9dv7l_jtPflT71S-PjVrW1UyufsUt-pRkl7SgVMdCr5TMMj1EYWL-Qo3iHhd5ZfN6N-0BBXeY9k9RqJlCeB7LJTTd6wn8jhXRuj9jmxe29mVxBV0000__y30000)
+![Giáo viên thêm bài](https://www.planttext.com/plantuml/png/Z58zQnmn5EprAmRt9lqMnf0hOhAuoSAcSAFLofQmLdjejGSkGuehJ8fKATpSSONXuC15gbMHGi7_u_q2_uMWs_CNd4rKIM_cpSnxw27yEUuyTxvl3EF2jmw5v4991zwXO5NRsvgxAvIoEh5UkdCkP89A9bhhNMkGowvhxHVfPdg4SbPppolUIKmUBxp3XB42XqSeCtnK57vOd1qKAguRL76XaKe23OKRVNR0oiGiCdpI5BvRU4NX6kUjQs0L3Pifl8g_xGMyjY_QdmnEto5X5XVmDAmqJ5nR-8GOJM7UVvZfMhQZUPxXSp9lu1t7tvyKhgr2JSFINcmbBkD6A7XrVqVXHi1Jc4yP0m1kF8hqJ8QhAGo5-HP89q_Yampv_Lt_Ni3dL4-j4noEmRx6fHWNOM5sEWkh89BQQwSoGp6QL77PxYVkNVOkslukQJgv6_5ovBqrQV9tDAmme_3jbQYXy4l_VuOjVRkQgxZk8MYuJNDJsC3Gi1oLfAqPEvQsJj_v7m000F__0m00)
 
 ## 5. Gửi thông báo đến học viên
 
@@ -303,7 +303,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   - Thử lại gửi qua kênh khác (nếu có).
 
 ### Biểu đồ luồng sự kiện:
-  ![Gửi thông báo](https://www.planttext.com/plantuml/png/b5InQXmn4Etr5SCrhanw5y7XC74H7Epp3woryahStiZMpbuuZ8kGyWWaLKZdZKbZE0X98B0gNCZaF_G5_WMZrGNltkuLwQJHp9lttWnwjFVx1IM6obdESd5EG1gCoYH1gepWf3Gobd3I1bwbCuMG530wBdrzYq36soNCbRl35vbobOxd4MEXCi4i5p1P52HcSCK00Cf2yAGGC1fBRpyYxBpsTgM0fFkD6PovIk-CGeE9o0Md8qtgNF6auJ1KZjBzca4uyzWPfFRr7mxSLU7n6xRGJWHN5qeW5Lsi8-dhrGMWjryLf2LcC7Stm6E7gRj32LbWsK0T80apraW2gGlpyCdR9KgWSk7hUsnhQYfFT4bYkwAU4N1P9a47ZnpMGZ3T3l7cxuyISc-NN4BXxIhIxX6P9FCEZqDLa3QBBjQXylP34146d7lxHRMjW6d49EbkK08FbuWjzRknJ115Vc2CDbtGK_dCAgYBY5FfAXuj4cGMRqaAiyOes3LZSUjsTryERKK_rCfiJNmpq6HrXjc-DA_zWVKYwruRGvbi16BMiEkm1wSj4zbmxOQhJP6llnES-RfIhFVUqE-P2NimTZ__xNHZEnl8-W-sswe7-3PqkQzluU6pj-_Bi5hF2lO5fk43UW800F__0m00)
+  ![Gửi thông báo](https://www.planttext.com/plantuml/png/b5J1Qjj05BphAuQS4d1-G8SIDuQqKBa76zphUhtHBf6VMcbbyB7qq4FemQVIGo5kA8KKqq0A1UcGmuRyntv1Vw6i53jIegJjGR3elPatCs_PtyNbNgfPehDfv36kumJToLJHosGe69SY0KlH7NhZEAC9I-OOYV5pqY8vP5ousiZZCUaaZj2FjJfKd6aLqq0aCrKrzBq9qspCKe7U-i1Iz3QuGAGf2nM5-v8HYSXL0y_h3h7x12CV-z8M7mXR1xPOAMXfVbA8iLd6Mzx8jNI7FfufMxmZQ6cBOnp6oHIyGb5uVMwBpmeaRRuYpCn9TNmDiiKdXKb6uRrP9Ct55ExCCLFcZ21Zc__Yu6RfYb-eSv-bBgspddzapaWYTD8hjNqVbP6vESl0RVujgyfrkDTthJqVBwxFCqIsEEOIgIrMzIPiZst-G-DguKXsl1vsA_vNPidNVgCx11Lpi1PHftkJiHkvLmjpkZQmBQPCHHqCWa6dqQwJc4ANqViozWM5EnwBT0knbkQ49BZxum50qAPq4qApjzGxyZ5CR7wAcItUGYSsNrPvBriGxPUYBgZqrp9FHAberM_phnfZcozLK_zJLuviyL6rx72ZlkVZGAgRlfavYH75DNE1Zw5qkwqeRjTm95qyssJpompSNEoKcDkC8oS8TGTtmINWVnDlf5wBuNxxW-CUM45ZR-5ZT5goUPdxPSbPMqnbUcRpxoLjSp6FBsUTLmle7svP2-hlDwqSNrcWYUU-FK4JzzR-0G00__y30000)
   
 ## 6. Tạo nhóm học tập
 
@@ -326,7 +326,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 -Kết nối cơ sở dữ liệu thất bại:
 
 ### Biểu đồ luồng sự kiện:
- ![Tạo nhóm học tập](https://www.planttext.com/plantuml/png/V9InRjim48PtFiN1IwQWkuSYW1FOHPmiJhiprDaa8f46UN8H59qwP2WoPEhO6Dq212tGBZ473oho7do2la91sauiMScemtq__xl_e7z-UU28MogBdEKu9Y03LaqaGQOi2b96CyO56Gll7LhW3ZfzLSqDp5HrfzyCWhyMu9IM7SOYmFKaHnXTEi82FZ40WDAXu0wXqvF1NslOEmkBkG4jgz_5NYTAZZ17GJsBdB1lJJcjSwSoBEwdGBBweoT0Ig_OX1vfGfkOTtfiwjon2lvB0MGvK7Mtfe1izQ0d2Uv951U7vJHNeltbBOMCQmckcWiPZTngkTf0qld0SvLnmXCipj6wkiRmyLUvVdfMtHeGZtDmmN-7BFYVaAlWhyhL5lYipKC_-7kr6VuyhlxlJLWizQwDKqDgVDbgOX07YKZmNsjQQn4HAoiNqdmSbKAWSoVe79_WAqfvyD_K4tPahR7iCsFfLFRttxO4krD9VOqKwv-feosgbbhgRSG1NJXUdqwA_aNkQGRembdpO5XJDH6RoA0BW-1_JED6hjfRjyI7SMqlNHHx5erSBTHeR2kmHklk4nTXiIJGmTyew8qEXwokje4QUH-Wpk8FuJy0003__mC0)
+ ![Tạo nhóm học tập](https://www.planttext.com/plantuml/png/b9InYXin54Nx-OgB-_q15s5934v8S8grSLgDHbw97Kj6ep5i6L9i4LAO52cpWma1Wyb2qcHKkD3Y_z0Nv1U2PkprJDQBIJVmvfvxtzEJ_jZDUMQ8DlaqZGWrIcF82ELClzKN9a-OD20PHb6iSfaGVOqnYrz9m_I4K1PAuuWgQRHAqTSgdrqmFHTrfHybn92OP0oz_GV9q7iG39GH4q694KesT8Ce6k7i6SPTlE3UVfBe37rPA4ZkVauxqJWKHrsy5Dv-a33Ssu-OA3s5EVpsW1XmNwvdCDpzafSmGjPrpDqj4Y8vCbTG7kgtacCkt4hM3lqk-jwk1QxTAWVrvVUyPK1IWw5RxNbNEmFjVilBckxj3wJ2sviStDlb3ActDn40z8D1huitsxlyQ3G5kYsGUVkrYQcqFPpLwTwvWaA6zYJI7IZqG0FkO3FOzx7pYLsXSB_mvKQ21aIhzI0Rx0OyR0csTzukAIuhrax_I5evZhiOQbykCVVsFOpsPH7wuwuGZpCUFSrcr7eczUHRQfPch7a2SQMivj_Eqe2btduHC4-BZiQfLPs6r_t2BM6y_IohPA9Jf-aTNwWQS2BK4ykuNopUtg2JO_iN6Z6PHDNIllRbna1wkn17jop0ocy6SMYi5Vhv0Nnr0l8_8SDbQLuoxkqQQUKUGfypcOJdwIy0003__mC0)
 
 ## 7. Tham gia nhóm học tập 
 
@@ -348,7 +348,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 - Kết nối cơ sở dữ liệu thất bại
 
 ### Biểu đồ luồng sự kiện:
-  ![Tham gia nhóm học tập](https://www.planttext.com/plantuml/png/X9JDQXin58NtUegBDrdb1Rme0TUaFxQxcBPxHRuUYSn8HjB43QMhBheeXOOkkYY512y2XO2XXLBF8einVWyzGL-XI3DEvyTfbxhSy-dSgpFpExyzCfPgcwK9IN1cmIhG8kOMfa8Ziq99GYYpIiCBWngeWTuatgvS_bN0jFWbunuXlf7AE468pet555uJ083C8AC6eJVWBlyWuU0vfod4WeBanVSKV9M1TUkR-K7FaoDCaDadIiXZhR9v4pBXlX7IOWbsn-7AhNyoO2K_K0DeA2tgm1YeAJOvJuNBtwPWDMsmWkubJSIKMlo_rBhya_JUhmGmbrzNCmNAW2Cx3OZXAs7i_GnUN4eEPwBu9c5pqJOJC6DCJr0RBbhR66rNcGVya35O8PkirELVHBbHUeObuh6SgIRYsEKtOiSuAQuKR2xS-bQ6TLxNvfaeAsRdOQ1d2ucwYNda1_86NFw-GQiiCLyfpN2rY3B6q9Wn6aDZ_0SfSVddQWQk5aEjbIPl20aXF3nyqCbAwnnwMZ5e7aD7zy4xbT3NUbBemxXO-W0lvzxfktjaqSvw9JWjrrFJjS5tb_rzUEZ397mljSpjrTLlcmH5TLz7M8C7OICbq8S1twvyFiiqxjVKBjjyB9QG59UD598MrOiwIMeNxj2jdEnXrGsCV5XW43qSaIEKK_yp-mC00F__0m00)
+  ![Tham gia nhóm học tập](https://www.planttext.com/plantuml/png/f5M_Qjj06D_r53yyjKDUm4C9hS4jQRKqnkruFYdIOUbaf9F1SuSCfOFfq2aqmfH083JGGgbkyA3WzxWdw2kKqqcs7Ck9IpUX-tv_lk_xdVH7BeyJGMAHXe55g8XY318t1aami4PHoXqIpp1qHw-uSECpGbrzDBHen4KS1UZ7KJfvwyPJPaxwbaC46P74HQz-80bwQu0T2NR6A14iuWsSRLa373t3i8iNlfAVE3gdFWdXCGBk5pz2wBSKGkKtauurrBM3BjuNroceogzIS5yV8ImM4Dl89twaybyKr12RbtVprQsI2ufGoGlsTArkxwCnclqk-ahUCCmsocEcv8SG8YPRCAkl0RqkJjhFCIqk8MALPzo3y8kCLK8a47ZJBFILN4mGA7bUOam3GidFNCyZOnO0z71a_BqhCcgcmJNjJytEU8EaBA_DlLxTfiqoxkcvN30unM_kQRq83k4-aYAZlgwyv3wchBYk9hbVFAYeDO1gWOsmNO-nKXuLMOIxkSgNl5pJLTMaRfTgogPkIMDN2MZfjY8h5fibUrfi8p_iuhHHk-EnZjTBlJdDg-J7BVOcmfZqqrbPMpNXCHB1OKgUrsDoWyJTNklO4DvRp7gKJOU1abzOcPvsKB_gQdUe9N9_KuQuyx2lZZ5lbokfJlV6RzSsVmZtlyxtcQezRyUvJ4MWxztzFBKcc1-ARalLOVwVw_lVpWogv5NrzUbOBdUiyjDmelAb05Topa1N6H8bly9HyZi2dJTzvLJ-JM1qw8mnVeJnqIR-oP9fvTZbZlxd_0K00F__0m00)
   
 ## 8. Tự động sao lưu dữ liệu hệ thống
 
@@ -366,7 +366,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 - Nếu sao lưu thất bại, hệ thống sẽ gửi thông báo đến quản trị viên để xử lý.
 
 ### Biểu đồ luồng sự kiện:
-![Tự động sao lưu](https://www.planttext.com/plantuml/png/T9AzIWGn58NxFCLXUr_0GjH6H155iO-psIGuasZcpi8YLXOMLbQsEuYDiFZRE2csYFWUUG9VGJB-i3jgUNFF-NBlITxzTBaaxgWgSfQB0O4id9QAqDTEPAIjOOndP1rM-eKsu2LwErLihWt8HN-1eGwtfiUIc1kP2wpoxB0wsXsL90gSC02eIf7nKg2t4IQPWhAngGabjyZVxYkyNaP_OHGEet_gfHlsd9PIk4_IF67tszIF_WwvZlwymZ2CRJfum94AZqQsa6tX1jOLVq4sTFHd1SXnK9WO1R9XR32CpOkP1RUSVU7qOBHkI4YdQJHFMbCQkPKfYwOs4gH2hNysQ_sRLdv5GfogikEFVgAJwzb878JQ8e_-IgT8cgd1yU-a4tBBaXwCsWTXfupDnOM5XQNExdDLs-_krAbRJMTkB69FXR5HoDAmVrfcvchbiRaX7CIcrcosbQJVedy2OCl2zDEd_0000F__0m00)
+![Tự động sao lưu](https://www.planttext.com/plantuml/png/d9EzRjH058LxFyLvWOZU1OgibL8iMgqqUO7PiV6COiyau_6ABH45HQfKbAo941AmuYyDdYB5H7cF-mIy0Xel8GwRI41fNPzplkDx_SDVxZUEMzVMLSA5CnPirRYYPa8MULiL5hm1OuamsbbJ8UFYg3rcXLqgKSHPbkJSyGLl2iojghbTJMwUUOFvP3J_fNN6ydAhdTuQpunJJvNWJXazifyb2MFOUuminJHiX8Gqr7SEJb5_gU5i-AWb6cvGNNzkSNL6_bHB797_bcHHE9zaAGvjkyApblgt3ZdvJwWK-PSj7FaF4DST6lAlxqo431ij4ruvJCQ2aP6JOQqbHBZGPG8WHc5lotfegJ_7alppiUlmra2LJLcA9v5u7BeCQtC_Jax-2uvb-AhBHrTdeQjHXpUhmIyYifl-EqotYIccYloB6ivokDWEpeIrnfBwxng2_3k-0_jRpbYA0wbGcHBEKj_fCePrQZUog9fYJ3Hyh0NrdVfxouSqinG7v3T3weKkiGYTYKkFjt3IKdyUJuByAPOglDTR79qd0zA3H_1dscYFMVIloBzITrP_xqx_eS__T8azzWkTnr_r9m000F__0m00)
 
 ---
 
