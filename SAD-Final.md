@@ -493,6 +493,9 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
     - POST `/api/auth/login`: Xác thực và trả JWT.
     - GET `/api/users/{id}`: Lấy thông tin người dùng.
     - PUT `/api/users/{id}`: Cập nhật thông tin người dùng.
+   
+    ### Class Diagram
+    ![UserManagementSubSystem](https://www.planttext.com/plantuml/png/T5FBRXGn4BpFLrW-pQ8a4bSVK9O42GwWLG8VqDYTsLOyzihTinmGNyQ1J-8Na3tlsMLETbMFNLNT_llxppqB9EbQNrNM0xFwnfZKpqgLBsy-FHf5GGRaGmlaZM9959e1Em3pZvZSH-3ZXdgA7ZVGiu1ql04V4eAWsujH3WI5MXmbdDn_6EZaY478Wc1z6ZICv-wC-XwZHmZLhz5Q5ZDPovkrjOnyWNQhzn7P9Ze9nR1XW9cQSC3K4ZF5K9-cfL4pl3Fg7CdDEcPgKZD3bvhMo3EcCrdSMuiyfpYTlPz3eHY6ukaQ7niADIvxUAEkHBUowMCJEwablkAKmEYfhpY3fzoShxdael2Y3tcg3Yc-aCVF4A315eDC6XkKN52JAxPtfjGFP5UceV0TO-gvjHY77eUI-OXr0vxUxn-c--mHxMiVPvqMutgZk4_lkfNoJlHRhMvlbNwZ--4oIX-1TLKs2tBHSQEqmnSAoBgwtgoxktVzApHABsUSTRdqChdb3ss1iuJiCJEZC1k3fEXPLzKz1fUV_3y0003__mC0)
 
 #### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
 
