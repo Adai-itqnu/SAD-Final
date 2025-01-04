@@ -302,8 +302,8 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   - Ghi nhận lỗi vào log.
   - Thử lại gửi qua kênh khác (nếu có).
 
-### Biểu đồ
-     ![Gửi thông báo](https://www.planttext.com/plantuml/png/b5InQXmn4Etr5SCrhanw5y7XC74H7Epp3woryahStiZMpbuuZ8kGyWWaLKZdZKbZE0X98B0gNCZaF_G5_WMZrGNltkuLwQJHp9lttWnwjFVx1IM6obdESd5EG1gCoYH1gepWf3Gobd3I1bwbCuMG530wBdrzYq36soNCbRl35vbobOxd4MEXCi4i5p1P52HcSCK00Cf2yAGGC1fBRpyYxBpsTgM0fFkD6PovIk-CGeE9o0Md8qtgNF6auJ1KZjBzca4uyzWPfFRr7mxSLU7n6xRGJWHN5qeW5Lsi8-dhrGMWjryLf2LcC7Stm6E7gRj32LbWsK0T80apraW2gGlpyCdR9KgWSk7hUsnhQYfFT4bYkwAU4N1P9a47ZnpMGZ3T3l7cxuyISc-NN4BXxIhIxX6P9FCEZqDLa3QBBjQXylP34146d7lxHRMjW6d49EbkK08FbuWjzRknJ115Vc2CDbtGK_dCAgYBY5FfAXuj4cGMRqaAiyOes3LZSUjsTryERKK_rCfiJNmpq6HrXjc-DA_zWVKYwruRGvbi16BMiEkm1wSj4zbmxOQhJP6llnES-RfIhFVUqE-P2NimTZ__xNHZEnl8-W-sswe7-3PqkQzluU6pj-_Bi5hF2lO5fk43UW800F__0m00)
+### Biểu đồ luồng sự kiện:
+  ![Gửi thông báo](https://www.planttext.com/plantuml/png/b5InQXmn4Etr5SCrhanw5y7XC74H7Epp3woryahStiZMpbuuZ8kGyWWaLKZdZKbZE0X98B0gNCZaF_G5_WMZrGNltkuLwQJHp9lttWnwjFVx1IM6obdESd5EG1gCoYH1gepWf3Gobd3I1bwbCuMG530wBdrzYq36soNCbRl35vbobOxd4MEXCi4i5p1P52HcSCK00Cf2yAGGC1fBRpyYxBpsTgM0fFkD6PovIk-CGeE9o0Md8qtgNF6auJ1KZjBzca4uyzWPfFRr7mxSLU7n6xRGJWHN5qeW5Lsi8-dhrGMWjryLf2LcC7Stm6E7gRj32LbWsK0T80apraW2gGlpyCdR9KgWSk7hUsnhQYfFT4bYkwAU4N1P9a47ZnpMGZ3T3l7cxuyISc-NN4BXxIhIxX6P9FCEZqDLa3QBBjQXylP34146d7lxHRMjW6d49EbkK08FbuWjzRknJ115Vc2CDbtGK_dCAgYBY5FfAXuj4cGMRqaAiyOes3LZSUjsTryERKK_rCfiJNmpq6HrXjc-DA_zWVKYwruRGvbi16BMiEkm1wSj4zbmxOQhJP6llnES-RfIhFVUqE-P2NimTZ__xNHZEnl8-W-sswe7-3PqkQzluU6pj-_Bi5hF2lO5fk43UW800F__0m00)
   
 ## 6. Tạo nhóm học tập
 
