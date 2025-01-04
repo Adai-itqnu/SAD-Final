@@ -494,8 +494,8 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
     - GET `/api/users/{id}`: Lấy thông tin người dùng.
     - PUT `/api/users/{id}`: Cập nhật thông tin người dùng.
    
-    ### Class Diagram
-    ![UserManagementSubSystem](https://www.planttext.com/plantuml/png/T5FBRXGn4BpFLrW-pQ8a4bSVK9O42GwWLG8VqDYTsLOyzihTinmGNyQ1J-8Na3tlsMLETbMFNLNT_llxppqB9EbQNrNM0xFwnfZKpqgLBsy-FHf5GGRaGmlaZM9959e1Em3pZvZSH-3ZXdgA7ZVGiu1ql04V4eAWsujH3WI5MXmbdDn_6EZaY478Wc1z6ZICv-wC-XwZHmZLhz5Q5ZDPovkrjOnyWNQhzn7P9Ze9nR1XW9cQSC3K4ZF5K9-cfL4pl3Fg7CdDEcPgKZD3bvhMo3EcCrdSMuiyfpYTlPz3eHY6ukaQ7niADIvxUAEkHBUowMCJEwablkAKmEYfhpY3fzoShxdael2Y3tcg3Yc-aCVF4A315eDC6XkKN52JAxPtfjGFP5UceV0TO-gvjHY77eUI-OXr0vxUxn-c--mHxMiVPvqMutgZk4_lkfNoJlHRhMvlbNwZ--4oIX-1TLKs2tBHSQEqmnSAoBgwtgoxktVzApHABsUSTRdqChdb3ss1iuJiCJEZC1k3fEXPLzKz1fUV_3y0003__mC0)
+    ### Sequence Diagram
+    ![UserManagementSubSystem](https://www.planttext.com/plantuml/png/V991JiCm44NtFiMegrPgb7qMLHi5bR8Xa03hgJCG2zUEx35LpiQ28t45bBIYIIfrETBxyvz7_lt-MNj6n-6W1Kgs3buyET6WOoLLWuPXjibti4Mc8xOpG0-RV7SU9rpWcWmhYQoiWOBSbv9qYWIkp_Cuao7Z7ls9ob8Xkdg8LeEI1FB7eeGO6nLZu3hMzaCPSG5w_5AGm2jgLI4JI4TLPuJQm_pkW4el8KVlZzPL2p78T2koD86dGAw5q3diM-WJ8aiXcZRqbewaTTNLudlqzHAUhQQhYh4bEVNUZc8t-IqPSjsh7jvAAEqdcJ4-ETg06bmgMlNk2HH1Il8Uvl_SGgp9LDr7-0C00F__0m00)
 
 #### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
 
