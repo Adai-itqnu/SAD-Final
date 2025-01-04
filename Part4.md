@@ -83,5 +83,11 @@ UserProfileManager --> NgườiDùng: trả về thông tin cá nhân
 
 @enduml
 
+---
+### QUản lý khóa học
 
+---
 
+#### **Class Diagram**
+
+![CourseManagementSubsystem](https://www.planttext.com/plantuml/png/X5IzJiCm4Dxp59ONVjHMOis0YbeGY89GQRjRZfLQIknYEnKIOcRY7LfrgyJKhH5Yy9Fa2NW5r3Hf73S9sNpt-UwxxxxuD_xfIeM4YiB0EG6z04a9-XJv0eMEWzDZZqT24l3cWFJR7-_wBg1CPR57518NI2KeyxDGdqWiw4nHpgpCY20y9Q9SeIS8KiIxKYxma2AAXYJBg6IxvFTJlK6tIVo9JyzSCEVKox8oYRzGRVPLRwgIx_berqpm80W9KuVnYf15i6BiiRJ76FB05iBNIvQsdr2zPXEzu4sCXaJoIE12xZpmFviR6f0dfAPM__4iuCYhatP5Htf11pI9FwA1NhCA0Gl0CTqzZsSYvjJWRAyCfoWtGpSli0bhhHER8jGg-O0OyeamoHqDNQhK0YAxwXwADAg2gs_N4IiSPbDhj8hL9IgyrmB2i9tHB_jpuGK4xJQ0vz0ql0iWrXjO0Jfui0p9jzpfNEPlWWlWIvHiLmm4-XiwjkGxf5dCn1whi4EN-PbufqkOjtkb_W000F__0m00)
