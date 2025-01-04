@@ -25,9 +25,9 @@
 
 ---
 
-## 2. Yêu cầu hệ thống
+## Yêu cầu hệ thống
 
-### 2.1. Yêu cầu chức năng
+### Yêu cầu chức năng
 #### **Dịch vụ tiện ích (Utility Services)**
 - Cung cấp các chức năng **cơ bản** hỗ trợ hệ thống, ví dụ:  
   - Xác thực và quản lý danh tính người dùng.  
@@ -47,7 +47,7 @@
 
 ---
 
-### 2.2. Yêu cầu phi chức năng
+### Yêu cầu phi chức năng
 #### **Tính mở và linh hoạt**
 - Hệ thống phải cho phép **tích hợp dịch vụ mới** hoặc thay thế dịch vụ sẵn có một cách dễ dàng.  
 
