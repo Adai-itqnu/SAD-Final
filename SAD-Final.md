@@ -369,6 +369,34 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 ![Tự động sao lưu](https://www.planttext.com/plantuml/png/d9EzRjH058LxFyLvWOZU1OgibL8iMgqqUO7PiV6COiyau_6ABH45HQfKbAo941AmuYyDdYB5H7cF-mIy0Xel8GwRI41fNPzplkDx_SDVxZUEMzVMLSA5CnPirRYYPa8MULiL5hm1OuamsbbJ8UFYg3rcXLqgKSHPbkJSyGLl2iojghbTJMwUUOFvP3J_fNN6ydAhdTuQpunJJvNWJXazifyb2MFOUuminJHiX8Gqr7SEJb5_gU5i-AWb6cvGNNzkSNL6_bHB797_bcHHE9zaAGvjkyApblgt3ZdvJwWK-PSj7FaF4DST6lAlxqo431ij4ruvJCQ2aP6JOQqbHBZGPG8WHc5lotfegJ_7alppiUlmra2LJLcA9v5u7BeCQtC_Jax-2uvb-AhBHrTdeQjHXpUhmIyYifl-EqotYIccYloB6ivokDWEpeIrnfBwxng2_3k-0_jRpbYA0wbGcHBEKj_fCePrQZUog9fYJ3Hyh0NrdVfxouSqinG7v3T3weKkiGYTYKkFjt3IKdyUJuByAPOglDTR79qd0zA3H_1dscYFMVIloBzITrP_xqx_eS__T8azzWkTnr_r9m000F__0m00)
 
 ---
+## 9. Phụ huynh theo dõi tiến độ học tập của học sinh
+
+### Cơ chế phân tích:
+- **Tính bền vững (Persistency)**: Lưu trữ dữ liệu về điểm số, bài tập và các nhận xét trong cơ sở dữ liệu.
+- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Hiển thị thông báo lỗi nếu không truy xuất được dữ liệu.
+- **Bảo mật (Security)**: Xác thực phụ huynh trước khi cho phép truy cập dữ liệu học sinh.
+
+### Luồng sự kiện chính:
+1. Phụ huynh đăng nhập vào hệ thống bằng tài khoản đã được cấp.
+2. Phụ huynh chọn chức năng "Theo dõi tiến độ học tập".
+3. Hệ thống hiển thị danh sách các con của phụ huynh (nếu có nhiều hơn một học sinh).
+4. Phụ huynh chọn học sinh muốn theo dõi.
+5. Hệ thống hiển thị:
+    Điểm số của học sinh theo môn học.
+    Danh sách bài tập đã nộp/chưa nộp.
+    Tình trạng tham gia lớp học (đi học đầy đủ, đi trễ, nghỉ học).
+    Nhận xét từ giáo viên.
+6. Nếu cần, phụ huynh tải xuống báo cáo học tập hoặc nhấn nút "Liên hệ giáo viên".
+
+### Luồng sự kiện phụ:
+- Nếu không có dữ liệu: Hệ thống hiển thị thông báo, hướng dẫn phụ huynh liên hệ với giáo viên.
+- Nếu có lỗi kết nối: Hệ thống hiển thị "Không thể kết nối đến máy chủ. Vui lòng thử lại sau."
+
+
+### Biểu đồ luồng sự kiện:
+![Theo Doi Tien Do Hoc Tap](https://www.planttext.com/plantuml/png/b5RDRjf04BxxAKO-jLBQ1-1GHGfIM-M209NsQ6pNkyACaRr6uLZbmA6AL4vLrKD124L96_KlkNWF71RbFVO9-WhLhY7sKaEQ2w3T-RwP-RwTNVxmvM72d9Yb_T1oN1R5q71Y7nau2JIiRfIYvyGZwFZTbyZy-AtZ-cghOxaHiZWAr-4jFnxIVAjbUGvpkaxYGttpmqcWVeTe-eCeBYEQbcKruCapwDHWzM5rYW4WaTdL08PY6W6HV0oCI3x1m7921g_5pDKBFzMNc281LrnZO040T1HHgmRF9R-YC1ANARWoEq_Xf43fm9OAhDVWc4f-sWSMEuhi6WDW564rATMXu-lm96VMwVK60XDJ2ZqIoMoEgj3v04B9nvi4UKzbWC5hLk-7YR_LcymM3Beocr6JCMzkNMvNp2ALzICj16ZKu8Ng2pNNUx1DNSlCJ-5LIY4KlrJdHF8h2FMoRVdeMLhmRV2Mv1llZeZaPmWkaVp21TGOkqty23nnGu5HcIsL0f9_KbgTkS0KeMtuzgPmp7EGG29cBbc79rJbbVpSWG6HV04a7I4nt6p7wGY6CbjWDLm7gvxgrUJYDoGokq4TPzZUZcKsXw7ax_Om6oxzDwBIilsGBSr9qK8_LPC2RAExcQLfAYpvTmYfvEEqxCWTf5cXQZKaprTHgDPw1qOh3OcOhW-IgNdJKD2OpNna4yad1z1L8wZv3ZP3TY8kc47OhBAaACg8hJJZuIat1hLbDgTmearPpwghFiewF4APBNDFyF6_nPYUCPdDeeAeki_yWYYohIPYdYEtwVDcZr8C5FzYKC6iBwRZN7yr8BkKQ-w-dkpo4UZb6psYlF0aNs1Wtsz1cMuefa1kVqZ-6GFmPFOL8QJYKi_160AgOzH2qGDwLbKl5IUsQkBjwlQBidTVpVkdV4FCnBT-VYsFoiFCuWW3umMqypRGAwxdOvaj6Q3a4mhkxKmTqY_6d5Oz9FlU4UZTmxZxeSdnzeDAsl42GUAawrVeq4TF_KFv2m00__y30000)
+
+---
 
 # 3. Các phần tử thiết kế trong hệ thống iLearn
 
