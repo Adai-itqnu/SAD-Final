@@ -1,1 +1,92 @@
-Hello 
+
+sơ đồ lớp
+
+@startuml
+class GiaoDienNguoiDung {
+  - userId: String
+  - vaiTroNguoiDung: String
+  + hienThiBangDieuKhien(): void
+  + nhanDuLieuNguoiDung(): void
+}
+
+class GiaoDienXacThuc {
+  - tenDangNhap: String
+  - matKhau: String
+  + dangNhap(): boolean
+  + dangXuat(): void
+  + datLaiMatKhau(): void
+}
+
+class GiaoDienQuanLyKhoaHoc {
+  - danhSachKhoaHoc: List<String>
+  + xemDanhSachKhoaHoc(): void
+  + ghiDanhKhoaHoc(khoaHocId: String): boolean
+  + xemChiTietKhoaHoc(khoaHocId: String): void
+}
+
+class GiaoDienCongTac {
+  - sessionId: String
+  + batDauBuoiHop(): void
+  + guiTinNhan(tinNhan: String): void
+  + taiTaiLieu(taiLieu: File): void
+}
+
+class DịchVuNguoiDung {
+  - danhSachNguoiDung: List<String>
+  + layThongTinNguoiDung(nguoiDungId: String): String
+  + capNhatHoSoNguoiDung(nguoiDungId: String, chiTiet: Map): boolean
+}
+
+class DịchVuKhoaHoc {
+  - danhSachKhoaHoc: List<String>
+  + taoKhoaHoc(chiTiet: Map): boolean
+  + ganKhoaHoc(nguoiDungId: String, khoaHocId: String): boolean
+  + layTaiNguyenKhoaHoc(khoaHocId: String): List<File>
+}
+
+class DịchVuCongTac {
+  - danhSachBuoiHop: List<String>
+  + lenLichBuoiHop(chiTiet: Map): boolean
+  + thamGiaBuoiHop(sessionId: String): boolean
+  + guiThongBao(nguoiDungId: String, noiDung: String): void
+}
+
+class DịchVuBaoMat {
+  - danhSachVaiTro: List<String>
+  + xacThuc(tenDangNhap: String, matKhau: String): boolean
+  + phanQuyen(nguoiDungId: String, hanhDong: String): boolean
+}
+
+class LuuTruNguoiDung {
+  - duLieuNguoiDung: Map
+  + themNguoiDung(chiTiet: Map): boolean
+  + layNguoiDung(nguoiDungId: String): Map
+}
+
+class LuuTruKhoaHoc {
+  - duLieuKhoaHoc: Map
+  + themKhoaHoc(chiTiet: Map): boolean
+  + layThongTinKhoaHoc(khoaHocId: String): Map
+}
+
+class LuuTruBuoiHop {
+  - duLieuBuoiHop: Map
+  + themBuoiHop(chiTiet: Map): boolean
+  + layBuoiHop(sessionId: String): Map
+}
+
+
+GiaoDienNguoiDung --> GiaoDienXacThuc
+GiaoDienNguoiDung --> GiaoDienQuanLyKhoaHoc
+GiaoDienNguoiDung --> GiaoDienCongTac
+GiaoDienXacThuc --> DịchVuBaoMat
+GiaoDienQuanLyKhoaHoc --> DịchVuKhoaHoc
+GiaoDienCongTac --> DịchVuCongTac
+DịchVuNguoiDung --> LuuTruNguoiDung
+DịchVuKhoaHoc --> LuuTruKhoaHoc
+DịchVuCongTac --> LuuTruBuoiHop
+
+DịchVuBaoMat --> LuuTruNguoiDung
+
+@enduml
+
