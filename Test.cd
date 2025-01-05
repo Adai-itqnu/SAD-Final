@@ -51,6 +51,8 @@ logID: Mã nhật ký (String) – Định danh duy nhất của nhật ký ho�
 user: Người thực hiện hành động (User) – Người dùng thực hiện hành động trong hệ thống.
 action: Hành động (String) – Mô tả hành động của người dùng (ví dụ: đăng nhập, gửi bài tập).
 timestamp: Thời gian thực hiện hành động (Date) – Thời gian mà hành động được thực hiện.
+
+[](https://www.planttext.com/plantuml/png/b5PDRzD04BtxLunwmQtQ2guHGj16jAWV4gf1NBUkyQuQhqEoheY0GyMX1uH4ZnL2QeWYQ4LLe9KGNaKzRCJ_c5_0Nq1hrsixTPDoYz-yJTuylvt9Ntbnlor8IqH1mx9kmV03odUS0lVfy8X00-N79ZnfUosmr_q_tr5-Oh2bVdD_sd8RfDs63Arh45vP0F2eNW9hi25QZFkw9DGnBpvx0M6D8h13cDDIFmtqvbfHYs7KQdjWhr1rHe2YVEzccX9eMIEPe1mPLLDT2TIvWt6l275V7NOMC3uLmmyOVubgK2V2CvKLZ2-4GrNiNXQkL_wWtMO-3pmkm5vGXmm4nYVDJBn670sasWFLCqX9ErF7aVxwtGcwASPTlexoe9ahtYuqdHimHh9Em8RNsc6k1tOTvJkNmWxAFl3AKAICfoZx5V4OxW_VSdz53MnUZac9EvrJrwbktYvbPHO2Z4_42iNuACh0v8ohoSaH_JhEkUymFk6N9eMiilFjgxdBsnvDeC2u6-QWNVq2HlNVxC1BTKOAp43rhcOw8JOmxdVgXDCDrNLfuSXq3LPPMzpDeNitYc-bBvjN4ftRCfBjn1M3sPjvpWquQiaDs5ndFUTLNQ1Pc1Yzibcbhwkmzz90GnldtuRdHYqcEck44ryFriSHnZqE3JM0JOnxOHhjpBsqkge62xgsfakfUozLrtKeoX_kv8lKfEepVnnrKEwElmopGDKXfrhuGJwwnrsHXwpXLRKYKEurGJ1-fH57Lnp6JGXwR5KTymosavCEupN8e6b3V1QXtEU-uGQgbts-YTZrKB3dp2M2XHpiT3x0fkg6cSWKMb3Tq8pV72gj0vG7h1wLrziuPyscM49vmYOkYSMGFsT-rBgKkeXnFmAgld6gPyuU29eOaUbEwij9ET7jgaEczzGliSH8M6SezqgBTylSIPHVkLz7sHzfXQgpe7gFZnaDhc0xJ7HMGn_izCB2jXe03J7k2XZk9waoVntI8QS6oqdvCdF6TrF-7uUhqfk4XshQ4YEywFmQodq6BoB2KrDzXlAKWAkwRjgHLTvVKtUcO6Pk3gPkpy_FJ1LMTGry_LQjmjmVmtKfoYDYLQwBkRdNzuexkMfu9XppMA2KrIQqiaDLmsGSpLpLX9GzMOLRKd7wclTQmRJkUtmh2Xh_0000__y30000)
 @startuml
 
 ' Định nghĩa lớp User (Người dùng)
