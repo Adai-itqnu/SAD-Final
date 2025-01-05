@@ -495,7 +495,11 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
     - PUT `/api/users/{id}`: Cập nhật thông tin người dùng.
    
     ### Sequence Diagram
-    ![UserManagementSubSystem](https://www.planttext.com/plantuml/png/V991JiCm44NtFiMegrPgb7qMLHi5bR8Xa03hgJCG2zUEx35LpiQ28t45bBIYIIfrETBxyvz7_lt-MNj6n-6W1Kgs3buyET6WOoLLWuPXjibti4Mc8xOpG0-RV7SU9rpWcWmhYQoiWOBSbv9qYWIkp_Cuao7Z7ls9ob8Xkdg8LeEI1FB7eeGO6nLZu3hMzaCPSG5w_5AGm2jgLI4JI4TLPuJQm_pkW4el8KVlZzPL2p78T2koD86dGAw5q3diM-WJ8aiXcZRqbewaTTNLudlqzHAUhQQhYh4bEVNUZc8t-IqPSjsh7jvAAEqdcJ4-ETg06bmgMlNk2HH1Il8Uvl_SGgp9LDr7-0C00F__0m00)
+    ![UserManagementSubSystemSequenceDiagram](https://www.planttext.com/plantuml/png/b5B1Ji904BtlLqmuGGA1UEo1WDGe2jAa5RqEfUbkf5kotKBu1iyUFH32mOE962-s1mzD_8_z0d_1j8fQqnwyxMRUU_FUpBp7hvr0ef2XDoDeIr_0HU08m03EtRT75TynFNdXBfcZaCncS-GIAbsZ3ySedIMkAYcqf-9RxdQD_XzOAAd39RDHCf-3wOW5ivsCeQlungPZ5M-lahLjKHNlx3nPHuaJ33xXFLCV499p18tsJryDZ95fGHFdh8cXfCsPxp9ElkifkAYb1kaRPFO1IPDdxe9a7Af77h9P7OOgUf1mJLLq7zP8aKJcmzG76bWYNC52HLiE4nNjk0jEAaBIAZHA7HogQCF1fGpuLpwOPW7t7WmCWgKlfYSOq3gCaO4KoLEv6xqygCSupUdzKyHIqTe7BzdiPpL9rZwSNbebElaT3GjulrRKQETlJeE3LWj6Pr0j8DP8n-7Jz6e_0000__y30000)
+
+    ---
+    ### Class Diagram
+    ![UserManagementSubsystemClassDiagram](https://www.planttext.com/plantuml/png/T5HBRjim4Dtp50GtbOiaGBTQ577j0icYWHkx1vX8Ouc8HAgSOMgZwCcww95wXOBKNtQr4jyySjwR6VBlxp_tnE3OrvKGx-Ic0YAvrL0ugENHElcDqCalOA306WtBlN-XCp7MGcIH70a_XOnVM3nkKwaDTyZd6dILIcAdJT5XEo3wOLt-05GkGi-smWMqPs1F2t3Z41ZpDQSo1qRMDVOIclm_aHDaNFeiQRhq_P6hLBvOMo4OyQjt5NGChi9YxYeWJr0lfMwHCgSRrjOi8WMOh_wC9cdGrPeeCdR3_ogLRrRdO_unDAWOeKijSsIFxardkCuofB5mmzbhpoKQrXa4eHrvI9E3AKm9JOBJpjt8ArMREGpxJXuuOVkAW_tUMCjvrLYpWyYuu5tq80pJpjcZhd0oWBtE2iw7qfhYeCrJuQtUUbCaEezrMALnSyVCe34byCZoXAvbh6RoJXQk7JNlpFEdzMOG4GmT7BIjTPFPlP7KrlMwmNXfr0SbRs-bUg_QSKkbAe6KY8j9S38BgLGv7hL1Kk9w6-_kFhPNCfMg6tWLqrrMSahzxi5KPoMYkn3e5GM7P86L4FTeyl1E_0C00F__0m00)
 
 #### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
 
