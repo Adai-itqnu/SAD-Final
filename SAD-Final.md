@@ -198,11 +198,22 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 ## Kết quả phân tích các ca sử dụng:
 
 ## 1. Đăng nhập hệ thống
+### Mô tả: 
+- Người dùng nhập thông tin đăng nhập để xác thực và truy cập vào hệ thống iLearn. Sau khi xác thực thành công, người dùng sẽ được chuyển đến giao diện chính của hệ thống.
+  
+### Các tác nhân:
+- Người dùng (học sinh, giáo viên, phụ huynh, quản trị viên): Người cần đăng nhập để truy cập vào hệ thống.
+- Hệ thống iLearn: Hệ thống kiểm tra thông tin đăng nhập, xác thực người dùng và cấp quyền truy cập.
 
+### Mục tiêu:
+- Cho phép người dùng truy cập vào hệ thống iLearn một cách bảo mật.
+- Xác thực thông tin đăng nhập của người dùng và cung cấp quyền truy cập tương ứng.
+  
 ### Cơ chế phân tích:
 - **Tính bền vững (Persistency)**: Lưu thông tin người dùng và quyền truy cập trong cơ sở dữ liệu.
 - **Bảo mật (Security)**: Xác thực thông tin đăng nhập và bảo mật thông tin tài khoản.
 - **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Xử lý lỗi đăng nhập (ví dụ: sai mật khẩu, tài khoản không tồn tại).
+  
 
 ### Luồng sự kiện chính:
 1. Người dùng nhập tên đăng nhập và mật khẩu.
@@ -224,6 +235,16 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 
 ## 2. Đăng ký tài khoản
 
+### Mô tả:
+- Người dùng tạo tài khoản mới để tham gia hệ thống iLearn. Người dùng sẽ cung cấp thông tin cá nhân, bao gồm tên, email, mật khẩu, và các thông tin cần thiết khác. Sau khi thông tin được xác thực và lưu trữ trong cơ sở dữ liệu, người dùng sẽ nhận thông báo thành công và có thể tiếp tục sử dụng hệ thống.
+
+### Các tác nhân: 
+- Người dùng (học sinh, giáo viên, phụ huynh): Người cần đăng ký tài khoản mới để truy cập vào hệ thống iLearn.
+- Hệ thống iLearn: Hệ thống tiếp nhận thông tin từ người dùng, kiểm tra tính hợp lệ của thông tin và lưu trữ vào cơ sở dữ liệu.
+### Mục tiêu:
+- Cho phép người dùng tạo tài khoản mới và truy cập vào hệ thống iLearn.
+- Lưu trữ thông tin tài khoản vào cơ sở dữ liệu một cách an toàn và bền vững.
+  
 ### Cơ chế phân tích:
 - **Tính bền vững (Persistency)**: Lưu trữ thông tin tài khoản mới trong cơ sở dữ liệu.
 - **Error Handling**: Xử lý các lỗi liên quan đến dữ liệu đầu vào hoặc kết nối hệ thống.
@@ -244,6 +265,19 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 
 ## 3. Học viên tham gia khóa học
 
+### Mô tả:
+- Học viên đăng ký và tham gia một khóa học trên hệ thống iLearn. Học viên sẽ chọn khóa học mong muốn từ danh sách các khóa học, hệ thống kiểm tra tình trạng khóa học (còn chỗ hay không), và nếu còn chỗ, học viên sẽ được thêm vào danh sách khóa học và nhận thông báo xác nhận.
+
+### Các tác nhân:
+- Học viên: Người tham gia khóa học, có thể là học sinh, sinh viên, hoặc người học ngoài.
+- Hệ thống iLearn: Hệ thống quản lý các khóa học, kiểm tra tình trạng khóa học và lưu trữ thông tin đăng ký của học viên.
+- Giảng viên (nếu có): Người tạo và quản lý các khóa học.
+
+### Mục tiêu:
+- Cho phép học viên đăng ký tham gia các khóa học và lưu trữ thông tin đăng ký vào cơ sở dữ liệu.
+- Cung cấp các thông báo xác nhận tham gia khóa học qua email hoặc thông báo trong hệ thống.
+- Quản lý số lượng học viên tham gia khóa học một cách hiệu quả.
+  
 ### Cơ chế phân tích:
 - **Tính bền vững (Persistency)**: Lưu trạng thái đăng ký khóa học của học viên.
 - **Quản lý giao dịch (Transaction Management)**: Đảm bảo quá trình thanh toán đăng ký khóa học hoàn tất hoặc bị hủy hoàn toàn.
@@ -265,6 +299,20 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 
 ## 4. Giáo viên thêm bài học mới
 
+### Mô tả:
+- Giáo viên tạo và đăng tải bài học mới lên hệ thống iLearn. Giáo viên nhập thông tin bài học, tải lên tài liệu (ví dụ: tài liệu học, video, hình ảnh) và hệ thống sẽ kiểm tra tính hợp lệ của tài liệu trước khi lưu trữ và thông báo thành công.
+
+### Các tác nhân:
+- Giáo viên: Người tạo và quản lý bài học mới cho khóa học.
+- Hệ thống iLearn: Hệ thống quản lý bài học, xử lý các tệp tải lên và lưu trữ thông tin bài học.
+- Hệ thống lưu trữ tệp: Hệ thống lưu trữ các tài liệu, video hoặc tệp liên quan đến bài học.
+
+### Mục tiêu:
+- Cung cấp cho giáo viên một giao diện dễ sử dụng để tạo bài học mới.
+- Kiểm tra tính hợp lệ của tài liệu tải lên (định dạng, kích thước).
+- Lưu trữ và hiển thị bài học mới trên hệ thống cho học viên tham gia.
+- Đảm bảo chỉ những giáo viên có quyền mới có thể thêm bài học mới.
+
 ### Cơ chế phân tích:
 - **Tính bền vững (Persistency)**: Lưu trữ nội dung bài học trong cơ sở dữ liệu.
 - **Tính bảo mật (Security)**: Kiểm tra quyền hạn của giáo viên để đăng nội dung.
@@ -285,6 +333,20 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 
 ## 5. Gửi thông báo đến học viên
 
+### Mô tả:
+- Quản trị viên hoặc giáo viên gửi thông báo đến học viên trong hệ thống iLearn. Quản trị viên hoặc giáo viên có thể chọn nhóm học viên hoặc cá nhân để gửi thông báo, lựa chọn kênh gửi (email, SMS, hoặc thông báo trong hệ thống), và hệ thống sẽ đảm bảo thông báo được gửi đến đúng đối tượng và lưu trữ lịch sử gửi thông báo.
+
+### Các tác nhân:
+- Quản trị viên/giáo viên: Người gửi thông báo, có quyền truy cập vào giao diện quản lý hệ thống.
+- Học viên: Người nhận thông báo.
+- Hệ thống iLearn: Hệ thống định tuyến và gửi thông báo đến học viên qua các kênh khác nhau.
+- Hệ thống gửi email/SMS: Các dịch vụ bên ngoài hoặc hệ thống nội bộ chịu trách nhiệm gửi thông báo qua email hoặc SMS.
+
+### Mục tiêu:
+- Cung cấp cho quản trị viên hoặc giáo viên một cách dễ dàng để gửi thông báo đến học viên.
+- Đảm bảo thông báo được gửi đúng đối tượng và qua kênh chính xác.
+- Lưu trữ thông tin lịch sử gửi thông báo để theo dõi.
+  
 ### Cơ chế phân tích:
 - **Định tuyến tin nhắn (Message Routing)**: Định tuyến thông báo đến đúng học viên hoặc nhóm học viên.
 - **Phân phối (Distribution)**: Phân phối thông báo qua nhiều kênh (email, SMS, thông báo trong hệ thống).
@@ -307,6 +369,21 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   
 ## 6. Tạo nhóm học tập
 
+### Mô tả:
+- Giáo viên hoặc học viên sử dụng hệ thống để tạo một nhóm học tập, bao gồm việc nhập thông tin nhóm, thêm các thành viên, và gửi thông báo mời tham gia nhóm. Hệ thống sẽ đảm bảo nhóm được lưu trữ trong cơ sở dữ liệu, các thành viên được mời sẽ nhận thông báo, và các lỗi liên quan đến việc tạo nhóm (như tên nhóm bị trùng, thành viên không tồn tại, hoặc lỗi kết nối) sẽ được phát hiện và xử lý.
+
+### Các tác nhân:
+- Giáo viên/Học viên: Người tạo nhóm và mời các thành viên tham gia.
+- Hệ thống iLearn: Hệ thống quản lý nhóm và kiểm tra tính hợp lệ của thông tin.
+- Thành viên nhóm: Những người nhận được lời mời tham gia nhóm học tập.
+- Hệ thống cơ sở dữ liệu: Lưu trữ thông tin nhóm và các thành viên.
+
+### Mục tiêu:
+- Tạo một nhóm học tập cho các học viên tham gia cùng nhau học.
+- Cho phép giáo viên hoặc học viên thêm các thành viên vào nhóm.
+- Gửi thông báo mời thành viên tham gia nhóm.
+- Lưu trữ thông tin nhóm học tập vào cơ sở dữ liệu.
+  
 ### Cơ chế phân tích:
 - **Bảo mật (Security)**: Xác minh danh tính người dùng qua email hoặc số điện thoại.
 - **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Xử lý các lỗi như tạo nhóm thất bại, thành viên không tồn tại, hoặc lỗi kết nối.
@@ -330,6 +407,22 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 
 ## 7. Tham gia nhóm học tập 
 
+### Mô tả: 
+- Người dùng (học viên hoặc giáo viên) tham gia vào một nhóm học tập có sẵn trong hệ thống, bằng cách nhập mã tham gia hoặc chọn từ danh sách nhóm được mời. Hệ thống sẽ kiểm tra tính hợp lệ của mã tham gia, lưu thông tin thành viên vào nhóm, và gửi thông báo đến các thành viên về việc tham gia của người dùng mới. Các lỗi như mã tham gia không hợp lệ hoặc nhóm không tồn tại sẽ được xử lý.
+
+### Các tác nhân:
+- Người dùng (Học viên/Giáo viên): Người muốn tham gia nhóm học tập.
+- Hệ thống iLearn: Hệ thống quản lý nhóm học tập và xác thực mã tham gia.
+- Chủ nhóm: Người tạo và quản lý nhóm học tập, nhận thông báo khi có thành viên mới.
+- Các thành viên nhóm: Những người đã là thành viên trong nhóm, nhận thông báo khi có thành viên mới tham gia.
+
+### Mục tiêu:
+- Tham gia một nhóm học tập bằng cách nhập mã tham gia nhóm hoặc chọn nhóm từ danh sách mời.
+- Lưu thông tin người dùng vào nhóm trong cơ sở dữ liệu.
+- Gửi thông báo đến chủ nhóm và các thành viên về việc người dùng mới tham gia nhóm.
+- Cung cấp giao diện nhóm học tập cho người dùng sau khi tham gia thành công.
+
+### Cơ chế phân tích:
 - **Bảo mật (Security)**: Xác minh quyền truy cập của người dùng trước khi tham gia nhóm.
 - **Tính bền vững (Persistency)**: Lưu thông tin thành viên mới vào danh sách nhóm trong cơ sở dữ liệu.
 - **Xử lý lỗi (Error Handling)**: Xử lý các lỗi như mã tham gia không hợp lệ hoặc nhóm không tồn tại.
@@ -352,6 +445,19 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
   
 ## 8. Tự động sao lưu dữ liệu hệ thống
 
+### Mô tả:
+- Quá trình sao lưu dữ liệu hệ thống tự động theo một lịch trình định kỳ. Quá trình sao lưu đảm bảo rằng dữ liệu hệ thống được lưu trữ an toàn vào cơ sở dữ liệu dự phòng hoặc trên đám mây, giúp bảo vệ dữ liệu khỏi mất mát do sự cố. Hệ thống kiểm tra tính toàn vẹn của dữ liệu sau khi sao lưu và ghi nhận kết quả sao lưu vào log hệ thống. Nếu sao lưu thất bại, quản trị viên sẽ nhận được thông báo để xử lý.
+
+### Các tác nhân:
+- Hệ thống iLearn: Hệ thống tự động thực hiện sao lưu và kiểm tra tính toàn vẹn của dữ liệu.
+- Quản trị viên hệ thống: Người nhận thông báo khi có lỗi xảy ra trong quá trình sao lưu.
+- Cơ sở dữ liệu chính và dự phòng: Các hệ thống lưu trữ dữ liệu chính và dữ liệu sao lưu.
+
+### Mục tiêu:
+- Sao lưu định kỳ toàn bộ dữ liệu hệ thống để bảo vệ thông tin khỏi mất mát.
+- Kiểm tra tính toàn vẹn của dữ liệu sau khi sao lưu.
+- Cung cấp thông tin về trạng thái sao lưu cho quản trị viên.
+  
 ### Cơ chế phân tích:
 - **Tính bền vững (Persistency)**: Sao lưu dữ liệu vào cơ sở dữ liệu dự phòng hoặc hệ thống lưu trữ đám mây.
 - **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Báo cáo lỗi nếu quá trình sao lưu thất bại.
@@ -371,6 +477,19 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 ---
 ## 9. Phụ huynh theo dõi tiến độ học tập của học sinh
 
+### Mô tả:
+- Quá trình phụ huynh theo dõi tiến độ học tập của học sinh qua hệ thống iLearn. Sau khi đăng nhập, phụ huynh có thể xem thông tin về điểm số, bài tập, tình trạng tham gia lớp học và nhận xét từ giáo viên của học sinh. Hệ thống cũng cho phép tải xuống báo cáo học tập hoặc liên hệ với giáo viên nếu cần.
+
+### Các tác nhân:
+- Phụ huynh: Người theo dõi tiến độ học tập của học sinh.
+- Hệ thống iLearn: Cung cấp thông tin về học sinh cho phụ huynh.
+- Học sinh: Người mà phụ huynh theo dõi tiến độ học tập.
+- Giáo viên: Cung cấp nhận xét và thông tin về học sinh.
+
+### Mục tiêu:
+- Cung cấp thông tin chi tiết về tiến độ học tập của học sinh cho phụ huynh.
+- Tạo điều kiện cho phụ huynh theo dõi các yếu tố quan trọng như điểm số, bài tập, và sự tham gia lớp học của học sinh.
+- Cung cấp báo cáo học tập và liên hệ với giáo viên khi cần thiết.
 ### Cơ chế phân tích:
 - **Tính bền vững (Persistency)**: Lưu trữ dữ liệu về điểm số, bài tập và các nhận xét trong cơ sở dữ liệu.
 - **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Hiển thị thông báo lỗi nếu không truy xuất được dữ liệu.
