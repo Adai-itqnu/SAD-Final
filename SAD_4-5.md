@@ -76,6 +76,13 @@
   - API:
     - POST `/api/notifications`: Tạo thông báo mới.
     - GET `/api/notifications/user/{id}`: Lấy danh sách thông báo của người dùng.
+   
+  ### Class diagram
+  
+  ![](https://www.planttext.com/plantuml/png/X971IWCn48RlUOeX5rkX1QzxaAehLgZ5mk9zt5sIWUoax2Q58ZrxzX74L_1a4GzzaZw1ho1RcstPHSpnp_V_ysVolVuQLGvBvmiZn0bS6QmgY0bLYGMasi9uktu6fxVh5rOmyzkFDmQp-OH4RzvPmUFcrGgHxco9jgmkqSAJWDsvmo15GEmQTQgyfTYpEfOJugb6Zg1o9R7QgnEBr9Ac2fT97PcXonqLUGWeaLMYExpo56hq-X4iB6LY5JfFS3wXL7Ugcr-zQnWZgzZIlct3EvqNUwtdmaj2QWW9qSj0zW_COK9CgNxmDuVMpH3bwRf0ClzDK9vc7Y_kR_y6Lq8qyV9Cmc00ybHsrX61D3W7GwcMedqv79wtrn61h3S12xIWaHLabgHeGRMl-yW8fF84ZXXO8qlHHMhZCP_Yl6OTkFhhmMaaASGevymNvWS00F__0m00)
+
+### Cequence Diagram
+![](https://www.planttext.com/plantuml/png/R5EnRjim5Dpv5OSiRGSZGKSDGU88S88QYG4BHLU65YYY5gd8P8j-GMVFHL4BtWeOpT2bqk11Xl-3Nz1VA6WxjIXhevxkxhqxFlwjrbSpJNDjqYaXhp2EdqmiMOnGK9xJ52nH6DXg9H0bzM_9yLWNYX3AjCfnpuqIeP6SP3JNWecCIespwz4T1bJ7d-cNCz0PhaTtXqyVDwJPKB0aIfJaVQfss5RD9znIoKCb8Y7l4oftUB_amqF1alTcO8JNuQJgasxKM8LcA6ApH_S9-MyJlSk6cG2ZXt64Svg9S-sq7gaYnzyEt78J8B9beQ2FKIArrJT1Ma373Vi1Xjjduw4_rGi5jYqmizKFJ6pr2rDXgw-6X7tqkZf-g0i6cTXo9J4zo2ra0kP4k_hwYGRktd-cfqCu5OxDt5PBGNpERlfsoi5XZPf2cxajrnAIRvzjzLrWKl-Hd9nGNzAuiUKgstlHqBaj2ycTNk6faWv-XwrcBlnbicCmRKTTqTwgUY4FjDCaMxiIvRPSugCjrnfFnfszViszwLqUNrQ0jnSNU7Y7ruttXysyNc8pTx4jsNxyDuHSnN9Yqka_0000__y30000)
 
 #### **4. Hệ thống con quản lý tài liệu (Document Management Subsystem)**
 
@@ -96,6 +103,14 @@
   - API:
     - POST `/api/documents/upload`: Tải tài liệu lên hệ thống.
     - GET `/api/documents/course/{id}`: Lấy danh sách tài liệu của khóa học.
+   
+    ### Class Diagram
+![](https://www.planttext.com/plantuml/png/V931Qi9048RlUOfXBzM21wyvMGo5WfQAQU-Z6StIpKOtEqKfVO8-XlJIIpqhfGV1zyWJz1MACKOJfNlQ_NPc_ld_t_LFAx5eB4VASQwWhJ19m9CuDXZ1A3RWnKEEI5leeiOnPTS-3v9vOYboXbczZx8ZYU7LWUmSUkuy5wIsENsSg1W3CcNQZjaaL6QtKj4zHkH2OetKunFyW3Qiu7nkS6DT2D2IbH7bNuhPDrohk_0Ioo27mr3giCzOmRFuIDwSt9cNhj-7uLEw_kXib-oRTFrLkDmFtorL6rKsEvlyRrMXrcFKdNarpMb6ksGnG8kre1nkMUfPKkGRxF6Sj6zutiP9ZPCYyxeBWpXMXFeewgFiaFPnuajTQCvulmVfRElBld8nJ-hGGpskLfue7Io9fe160yIrk9Yi2q9jbmnsznANkie9kI2cdAuM6jJc-xo-AShcN10sNIqagCsd5exJ8XrmfFu0003__mC0)
+
+
+### Cequence Diagram
+
+![](https://www.planttext.com/plantuml/png/V98nRi8m58Ptd-8NIoSkm80GYjgXfGkjrFNLSHDBYKsDmmKwC7JY10rYguJeq0aF7OAuXq_GArI440X87Vtq_V_xt_FxTJ-ziILZipHXx0f3yPe9nGK2IP6X52_Q8D0yIuMoU1mbca96t6g3-oZJCiXKn4PahEHoHCgYTIqJKO72j41Zx2g7GfEjZGUaAAhmGFFgsOI7LXkA18R2J2GN9LlLgjAPELbwfl4U3FgCrO7HxZP2TV3Wrmk9fFXKi4KkaKZlfXaxXIv5jzAxjnJM43OpxzvLZD2lvohwr-CuNWSttYqbKc4f94iDsH7RYPfpTd2t_SfESKoAN2FsRWeRUpTJ4P8ICTwjM5DTXkXN7dNlqe1lvnXxzu7GkrMTf8_sMUx1GRMP5OkoKoFlnQQUYZc7YlrwgH3h8bUmSP6h6BRU-zcUsjtZVJM_Po_anRUA6Ei95Uukzmy00F__0m00)
 
 #### **5. Hệ thống con thanh toán (Payment Subsystem)**
 
