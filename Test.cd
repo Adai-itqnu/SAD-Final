@@ -1,92 +1,152 @@
 
 sơ đồ lớp
-
+1. Lớp User (Người dùng)
+userID: Mã người dùng (String) – Định danh duy nhất của người dùng trong hệ thống.
+name: Tên người dùng (String) – Tên đầy đủ của người dùng.
+email: Địa chỉ email (String) – Địa chỉ email của người dùng.
+role: Vai trò người dùng (String) – Xác định vai trò của người dùng trong hệ thống (học sinh, giáo viên, quản trị viên).
+2. Lớp Course (Khóa học)
+courseID: Mã khóa học (String) – Định danh duy nhất của khóa học.
+courseName: Tên khóa học (String) – Tên của khóa học.
+description: Mô tả khóa học (String) – Mô tả chi tiết về nội dung của khóa học.
+startDate: Ngày bắt đầu (Date) – Ngày bắt đầu của khóa học.
+endDate: Ngày kết thúc (Date) – Ngày kết thúc của khóa học.
+3. Lớp Assignment (Bài tập)
+assignmentID: Mã bài tập (String) – Định danh duy nhất của bài tập.
+title: Tiêu đề bài tập (String) – Tiêu đề của bài tập.
+description: Mô tả bài tập (String) – Mô tả chi tiết về bài tập.
+dueDate: Hạn nộp bài (Date) – Ngày hết hạn nộp bài tập.
+course: Khóa học (Course) – Khóa học mà bài tập này thuộc về.
+4. Lớp UserService (Dịch vụ người dùng)
+register(user: User): Đăng ký người dùng mới trong hệ thống.
+login(email: String, password: String): Đăng nhập người dùng vào hệ thống.
+updateProfile(user: User): Cập nhật thông tin người dùng.
+5. Lớp CourseService (Dịch vụ khóa học)
+createCourse(course: Course): Tạo một khóa học mới.
+updateCourse(course: Course): Cập nhật thông tin khóa học.
+deleteCourse(courseID: String): Xóa một khóa học khỏi hệ thống.
+getCourses(): Lấy danh sách các khóa học trong hệ thống.
+6. Lớp AssignmentService (Dịch vụ bài tập)
+createAssignment(assignment: Assignment): Tạo một bài tập mới cho khóa học.
+updateAssignment(assignment: Assignment): Cập nhật thông tin bài tập.
+submitAssignment(assignmentID: String, user: User): Người dùng gửi bài tập.
+getAssignments(courseID: String): Lấy danh sách các bài tập của một khóa học.
+7. Lớp SecurityManager (Quản lý bảo mật)
+authenticate(user: User): Xác thực người dùng khi đăng nhập vào hệ thống.
+authorize(user: User, action: String): Kiểm tra quyền truy cập của người dùng đối với một hành động cụ thể trong hệ thống.
+8. Lớp FileManager (Quản lý tệp tin)
+uploadFile(file: File): Tải lên một tệp tin (ví dụ: tài liệu học tập, bài tập).
+downloadFile(fileID: String): Tải xuống tệp tin từ hệ thống.
+9. Lớp Notification (Thông báo)
+notificationID: Mã thông báo (String) – Định danh duy nhất của thông báo.
+message: Nội dung thông báo (String) – Nội dung chi tiết của thông báo gửi đến người dùng.
+user: Người nhận thông báo (User) – Người dùng nhận thông báo.
+date: Ngày gửi thông báo (Date) – Ngày và giờ gửi thông báo.
+10. Lớp Configuration (Cấu hình hệ thống)
+interfaceSettings: Cài đặt giao diện (String) – Cấu hình các tùy chọn giao diện của hệ thống (ví dụ: màu sắc, kiểu chữ).
+applicationServices: Dịch vụ ứng dụng (String) – Cấu hình các dịch vụ ứng dụng có sẵn trong hệ thống (ví dụ: email, hội thảo trực tuyến).
+userGroups: Nhóm người dùng (String) – Cấu hình các nhóm người dùng (học sinh, giáo viên, quản trị viên).
+11. Lớp ActivityLog (Nhật ký hoạt động)
+logID: Mã nhật ký (String) – Định danh duy nhất của nhật ký hoạt động.
+user: Người thực hiện hành động (User) – Người dùng thực hiện hành động trong hệ thống.
+action: Hành động (String) – Mô tả hành động của người dùng (ví dụ: đăng nhập, gửi bài tập).
+timestamp: Thời gian thực hiện hành động (Date) – Thời gian mà hành động được thực hiện.
 @startuml
-class GiaoDienNguoiDung {
-  - userId: String
-  - vaiTroNguoiDung: String
-  + hienThiBangDieuKhien(): void
-  + nhanDuLieuNguoiDung(): void
+
+' Định nghĩa lớp User (Người dùng)
+class NgườiDùng {
+  +IDNgườiDùng: String
+  +tên: String
+  +email: String
+  +vaiTrò: String
 }
 
-class GiaoDienXacThuc {
-  - tenDangNhap: String
-  - matKhau: String
-  + dangNhap(): boolean
-  + dangXuat(): void
-  + datLaiMatKhau(): void
+' Định nghĩa lớp Course (Khóa học)
+class KhóaHọc {
+  +IDKhóaHọc: String
+  +tênKhóaHọc: String
+  +môTả: String
+  +ngàyBắtĐầu: Date
+  +ngàyKếtThúc: Date
 }
 
-class GiaoDienQuanLyKhoaHoc {
-  - danhSachKhoaHoc: List<String>
-  + xemDanhSachKhoaHoc(): void
-  + ghiDanhKhoaHoc(khoaHocId: String): boolean
-  + xemChiTietKhoaHoc(khoaHocId: String): void
+' Định nghĩa lớp Assignment (Bài tập)
+class BàiTập {
+  +mãBàiTập: String
+  +tiêuĐề: String
+  +môTả: String
+  +hạnNộp: Date
+  +khóaHọc: KhóaHọc
 }
 
-class GiaoDienCongTac {
-  - sessionId: String
-  + batDauBuoiHop(): void
-  + guiTinNhan(tinNhan: String): void
-  + taiTaiLieu(taiLieu: File): void
+' Định nghĩa lớp UserService (Dịch vụ người dùng)
+class DịchVụNgườiDùng {
+  +đăngKý(ngườiDùng: NgườiDùng)
+  +đăngNhập(email: String, mậtKhẩu: String)
+  +cậpNhậtThôngTin(ngườiDùng: NgườiDùng)
 }
 
-class DịchVuNguoiDung {
-  - danhSachNguoiDung: List<String>
-  + layThongTinNguoiDung(nguoiDungId: String): String
-  + capNhatHoSoNguoiDung(nguoiDungId: String, chiTiet: Map): boolean
+' Định nghĩa lớp CourseService (Dịch vụ khóa học)
+class DịchVụKhóaHọc {
+  +tạoKhóaHọc(khóaHọc: KhóaHọc)
+  +cậpNhậtKhóaHọc(khóaHọc: KhóaHọc)
+  +xóaKhóaHọc(mãKhóaHọc: String)
+  +lấyDanhSáchKhóaHọc(): List<KhóaHọc>
 }
 
-class DịchVuKhoaHoc {
-  - danhSachKhoaHoc: List<String>
-  + taoKhoaHoc(chiTiet: Map): boolean
-  + ganKhoaHoc(nguoiDungId: String, khoaHocId: String): boolean
-  + layTaiNguyenKhoaHoc(khoaHocId: String): List<File>
+' Định nghĩa lớp AssignmentService (Dịch vụ bài tập)
+class DịchVụBàiTập {
+  +tạoBàiTập(bàiTập: BàiTập)
+  +cậpNhậtBàiTập(bàiTập: BàiTập)
+  +nộpBàiTập(mãBàiTập: String, ngườiDùng: NgườiDùng)
+  +lấyDanhSáchBàiTập(mãKhóaHọc: String): List<BàiTập>
 }
 
-class DịchVuCongTac {
-  - danhSachBuoiHop: List<String>
-  + lenLichBuoiHop(chiTiet: Map): boolean
-  + thamGiaBuoiHop(sessionId: String): boolean
-  + guiThongBao(nguoiDungId: String, noiDung: String): void
+' Định nghĩa lớp SecurityManager (Quản lý bảo mật)
+class QuảnLýBảoMật {
+  +xácThực(ngườiDùng: NgườiDùng)
+  +phânQuyền(ngườiDùng: NgườiDùng, hànhĐộng: String)
 }
 
-class DịchVuBaoMat {
-  - danhSachVaiTro: List<String>
-  + xacThuc(tenDangNhap: String, matKhau: String): boolean
-  + phanQuyen(nguoiDungId: String, hanhDong: String): boolean
+' Định nghĩa lớp FileManager (Quản lý tệp tin)
+class QuảnLýTệpTin {
+  +tảiLênTệpTin(tệpTin: TệpTin)
+  +tảiXuốngTệpTin(mãTệpTin: String)
 }
 
-class LuuTruNguoiDung {
-  - duLieuNguoiDung: Map
-  + themNguoiDung(chiTiet: Map): boolean
-  + layNguoiDung(nguoiDungId: String): Map
+' Định nghĩa lớp Notification (Thông báo)
+class ThôngBáo {
+  +mãThôngBáo: String
+  +nộiDung: String
+  +ngườiDùng: NgườiDùng
+  +ngàyGửi: Date
 }
 
-class LuuTruKhoaHoc {
-  - duLieuKhoaHoc: Map
-  + themKhoaHoc(chiTiet: Map): boolean
-  + layThongTinKhoaHoc(khoaHocId: String): Map
+' Định nghĩa lớp Configuration (Cấu hình hệ thống)
+class CấuHình {
+  +càiĐặtGiaoDiện: String
+  +dịchVụỨngDụng: String
+  +nhómNgườiDùng: String
 }
 
-class LuuTruBuoiHop {
-  - duLieuBuoiHop: Map
-  + themBuoiHop(chiTiet: Map): boolean
-  + layBuoiHop(sessionId: String): Map
+' Định nghĩa lớp ActivityLog (Nhật ký hoạt động)
+class NhậtKýHoạtĐộng {
+  +mãNhậtKý: String
+  +ngườiDùng: NgườiDùng
+  +hànhĐộng: String
+  +thờiGian: Date
 }
 
-
-GiaoDienNguoiDung --> GiaoDienXacThuc
-GiaoDienNguoiDung --> GiaoDienQuanLyKhoaHoc
-GiaoDienNguoiDung --> GiaoDienCongTac
-GiaoDienXacThuc --> DịchVuBaoMat
-GiaoDienQuanLyKhoaHoc --> DịchVuKhoaHoc
-GiaoDienCongTac --> DịchVuCongTac
-DịchVuNguoiDung --> LuuTruNguoiDung
-DịchVuKhoaHoc --> LuuTruKhoaHoc
-DịchVuCongTac --> LuuTruBuoiHop
-
-DịchVuBaoMat --> LuuTruNguoiDung
+' Mối quan hệ giữa các lớp
+NgườiDùng "1" *-- "0..*" BàiTập : gửi
+KhóaHọc "1" *-- "0..*" BàiTập : chứa
+DịchVụKhóaHọc --|> KhóaHọc
+DịchVụBàiTập --|> BàiTập
+DịchVụNgườiDùng --|> NgườiDùng
+QuảnLýBảoMật --|> NgườiDùng
+QuảnLýTệpTin --|> TệpTin
+ThôngBáo --|> NgườiDùng
+NhậtKýHoạtĐộng --|> NgườiDùng
 
 @enduml
 
