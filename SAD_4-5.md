@@ -26,6 +26,11 @@
     - GET `/api/users/{id}`: Lấy thông tin người dùng.
     - PUT `/api/users/{id}`: Cập nhật thông tin người dùng.
 
+### Sequence Diagram
+![](https://www.planttext.com/plantuml/png/R9B1IiD048Rl-nH3Jmhs1NAGDeqe229Q7s2RBCbYEecRIQJ7qgCNFNaIMagF1H4lxXuyfFWU-mI-Wcp4qgZNdVd_-VwV_JJllOAuedASCXvIfg1p5dyyM_Ca8QhVCEu0B-2g48hbN94CPSwHeDClAH58CkGaCuHBeIePYcRPZThB0IS-uiNtEF3Rmmk_FsZftGDZxYHq3nit3uwjMKkWf7x564WYR1usCum14wlNEUmTZRbC3-2S5yLjfg9zvcHE7lWU35KvWShg5UuwO2ic2tpeRiyDbTLBgAoPxYgedakuJZAhbyWOJmaszxiKbDHpJ21q0WO0ZPc3S8ayE9NMpCP0YaF59P2gNtv3E57JntyaD-N4cYb2OlK2M_wkAmy6Lg_oxHQvqA7ZOY8jn1zKgrS48wiNyX-h4uVgshBcxgU1KRt88BNcKJA14MCzWP7xDLy0003__mC0)
+
+### Class Diagram
+![](https://www.planttext.com/plantuml/png/b5EzJiCm4Dxz5ATEAMegM3EWIXG92H61P5LTZyIohSPsbTY82dNYMJeoiP61WIV94_0AgFbnsXG69ilVVNVtVNVsT_avAopcrgcC91aM1SJS6JbtciCB0G2uGuz48BMjmMk5CekWiBdKlANPMu7k1Winm1SeQMxwN9gZvbIWFEB573SKJGGfMcQbOXwzmdKiq0uYAMeU2rm7x53A15IZemF64JmQa_cKfKCRZ2DuCZ8bMz9wRYHwmoUAcUwWGsU6uX70KJ-u3TE1mlgi2vpqgaE-LK-iWRbCnCBHtErT--8-jmalCQ729MsDv-RsZpbODDIic0vqlrY_u_5VNUz5Qm-QlYl95CsnrHgemJEPG5gd3GLi2UbVsEXY165O7zs0awztqgwZYvvFfsUZPcuH9DN7RasE1n66bxs128ggV8EqAdUQ_qBqcpnXzGxtlBRVIbRbgmAR8o4pfjFzH_a1003__mC0)
 #### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
 
 - **Chức năng**:
