@@ -673,6 +673,11 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
     - POST `/api/courses`: Tạo khóa học mới.
     - GET `/api/courses/{id}`: Lấy thông tin khóa học.
     - POST `/api/courses/{id}/enroll`: Gán học viên/giáo viên vào khóa học.
+   
+    ---
+    ### Class Diagram
+    ![CourseManagementSubsystemClassDiagram](https://www.planttext.com/plantuml/png/j9JFQjmm4CRlVef1bsn24iXLb2LbdPAIFvHialjKcjW2MGgI7BAKFbaFVQIyGbXRMkrg3Q6K-6IFVXfztyp8Rt_-7i12e_TGAsmSTl1a7Inixpp13Hfig2CJODd_z2iVgAigCU0H-LN1y8oVtsiEoeGOkyMEEFZWb6bYg2Old7eEoffYvPvGjEHsComSOI3vDN2G62YeZk9AQAcxHtMjg9yvyhPtWZZSnRT33YzMoSY-MYpHU4pYVYTNAS76LmeKkYRSVbEQVc1e2ryFpzgYdFQ0wXCiN1XdjHwQbapaqCSs7dpPX3khopOsQ2wjU5HaPilGo_LPVa_8c7r9xaLj5JIWlMejNben4mF08xXhMECgOKeceoEOIx9FJ7Tpd6ENDVp3y6XS9NJKc-j-hNpuadRD_wTJfK29fhbQvHh53CVGv-uSWzjgp9xe6asxHD7MGwffxLd0FAkF6wYScItvyUwpCmOd9y2EMBut75YBdaqWMtF9WIaZT2zfGwOnEJsTfryB1zODTV6iAZkvndRFD5AlmVsQhj7TipTmTKv6zfsktW400F__0m00)
+
 
 #### **3. Hệ thống con thông báo (Notification Subsystem)**
 
