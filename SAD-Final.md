@@ -678,6 +678,11 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
     ### Class Diagram
     ![CourseManagementSubsystemClassDiagram](https://www.planttext.com/plantuml/png/j9JFQjmm4CRlVef1bsn24iXLb2LbdPAIFvHialjKcjW2MGgI7BAKFbaFVQIyGbXRMkrg3Q6K-6IFVXfztyp8Rt_-7i12e_TGAsmSTl1a7Inixpp13Hfig2CJODd_z2iVgAigCU0H-LN1y8oVtsiEoeGOkyMEEFZWb6bYg2Old7eEoffYvPvGjEHsComSOI3vDN2G62YeZk9AQAcxHtMjg9yvyhPtWZZSnRT33YzMoSY-MYpHU4pYVYTNAS76LmeKkYRSVbEQVc1e2ryFpzgYdFQ0wXCiN1XdjHwQbapaqCSs7dpPX3khopOsQ2wjU5HaPilGo_LPVa_8c7r9xaLj5JIWlMejNben4mF08xXhMECgOKeceoEOIx9FJ7Tpd6ENDVp3y6XS9NJKc-j-hNpuadRD_wTJfK29fhbQvHh53CVGv-uSWzjgp9xe6asxHD7MGwffxLd0FAkF6wYScItvyUwpCmOd9y2EMBut75YBdaqWMtF9WIaZT2zfGwOnEJsTfryB1zODTV6iAZkvndRFD5AlmVsQhj7TipTmTKv6zfsktW400F__0m00)
 
+    ---
+    ### Sequence Diagram
+    ![CourseManagementSubsystemSequenceDiagram](https://www.planttext.com/plantuml/png/V5AzJiCm4Dxz59-wG2Mgx1qGb02g4AAYHMAzkYQnIC_WEA0ACJ4pyG94R4XCCAL3Xpo9du1NG4b1RVaRBD-TlZ_h_3wTRQMEhCl6YLX3NrrcYgL2g2coDCQPiTXbQv94SmJ2IQgi42ITiVDwQ38UaPsWiTthOf-SkgP90vHYkzVzR8KqxAn9q9XBZHKx719Jf6mDNOm_fqAnqsw2HaYEXfIg6XPsXAXCqTfSKc-ZTzGV8A0B7KYJsLIbmOqUtGQgLXKBPCNxOTN6VfapOZ-zbxZIvJC7aIvpCwznLJuQdCVbAyqXueT0fHfssZZGVdetXhEqZ8VpqmU6yqMkHTX1w_SCWxXyumXEymfvVQT-K3Ti_kqxy4LkCFJ54oEATNr6n37M5vHkk84lgOrwSTLzR1BL_2VKQPbBSEoB5uQBoqUE8QkOlsNvjf83NymSBZDVF2q5wcTIgZGDzaWdcLNDbTsqDkjWArmXjXIFgh_v0G00__y30000)
+    
+
 
 #### **3. Hệ thống con thông báo (Notification Subsystem)**
 
