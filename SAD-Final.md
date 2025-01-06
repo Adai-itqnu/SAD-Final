@@ -687,84 +687,144 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 #### **3. Hệ thống con thông báo (Notification Subsystem)**
 
 - **Chức năng**:
-  - Gửi thông báo sự kiện (qua email, giao diện, ứng dụng di động).
-  - Tích hợp với hệ thống định tuyến tin nhắn (RabbitMQ/Kafka).
+  - Gửi thông báo qua các kênh: email, thông báo trong hệ thống.
+  - Quản lý nội dung thông báo.
+  - Lưu trữ lịch sử gửi thông báo.
+  - Hỗ trợ định tuyến và mở rộng dễ dàng.
 
 - **Thành phần**:
-  - **Notification Scheduler**: Lập lịch gửi thông báo.
-  - **Message Queue**: Hàng đợi tin nhắn xử lý đồng thời.
-  - **Delivery Service**: Gửi thông báo đến người dùng qua email hoặc API.
-
+  - **Notification Formatter**: Xử lý logic gửi thông báo, định tuyến thông báo đến kênh tương ứng.
+  - **Message Queue**: Định dạng nội dung thông báo tùy theo kênh (email, hệ thống).
+  - **Channel Services**:
+        - Email Service: Gửi thông báo qua email.
+        - In-System Notification Service: Gửi thông báo hiển thị trên giao diện.
+  - **Notification Repository**: Lưu trữ lịch sử gửi thông báo vào cơ sở dữ liệu.
+    
 - **Thiết kế chi tiết**:
   - Cơ sở dữ liệu:
     - **Bảng `Notifications`**:
-      - Cột: `NotificationID`, `UserID`, `Message`, `Type`, `CreatedAt`, `Status`.
+      - Cột: `NotificationID`, `Title`, `Content`, `Channel`, `Status`, `CreatedAt`.
+    - **Bảng `Bảng NotificationLogs`**
+      - Cột: `LogID`, `NotificationID`, `UserID`, `Channel`, `SentAt`, `Status`, `ErrorMessage`.
 
   - API:
-    - POST `/api/notifications`: Tạo thông báo mới.
-    - GET `/api/notifications/user/{id}`: Lấy danh sách thông báo của người dùng.
+    - POST `/api/notifications/send`: Gửi thông báo đến người dùng hoặc nhóm người dùng.
+        - Dữ liệu:
+            - title: Tiêu đề thông báo.
+            - content: Nội dung thông báo.
+            - channels: Danh sách kênh gửi.
+            - users: Danh sách ID người nhận.
+    - GET `/api/notifications/history`: Lấy lịch sử gửi thông báo
+ 
+    ---
+    ### Sequence Diagram
+    ![](https://www.planttext.com/plantuml/png/d9I_JkD04CRxVOeHLLn4z2aYZZy5keZYu0KsZl6kS6OZUun4URhY2ggKT5WH3GX1GUKjA1pn7lC4lCB9DhRN8f7WkjdHxvkPRqRskttTIqZ6bCuZ8NqoCVoOpJM2J42MWLZ8cBIl5n89TauCwNFjIz86JuFuKll1JeacTRmThYXq4dtqG4d48Aeeluwtr_eLB4oYoSHN5H-tpxxaQ2vrv1OEoaIVESRJguI2kOlfZvmGrG9WE6ximGX2je_wJ1Kl6EuNcHdCs3vDDDk_QPVqHCCFnptFC0BYF3FVqNziesaz86Kmd4hZmS1N1eZj0uPmKToZyaG33yUrsKqgvFmrXQYuXP-bgDgI9shSqQsNRAzH7NAUONZ2zaOVfXXMT5UjatL7W154Ry_fn8IEpSY4BTmpHJ7dAxXa-nj85RUem2z5kwGuloEOSfvfuVfghlC5QzNK-snlFD6g-XMKPli7pnJRQsTOQksvigyuxFZ_CEaS_LElZTErWk6u_bRBLXK8qo8pi5uMArWltvxPhlnwMp3OEe0dzWASbR-1Vm000F__0m00)
+    ---
+    ### Class Diagram
+    ![](https://www.planttext.com/plantuml/png/h5HBJiCm4Dtd55wsY_O0KLKLyP4g1HOK3c2IgHd9cQayqqeLz6GiE19NG6cIDWvGySlEVc-UttYUy_RoEXErGTUbJt9lHSmDAounjufC2mWRpC4y9QRw1AZemWFgBDAeSfYQ3MEHx99FP1kzaQ9wICr20vAhjt8c1TBUvgCb0Y-foL1qSbulfpKO8CSL0caBtmk46ZCEz8f3QLMXk0OHws0mF6ZlaWH98Inj3gOHxRPwkhq7PW-MZXrUbXRzhsNslIptPckX-Y9E5nyRgItCQR4LXV9lBWgKbRVR_vZqBQnOK3bi3rxi1dweVAZBs0qykvYLiJjf8MFNvispcnTnjAZ3x6E7PAMcobIKnPWfG7gcgRcm2dTOGhEhLjSICo443aqKFywlEgOrknO8VKTG9QFNW2qZeS-UxsWqZQxaIrAJcs-974SRqIETDeUJv_4uUXynqejjfDT9KDz1nYwYLfEkEFjXpO2AwgVs3W00__y30000)
 
-#### **4. Hệ thống con quản lý tài liệu (Document Management Subsystem)**
+#### **4. Hệ thống con quản nhóm học**
 
 - **Chức năng**:
-  - Lưu trữ và phân phối tài liệu học tập.
-  - Hỗ trợ tải lên, chỉnh sửa, xóa tài liệu.
+  - Tạo, chỉnh sửa, và xóa nhóm học tập.
+  - Quản lý thành viên trong nhóm.
+  - Gửi thông báo đến thành viên nhóm.
 
 - **Thành phần**:
-  - **Storage Service**: Lưu trữ tài liệu trên nền tảng đám mây (AWS S3, Azure Blob).
-  - **Document Manager**: Quản lý metadata và quyền truy cập tài liệu.
-  - **File Uploader**: Xử lý tải lên, kiểm tra định dạng.
+  - **Group Service**: Quản lý các nghiệp vụ liên quan đến nhóm học tập.
+  - **Notification Service**: Gửi thông báo đến thành viên nhóm qua nhiều kênh (email, hệ thống).
+  - **Group Repository**: Lưu trữ thông tin nhóm và thành viên trong cơ sở dữ liệu.
+  - **User Service**: Hỗ trợ tìm kiếm thông tin thành viên.
 
 - **Thiết kế chi tiết**:
   - Cơ sở dữ liệu:
-    - **Bảng `Documents`**:
-      - Cột: `DocumentID`, `UploaderID`, `CourseID`, `FileName`, `FilePath`, `UploadedAt`.
+    - **Bảng `Groups`**:
+      - Cột: `GroupID`, `GroupName`, `CreatedBy`, `CreatedAt`.
+    - **Bảng `GroupMembers`**:
+      - Cột: `MemberID`, `GroupID`, `UserID`, `JoinedAt`.
+   - **Bảng `Notifications`**:
+      - Cột: `NotificationID`, `GroupID`, `Message`, `SentAt`.
+
 
   - API:
-    - POST `/api/documents/upload`: Tải tài liệu lên hệ thống.
-    - GET `/api/documents/course/{id}`: Lấy danh sách tài liệu của khóa học.
-
-#### **5. Hệ thống con thanh toán (Payment Subsystem)**
-
-- **Chức năng**:
-  - Xử lý thanh toán học phí.
-  - Quản lý trạng thái giao dịch.
-
-- **Thành phần**:
-  - **Payment Gateway**: Tích hợp với Stripe hoặc PayPal.
-  - **Transaction Manager**: Đảm bảo tính toàn vẹn giao dịch (ACID).
-  - **Invoice Generator**: Tạo hóa đơn và lưu trữ lịch sử thanh toán.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Transactions`**:
-      - Cột: `TransactionID`, `UserID`, `Amount`, `Status`, `CreatedAt`.
-
-  - API:
-    - POST `/api/payments`: Tạo giao dịch thanh toán mới.
-    - GET `/api/payments/user/{id}`: Lấy lịch sử thanh toán của người dùng.
-
-#### **6. Hệ thống con bảo mật (Security Subsystem)**
-
-- **Chức năng**:
-  - Bảo vệ dữ liệu và hệ thống khỏi các cuộc tấn công.
-  - Mã hóa dữ liệu nhạy cảm.
-
-- **Thành phần**:
-  - **Authentication Service**: Quản lý phiên đăng nhập với JWT.
-  - **Encryption Manager**: Mã hóa dữ liệu (AES-256).
-  - **Firewall**: Tường lửa ứng dụng ngăn SQL Injection, XSS, CSRF.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Sessions`**:
-      - Cột: `SessionID`, `UserID`, `Token`, `CreatedAt`, `ExpiresAt`.
-
-  - API:
-    - POST `/api/auth/refresh-token`: Cấp token mới khi hết hạn.
-    - POST `/api/security/verify`: Xác minh tính hợp lệ của token.
+    - POST `/api/groups/create`: Tạo nhóm học tập mới.
+    - POST `/api/groups/{groupId}/send-notification`: Gửi thông báo đến tất cả thành viên nhóm.
+    - GET `/api/groups/{groupId}/add-member`: Thêm thành viên vào nhóm.
+    - DELETE `/api/groups/{groupId}/remove-member/{userId}`: Xóa thành viên khỏi nhóm.
 
 ---
+### Sequence Diagram
+![](https://www.planttext.com/plantuml/png/X5HDQzj04BtlhtZu54DDxpwOX0ICQMjCwq8BXRAMjzOIQ-MkLYu-bXnwBZdqK4fZGYWOGWFjfTg33oh-7_CB-XVAIlwG79bSX3Hwy-QzcTdzPvV7aU7QnC6OSS-46jtHwexiD_dsBFsZHk0HNaP2imdNHdfomfL1xQJNGPiRyO7FQWvnqkkiFykujWxZ2Lu8FPMUo91PP1semZuNap2I9jGvSHRSnSePtT38TzBZHeQgLAJuexBMwMgEYEnt3Cd-n5YI_HHdcMVSy06F16FED1gjWZKqyJfTnF0e-H73-EaYSCyhvMCgquN2DBqAeVpqL_167OsSyixm4U98wCwmpWf4ZLQf3sZYr8zdP2yKZAHaES5iMuYLa9lCNKlGn1D9zYA0qJolZatnEji7DrfRYsYYh-CPffJSA6Vajnh1I9Lpi2siKLcphocvnfJin_kfZ8yDkfaIG_PImL0obmn0sNObyTFLNLoaB7Ku8FjLLZLtottOwu5v3IYvLgCy-Pa81a976Ti3_b-bSm_Af-GsaxYZzfpoIg_T-rk99jfaR-N6y22TX_ZxcPBb0UD5lrLyZLPsMdE_MqPJb2R6aLXFvtpTvWU6LC4u9ll5wQaT8ghLcL13jhUz--Sftw9pIfO6xsFtVjGlQ7tSzocvCMv6Sra-GJjPFTzD43xPIrcaOiT23TsrzXy00F__0m00)
+
+---
+### Class Diagram
+![](https://www.planttext.com/plantuml/png/j5HBQiCm4Dtd528h1v8Sm8GGGjiGQBEesmEerjWCM5AGv81fUx8kUgHUeKYoZULFQHRnpc-UPjwy6Uddwtkd3LMcvCKiBQZMv5M38kypOhzIWpgoc2H6eSWz9YY7405EiGWX9OiUgP0vYcWHauj4raAoD2tsEQiL79Gipus4tFxqDJZmD12IAg06sBwANHSUvC3VGEcOFA8s6ujlksnNBEesjVGHgNoMG39bxCdbYwmr8mG5N5xWRquEnbMz0qEnqDQ0kelGWcSuIur6ggenGzDBBTWv47jUa3n3mHowhuuiwhctg4zuAeC26WE6n6OcA0oeZAP0Jj9WXYarA4K2we8fjC90i6uuug0rpJkUAaZnZ21CQ4ZRyRrTefjMI2fjWD-qnC6w66PTvSqeu_vKVLmC1JNBEgBrwjtjpBjTtXSvElGb-STIFoZ9hplj6gmcplGixZZgtg7LQbi_1p6PeoQqliv4PlEP3xIKpdM9oTnU5KPGrBIa7agGa5D1Sz1Jb31XgIrpR7qs7-lrzFvQuVnS00TX_aemlPwz30En4sUyu1q8PX_tNm000F__0m00)
+
+#### **5. Hệ thống Sao Lưu Dữ Liệu**
+
+- **Chức năng**:
+  - Tự động sao lưu dữ liệu định kỳ để đảm bảo tính toàn vẹn và khả năng khôi phục khi có sự cố.
+  - Quản lý lịch sử sao lưu và trạng thái sao lưu.
+
+- **Thành phần**:
+  - **Backup Scheduler**:
+      - Lên lịch tự động sao lưu dữ liệu định kỳ.
+      - Gửi thông báo khi quá trình sao lưu hoàn tất hoặc thất bại.
+  - **Storage Service**: Lưu trữ bản sao dữ liệu lên cơ sở dữ liệu dự phòng hoặc nền tảng đám mây (AWS S3, Google Cloud Storage).
+  - **Integrity Checker**:
+      - Kiểm tra tính toàn vẹn dữ liệu sau khi sao lưu.
+      - So sánh bản sao với dữ liệu gốc để phát hiện lỗi hoặc hỏng hóc.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `Backups`**:
+      - Cột: `BackupID`, `BackupTime`, `Status`, `FilePath`, `ErrorLog`.
+    - **Bảng `BackupSettings`**:
+      - Cột: `ScheduleID`, `Frequency`, `StorageLocation`.
+
+
+  - API:
+    - POST `/api/backup/run`: Chạy sao lưu dữ liệu ngay lập tức.
+    - GET `/api/backup/history`: Lấy lịch sử các bản sao lưu trước đây.
+    - POST `/api/backup/schedule`: Tạo hoặc cập nhật lịch sao lưu.
+
+--- 
+### Sequence Diagram 
+![](https://www.planttext.com/plantuml/png/P9AnJiD038RtF8N7CY3s3AWK8OHW8dc1QthAdPBS1STNgIDYOEx4IbGXndPWkWmTKlKz_0Iy0eegeLwxsl_t-xVbtsuxRaWWkQgCH4OMuMPMQQCRGa4MereWwKpNmX1CH5QuEbaq9AkWaP15aSj4ubndCcWz698vQbhSAfaLCZIyGxJuB6kB936AWibmUHqCZ672VasmMxB_Tj082-L-uw9ZpS24MM9uscySpBXRGwcvUpyYG-N0deQDuL5pzrO1eGWyTij-TJ0vHSvZfyX-1NFkNg5WloLuSKEX-7S-Mo6uGmofwdzC3jE-jK38lZKvaEfR3QDKzPz6GJO8hbB5_ejWohxL5sUcmQrZk5SQIku-D8mC-wq32kYnDBFX9Vu0003__mC0)
+
+---
+### Class Diagram
+![](https://www.planttext.com/plantuml/png/P5593i8m3Bpd5Jx2WIyW5Y71bRuWIarh4MBak4K8yJ8EF8ale409j1mzdh4zuyVjFejgHPk3Dnvt2ieWLDKA9Gaw9Gx6UHiZBApRDyV2rLWs7WKk1W0WTlMxEng_mC1Ak_EyF50OZStLT1CAPR4L5YWjEVmCi6rVBAX2-0Dc_IOeLa9wNjRezla4bwhS-nMiH5YsU6JHpFPSlU2yBNK_I5Q-boyvgB3_kfKcz6vj2KzhYihIxVtJJIRJON8TwPjaulIpCOEe4cFetlp5aLWzosQ6eKoVVG800F__0m00)
+#### **6. Hệ thống con giam sát và theo dõi tiến độ học tập**
+
+- **Chức năng**:
+  - Hiển thị tiến độ học tập của học sinh.
+  - Lưu trữ và truy xuất thông tin học tập.
+  - Tạo báo cáo học tập theo yêu cầu.
+
+- **Thành phần**:
+  - **Progress Tracker**: Theo dõi tiến độ học tập (bài tập đã hoàn thành, điểm số).
+  - **Report Generator**: Tạo báo cáo tiến độ học tập chi tiết.
+  - **Data Access Service**: Truy cập dữ liệu từ cơ sở dữ liệu.
+
+- **Thiết kế chi tiết**:
+  - Cơ sở dữ liệu:
+    - **Bảng `StudentProgress`**:
+      - Cột: `ProgressID`, `StudentID`, `CourseID`, `CompletedTasks`, `TotalTasks`,`LastUpdated`.
+    - **Bảng `StudentReports`**:
+      - Cột: `ReportID`, `StudentID`, `CourseID`, `GeneratedAt`, `ReportPath`.
+
+  - API:
+    - POST `/api/progress/report/{id}`: Tạo báo cáo tiến độ học tập.
+    - GET `/api/progress/student/{id}`: Truy xuất tiến độ học tập của học sinh.
+
+---
+### Sequence Diagram
+![](https://www.planttext.com/plantuml/png/Z5EnIWD15EptArwP5Fx05H9HqK8an3IMcysIMtAtUxpR2wOK2mknI2MM8OI0A29skqYAou-yB_0Nv8XWBdS9DjlCctapixlVVjbABKURnH7ZmXg4DaUfBKiuMYLKmhM5Dfe1oZIz6gTMnYNeX5j-94G1IXmf8KjeHoO6xPdK4harMC9E4Gsk1oGojbuB1uTRsmAupbyo4EGM6QJaFy0gSaiDFVBF8CWlE8Ja7mMaIeUiJ2xaAWu3wEQlCMXoqmJwvDyXKkJliqrXLc7LEUiYkHcCoD_krAdwMGSDu5oHlzDWG_8F9Sh_gkZbKmEYE7wvgqdzlgqx2A1BRcfsyRUcTnHuGMu-BcKMuOPaVNkTYf7Q-keix2d-ByTgai_05k7sj7wSwK7Hu3pPO3OYfOS5TQRW9YC_qOCcgn4fFTa0BaDoRnQ6-HT4v9yKD3IvPGOY_soobjJzubFz0000__y30000)
+
+---
+### Class Diagram
+![](https://www.planttext.com/plantuml/png/b5HjIWCn4FsVK-Hd1Nk18gK5HGI5Oki1mcRS1hF9EZFR8kB9_E6Hl8BaezqssuBzix0lRzwRcRpTt--V6R52xXehH6KLaLme1CVoKqWfvSR0Te6-HY0Q4NSQ73_eYJIEhoPouusED8Jt3eYVeVN8PtXVUuEij_mWXYORrS3BL7RUhY3aEWUe6CvP9xmtlrMivbKLx04tfeBi_mfShI-pZYL9FwWEYnuDyKquclR-YN-VklQudpvDKMXSopOR1fL3mHEJ5Ir6vV5U82j6xDWaGfNlaE0OQLeB37gbw8rwd3qhMs1M4R-qMZ7eITWmh4m3vSov8Oml5xUpsv2Uyu55BxXGl0xNXCRLSQNQRvtrIey6-Rj3z9XwWjq5M5z7U0JX-GH4geQTte52_ZZ6usaHOr6aEZ06MJj5AW8Xoe3yM-XeB37CUU2KCJvbbdCbPk1q-2ty0G00__y30000)
 # **5. Thiết kế các lớp**
 
 ![](https://www.planttext.com/plantuml/png/b5LDQnf16BxxAuOzjG43kIwX1BKOY9461x77HUtEW3iRrjb2QNi8EPQ2FPJIGy559218IvDBPmWvZFH_lB-WVw7igZipxXh8qUTzzfdd_VIVV3WPSo_YSJ2gz4VUU8pQ_jzV87_GXlh3VFI-Wb0LdQkP1Rk8Cfv5i5em5urvH9cV0Iy3ZuuifEjH7AdV1eRGQhAwPdwRW5XUFdlkehSX7HY1NWnYpgr0FQLc7t1Cr1tpCMKvuMDbOxv9LH9sgLgmp3b2TG9Y7jJKb5fg5p686Mkf-pEYRhrJa9_xHR4Cxb16DbfjaDyl2rAzOR2QK93NGL51g-j2QiokeeaRrJjNTnZ4pC8Q7YCTbVH9xj15BJhcnrQJNcHSNP5N1EGSH-bthjtbB0zCr2B81UqKjywiI9vbBGRvbUwaQO16dYHziqazLWFnawyc86vY5mqyFkGq6Evmpa0yfCqM_HsApgcOo5EgWv1XmyfOFrsIhah2kaf28zSDOYHArI9UJK1UMOrB9uWsudI1Z6N0899mgr5yBv_LDb6tWR6HwKzxXZQGyI8cQih8fbRxgf2rtc0McbyMCzVa6uv0phIrrseHrzUztThhWfYpOaLm129XFYOgeSMYv3gMeoO5CQCNyRkqIKMASGoyi07oKvzePnhJrZeWls0AyegvwCqezFZZpdeWborrZud720vLOfVhD5HJjbOhEbfVhhJLsf76jAEoEQdcevvTmPBHHwW9Sacre6d0Fkl77whc6fL5y-sf65VCENBGGRMAdAF3mmDdnq4fpp6VCI-5ynHAoMlv6ff2DcLdSnwLqrEyNyyOgFqaeyVxIIT3DaZ_Sly3003__mC0)
