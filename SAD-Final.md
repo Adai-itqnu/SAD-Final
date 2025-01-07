@@ -828,3 +828,23 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 # **5. Thiết kế các lớp**
 
 ![](https://www.planttext.com/plantuml/png/b5TBZjiu4Dth5BMp3DWN40QDz3Vfm1qqOWUpPalLCc69zB2e3emW9yjYZZHN6F0ZYwJSSjihiKXMlNfyHPR_-_Fl9z9CwQvjicm6otT_sGn-42fuOeBLsABGiEvUw40Qs-cDMTam8hZkz1Q5vYNJN8ergZTU8lpA0A2HDHSvjemt1Qorug9Um9uH_PIgwYtp0hx-lV7BPQTpBNSeh75Um9labPbxOmslcCQDcOoNt4ZP81FPxnwHoSV4NvgFnxi27eKsm_iGY34yUoXV66r3-tVPO3XUQwOx2Yst2fd6wbeNSCSqsc3xAZ51ZTf0k4FDU4DvDy2P5nQbMTJPVMOKBbX0GfiACFMy73CsW2tb5dgGiXb-OssKpHrIgVZUd5PW1aR4Qs4sn3Wc0p-ZQZaHbu9S_C6Ge0Y6NYFNPOaKichu2Xpc9lB0rugJ_ikjlJ80Pl0T6wivsl8zPQTrk5nUMQOBQAt0ARDgDsPtobj6DiNCScZi0OJ2iq9JDPJDu5PsYl3I6kf9zBijV-ux8EjZfxVS82ktaTh74eNIcbo8N0IE5r2DtIv0HqxdXKSwgDQxAaFG2pZhUIIZUw5aqrZYB0l3E4mefIOfxwHg0QsJjUug53h5U5RY0A2mbMzuti6u795af_mjkEn7Kwayy0QVcOvkeH_xHh8gFi7EsdgFAQRNn4i0BAqMhpcZzu7i0hWecwx2QBwFvcl5ZoWB3cseCaSwLl1oo8uqc6ddq1QKBBbH9lpaUlj-OMKp-2OrV_K5_O6AwkcFjjaZ22q1wnkkuul-LWfjUGXCMoO4DfS-1q0egZ1ihiDW2oZZK0ieuq1EOUJllKUXhqOo2zslPErINSawl3rE9vvKpgaSKUZmTHldVA-KL4z8nEgex1fPHtcBCOIa_2ZoFI7Qw62Dg1862XFyn38dJJ9ArN9ISP-LxFQNtUFzQRYjzWpiPy2l7QSNkTVCpU7yZMttvtNgPU6dUn_pme6mhtbLFM7xWifjcxgsZZVTHpSS1MYZkLsd4qzqzbLo4UTtXBcHGP8Ne7rGiltWpjzZGRapCn89KYbiRJ8k_BnFS10I9s3GEgjydMolindSi7BNxM5zjgFkMVKRBA7kEw3G6JRSgE3zsZprdDXwjKKorAhgX7EOZyxMsTUeDHUrR-xMvHQhBkhb7XJ-qw4e3_45AHMhSILT3OOH2RNtx7tbhwa7So6St3_2-2Wqrehhm-qMovqN8PHcu8dh5-Gl8P7nduPK59v_Szun2GMG1ssVjs1T2gHm8DowC_fuLh9MI0GRnSeT5_K5Kl6zoT65Qy7zAEoutRgf3kHMjli6DLORHZiQdaYfMHERLeoq_xCp5B8suFl8EKNnp6CNzIdbEDQ97celbMy7tVTb-Nn6WIhzZ-OS9PK1jL_gPgV1JrmcwM6uticuB8uXJFzaB2SNzorImuMHZfQP9y5C9Xk2LYtxXA8o__F_1m00__y30000)
+# Kết luận
+
+Báo cáo đã trình bày chi tiết các khía cạnh quan trọng liên quan đến hệ thống iLearn, từ việc thiết kế cấu trúc lớp cho từng chức năng cụ thể đến mối quan hệ giữa các thành phần trong toàn bộ hệ thống. Các vấn đề chính được giải quyết bao gồm:
+  * Quản lý người dùng: Hệ thống cho phép xác thực, phân quyền và quản lý vai trò người dùng chặt chẽ thông qua việc tích hợp các lớp AuthenticationService, User,     Role, và Permissions. Điều này đảm bảo tính bảo mật, phân quyền rõ ràng cho từng đối tượng tham gia hệ thống.
+  * Quản lý khóa học: Module khóa học đã được thiết kế để hỗ trợ tạo, chỉnh sửa, quản lý khóa học và các tài liệu liên quan. Cùng với đó, module đăng ký           
+    (Enrollment) giúp tổ chức mối quan hệ giữa học viên, giảng viên, và khóa học một cách hiệu quả.
+  * Theo dõi tiến độ: Hệ thống cung cấp tính năng ghi nhận và báo cáo tiến độ học tập thông qua StudentProgress và Report, hỗ trợ giáo viên và học viên dễ dàng         theo dõi kết quả học tập và đề xuất cải thiện.
+  * Quản lý nhóm học tập: Khả năng tạo và quản lý nhóm học tập được hỗ trợ để tăng cường sự hợp tác giữa các thành viên trong hệ thống.
+  * Sao lưu và thông báo: Hệ thống đảm bảo an toàn dữ liệu bằng module sao lưu định kỳ, kiểm tra tính toàn vẹn, và quản lý lịch sử thông báo để cung cấp các chức năng hỗ trợ tốt hơn cho người dùng.
+
+## Hướng phát triển
+
+Hệ thống đã giải quyết các vấn đề chính trong phạm vi ban đầu, nhưng vẫn còn không gian để mở rộng và cải tiến:
+* Tích hợp trí tuệ nhân tạo (AI): Ứng dụng AI vào việc gợi ý lộ trình học tập cá nhân hóa cho từng học viên.
+* Hỗ trợ đa nền tảng: Mở rộng hệ thống để tương thích tốt hơn trên các thiết bị di động và các nền tảng khác.
+* Mở rộng tính năng theo dõi: Nâng cao hệ thống phân tích dữ liệu học tập để cung cấp các báo cáo chi tiết hơn về hành vi và tiến độ học viên.
+* Tăng cường bảo mật: Triển khai các cơ chế mã hóa dữ liệu và xác thực hai lớp (2FA) để bảo vệ người dùng và dữ liệu hệ thống.
+* Mở API tích hợp: Cung cấp các API mở để tích hợp với các hệ thống bên thứ ba như các nền tảng học trực tuyến phổ biến hoặc CRM.
+
+Với các hướng mở rộng này, hệ thống hứa hẹn sẽ trở thành một nền tảng quản lý học tập toàn diện, đáp ứng nhu cầu người dùng ngày càng đa dạng.
