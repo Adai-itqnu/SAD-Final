@@ -848,3 +848,10 @@ Hệ thống đã giải quyết các vấn đề chính trong phạm vi ban đ�
 * Mở API tích hợp: Cung cấp các API mở để tích hợp với các hệ thống bên thứ ba như các nền tảng học trực tuyến phổ biến hoặc CRM.
 
 Với các hướng mở rộng này, hệ thống hứa hẹn sẽ trở thành một nền tảng quản lý học tập toàn diện, đáp ứng nhu cầu người dùng ngày càng đa dạng.
+
+---
+# Tài liệu tham khảo
+* https://github.com/opendesigncasestudies/iLearn-IanSommerville?tab=readme-ov-file
+* https://software-engineering-book.com/case-studies/ilearn/
+* https://arxiv.org/pdf/1411.3948
+* https://www.dropbox.com/scl/fi/ffls77bnutw9gmzo73ahq/Architecture-proposal.pdf?rlkey=oye4s9hldeweosuxwigsm2wpy&e=1&dl=0%2F
