@@ -271,7 +271,7 @@ Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh b�
 ### Các tác nhân:
 - Học viên: Người tham gia khóa học, có thể là học sinh, sinh viên, hoặc người học ngoài.
 - Hệ thống iLearn: Hệ thống quản lý các khóa học, kiểm tra tình trạng khóa học và lưu trữ thông tin đăng ký của học viên.
-- Giảng viên (nếu có): Người tạo và quản lý các khóa học.
+- Giảng viên : Người tạo và quản lý các khóa học.
 
 ### Mục tiêu:
 - Cho phép học viên đăng ký tham gia các khóa học và lưu trữ thông tin đăng ký vào cơ sở dữ liệu.
