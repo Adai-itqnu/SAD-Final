@@ -1,0 +1,29 @@
+LoginUI
+RegistrationUI
+CourseManagementUI
+TeacherUI
+ParentUI
+NotificationUI
+GroupManagementUI SubSystem
+IGroupManagementUI Interface
+ServiceUI Subsystem
+IServiceUI Interface
+UserAccount
+Group
+Course
+Lesson
+Notification Subsystem
+INotification Interface
+UserStorage Subsystem
+IUserStorage Interface
+DatabaseService Subsystem
+IDatabaseService Interface
+Login
+EncryptionService Subsystem
+IEncryptionService Interface
+Registration
+Group Subsystem
+IGroupController Interface
+Tracking
+Service Subsystem
+IService Interface
