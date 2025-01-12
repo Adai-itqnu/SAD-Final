@@ -69,26 +69,7 @@
 
 ---
 
-## Luồng sự kiện chính  
 
-1. Người dùng chọn chức năng **"Tham gia nhóm học tập"** trên giao diện.  
-2. Hệ thống hiển thị tùy chọn để nhập mã tham gia hoặc chọn từ danh sách nhóm mời.  
-3. Người dùng nhập mã tham gia hoặc chọn nhóm từ danh sách.  
-4. Hệ thống xác minh mã tham gia hoặc nhóm được chọn:  
-   - Nếu hợp lệ, thêm người dùng vào danh sách thành viên của nhóm.  
-   - Nếu không hợp lệ, hiển thị thông báo lỗi.  
-5. Hệ thống gửi thông báo đến chủ nhóm và các thành viên hiện tại về việc người dùng mới tham gia.  
-6. Hệ thống hiển thị giao diện nhóm học tập cho người dùng.  
-
----
-
-## Luồng sự kiện phụ  
-
-- **Mã tham gia không hợp lệ**: Hiển thị thông báo lỗi và yêu cầu người dùng nhập lại mã.  
-- **Nhóm không tồn tại**: Thông báo lỗi rằng nhóm không tìm thấy.  
-- **Người dùng đã là thành viên**: Hiển thị thông báo rằng người dùng đã là thành viên.  
-- **Kết nối cơ sở dữ liệu thất bại**: Hiển thị thông báo lỗi kết nối và yêu cầu thử lại sau.
----
 ## Squence Diagram
 ![tham gia nhom hoc](https://www.planttext.com/plantuml/png/b9E_Jm8n5CVt_XKlxCQTmP0mu8_88YIkfNVIncjBoeE4sO71E3Wvk4ZOC4owI0U6-e_qB_1VCFKuEF4ESBnt_Rpljz_t-cMNjJvIWmEP4CfG6sZtOqCwUg0YQaRGC7hGEzT2jSy8qmgDJZQrUbf8OaDYXG9NnxEForXsDh-Q6iMDO1I5LbUn6GeM4nB4uEWaBrE5ElVsGK6bnQc4hg2Wk7kJ4AeCq2_clGh90O4FVQfmAhozKu3Sstj0zp42bhPIF50WtVGOiwRexIj4L77ekmdZnLQQQn0oS5kw88qgDBoTYn9iSswDL-4YM9U0XXPGfJANRXfYcVOWyNQyHwB5tKm2SlUYE0o5cocGtZwBFHhNRiBI04EosotAD0kcdQM2tBshBdJSHCFderyi5R2WyQjj0N-Gm-wsnCvGiZ6tSfPMDbYe7B1cNK4rHCBRSLYphJqbX2RuCwNrsjscKhcfGUfbvv1BgNzSBF7sIUIvygVpXufLH6gnYWOo-GO00F__0m00) .
 
