@@ -1,59 +1,30 @@
-# Đăng nhập hệ thống
+## 1. Đăng nhập hệ thống
+### Mô tả: 
+- Người dùng nhập thông tin đăng nhập để xác thực và truy cập vào hệ thống iLearn. Sau khi xác thực thành công, người dùng sẽ được chuyển đến giao diện chính của hệ thống.
 
-## Mô tả
-Người dùng nhập thông tin đăng nhập để xác thực và truy cập vào hệ thống iLearn. Sau khi xác thực thành công, người dùng sẽ được chuyển đến giao diện chính của hệ thống.
+Analysis Classes:
+1. Entity
+   
+  a. UserAccount: Lớp này đại diện cho tài khoản người dùng trong hệ thống. Nó chứa thông tin về tên đăng nhập, mật khẩu đã mã hóa và vai trò của người dùng
+     - username, passwordHash, role
+     - Methods: validateCredentials(), getUserDetails()
 
----
+3. Boundary
+  a. LoginUI: Lớp này đại diện cho giao diện người dùng trong quá trình đăng nhập. Nó hiển thị trang đăng nhập, thu thập thông tin từ người dùng và hiển thị thông báo lỗi khi có sự cố.
+     - Methods: displayLoginPage(), captureLoginInput(), displayErrorMessage(), LoginNotification().
 
-## Các lớp phân tích
+4. Control: Lớp này kiểm soát luồng công việc của quá trình đăng nhập. Nó nhận yêu cầu từ giao diện người dùng, xác thực thông tin đăng nhập, tạo token phiên làm việc và ghi lại các lần đăng nhập.
+  a. LoginController
+     - Methods: handleLoginRequest(), verifyUser(), createSessionToken(), logLoginAttempt()
+  b. EncryptionService
+     - Methods: hashPassword(password), verifyPassword(password, hash)
 
-### 1. Thực thể (Entity)
-- **UserAccount**: Đại diện cho tài khoản người dùng trong hệ thống.
-  - **Thuộc tính**:
-    - `username`
-    - `passwordHash`
-    - `role`
-  - **Phương thức**:
-    - `validateCredentials()`
-    - `getUserDetails()`
-
-### 2. Biên (Boundary)
-- **LoginUI**: Giao diện người dùng trong quá trình đăng nhập.
-  - **Phương thức**:
-    - `displayLoginPage()`
-    - `captureLoginInput()`
-    - `displayErrorMessage()`
-    - `LoginNotification()`
-
-### 3. Điều khiển (Control)
-- **LoginController**: Điều phối luồng công việc đăng nhập.
-  - **Phương thức**:
-    - `handleLoginRequest()`
-    - `verifyUser()`
-    - `createSessionToken()`
-    - `logLoginAttempt()`
-- **EncryptionService**: Cung cấp các phương thức mã hóa mật khẩu.
-  - **Phương thức**:
-    - `hashPassword(password)`
-    - `verifyPassword(password, hash)`
-
----
-
-## Trách nhiệm (Responsibility)
-
-### 1. LoginUI:
-- Hiển thị giao diện đăng nhập và thu thập thông tin từ người dùng.
-- Thông báo lỗi khi đăng nhập thất bại.
-
-### 2. LoginController:
-- Xử lý luồng công việc đăng nhập, bao gồm xác thực thông tin người dùng và tạo phiên làm việc.
-
-### 3. UserAccount:
-- Đại diện cho tài khoản người dùng và lưu trữ thông tin xác thực.
-
-### 4. EncryptionService:
-- Cung cấp các phương thức để mã hóa và kiểm tra mật khẩu an toàn.
-
+Responsibility:
+1. LoginUI: Hiển thị giao diện đăng nhập và thu thập thông tin từ người dùng.
+2. ErrorNotification: Thông báo lỗi cho người dùng khi đăng nhập thất bại.
+3. LoginController: Xử lý luồng công việc đăng nhập, bao gồm xác thực thông tin người dùng và tạo phiên làm việc.
+4. UserAccount: Đại diện cho tài khoản người dùng và lưu trữ thông tin xác thực.
+5. EncryptionService: Cung cấp các phương thức để mã hóa và kiểm tra mật khẩu an toàn.
 ---
 
 ## Biểu đồ Sequence Diagram
@@ -66,3 +37,35 @@ https://www.planttext.com/plantuml/png/X9AzJiCm58LtFyLz0LuW0m8X10Z4GYknfeuLMwJNn
 
 ![Login](
 https://www.planttext.com/plantuml/png/P95DJWCn38NtEKMMiEWD8jIgLA8Ie8hI0vYCEnEHIGRRAHgXdem5H-8AAEbCwSyoxzd-dftVxvyf2v2arYlhWLbl66bcRKn1j34On4b_T_UbjDOwCLA05ikZ0-RFIDK3S5C4YlxWxC2x2WJdX5KU09vlRejJe-JvzoZWYhXN0_OnrYvibjgOjvWge2EpSjnvw8k_WXg7IHOwIOH5NeOkoQ0FvGkYI4_8_DzHIf-ZkAsp82w6A_my1g7eFP8snXuUOum6GkKFk1VyICWZS8VajdtUQan6289hP7OnlCPtpA1i-5YN_fa8jbtkF-8NmLBVvL1hf9spg8r9ulp9xHlWPZMS_0nz8kwLElk-oUHoCNMvw5YoMLvPkVqgc9fYg5Bh_m000F__0m00)
+
+
+
+2. Đăng ký tài khoản
+
+### Mô tả:
+- Người dùng tạo tài khoản mới để tham gia hệ thống iLearn. Người dùng sẽ cung cấp thông tin cá nhân, bao gồm tên, email, mật khẩu, và các thông tin cần thiết khác. Sau khi thông tin được xác thực và lưu trữ trong cơ sở dữ liệu, người dùng sẽ nhận thông báo thành công và có thể tiếp tục sử dụng hệ thống.
+
+Analysis Classes:
+1. Entity:
+   a. UserAccount: Đại diện cho tài khoản người dùng với các thông tin cơ bản như tên, email, mật khẩu được mã hóa và vai trò trong hệ thống.
+     - name, email, passwordHash, role
+     - Methods: validateCredentials(), getUserDetails()
+    b. DatabaseService: Quản lý việc lưu trữ thông tin người dùng vào cơ sở dữ liệu.
+    - Methods: saveUser(user: User), checkUserExists(email: String)
+2. Boundary:
+   a. RegistrationUI:  Đại diện cho giao diện người dùng để đăng ký tài khoản mới.
+   - Methods: displayRegistrationPage(), captureRegistrationInput(), displayErrorMessage(), displaySuccessMessage().
+3. Control:
+   a.RegistrationController: Quản lý luồng xử lý của quá trình đăng ký tài khoản.
+   - Methods: handleRegistrationRequest(), validateUserData(), saveUserAccount(), sendConfirmationEmail().
+
+Responsibility:
+1. RegistrationUI: Giao diện đăng ký tài khoản mới
+2. RegistrationController: Xử lý luồng công việc trong quá trình đăng ký
+3. UserAccount: Đại diện cho tài khoản người dùng và lưu trữ thông tin xác thực và thông tin đăng nhập
+4. DatabaseService: Quản lý việc lưu trữ thông tin người dùng vào cơ sở dữ liệu và kiểm tra sự tồn tại của người dùng
+
+
+- CLass Diagram:
+  ![diagram](https://planttext.com/plantuml/png/V59BRi8m4Dtd55w61HT04QBGI6LHgG9nWAaz3LOTEvqPqwAAatNH8_KALKW0XtwMypxsUsD_VNpEM80arYxJ3fZL2YlBGY0s-CrI5SKyH6-0zjEfUi-KKiPous2VwXwWmdpKaXeQYOGfkVHDb8xjhILHe7jaFjjwOXsrHkOBTSX-IRK8NYWuXwIAeXzEuRRWZHjSlyANYDm7s86p1WGtZ7GB0XtAi3iYDrg7w7ifepUBu9yirSTpoXgiIoCb3bKKfHShvnrvg76YraBML-sChJa56c1-3MJkWBSfJi4DZAV02qA3NYmupaSJDG_18VXMKQ4Ssw20xSXslCHiQpu2unffPpN-Y7egdqT6wip32_GMzNCBbs-MXVD1bqHwoBBiwlECnzC_NcwWJ1wqTIIB_KzsLIoReJUnTjy0003__mC0)
+  
