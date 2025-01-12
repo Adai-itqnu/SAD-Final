@@ -226,30 +226,21 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 
  ### Lớp phân tích
  1. Boundary
+    + Attribute: 
+    + Method: displayForm(), captureInput(), notifyStatus()
  2. Controller
- 3. entity
-![dangkykhoahoc](
-https://www.planttext.com/plantuml/png/R9B1QiCm38RlVWeTsqDUe8JIqJBeORs4FO1gQqNWoC6M0sNioNRO8-qLXfFGfbbzCFZxPKd-vT_ldrrIZ9fRRuon7bE2VSWnqHiANgWbqVSZrFKvP74OhzijV1eObkFKURo-XjYkrXEps6cET9GkwmrAKFwuDegQqsfjlXuBxODe3DvJXBgsus5MfKVF3dMHCc5Fu_KRyfnqHAL88Oj2KDSaoZfxGmLsa8vk0omwm0gKrTC66eqibuavIZPofnnaeGp-7L1f0sMVA8cRiQd52-c15DcdrVeX2m2dbnxPuzbJqSuX-4aXAUuqcXs9BhH8RUXfflM1tTtWKp6UBPQk6uezss92LlOFBYGIDmyTP_Ja6rJLzj_GfhZP5EzHpxKdNHcp8t7b4_u1003__mC0)
+    + Attribute: 
+    + Method: validateInput(), saveCourse(), listCourses(), notifyStatus()
+ 3. Entity
+    + Attribute: courseId: int, title: String, description: String, startDate: Date, endDate: Date
+    + Method: getDetails(), isAvailable(), enrollStudent(), removeStudent()
+
+### Sơ đồ lớp
+![dangkykhoahoc](https://www.planttext.com/plantuml/png/R9B1QiCm38RlVWeTsqDUe8JIqJBeORs4FO1gQqNWoC6M0sNioNRO8-qLXfFGfbbzCFZxPKd-vT_ldrrIZ9fRRuon7bE2VSWnqHiANgWbqVSZrFKvP74OhzijV1eObkFKURo-XjYkrXEps6cET9GkwmrAKFwuDegQqsfjlXuBxODe3DvJXBgsus5MfKVF3dMHCc5Fu_KRyfnqHAL88Oj2KDSaoZfxGmLsa8vk0omwm0gKrTC66eqibuavIZPofnnaeGp-7L1f0sMVA8cRiQd52-c15DcdrVeX2m2dbnxPuzbJqSuX-4aXAUuqcXs9BhH8RUXfflM1tTtWKp6UBPQk6uezss92LlOFBYGIDmyTP_Ja6rJLzj_GfhZP5EzHpxKdNHcp8t7b4_u1003__mC0)
 ## 4. Giáo viên thêm bài học mới
 
 ### Mô tả:
 - Giáo viên tạo và đăng tải bài học mới lên hệ thống iLearn. Giáo viên nhập thông tin bài học, tải lên tài liệu (ví dụ: tài liệu học, video, hình ảnh) và hệ thống sẽ kiểm tra tính hợp lệ của tài liệu trước khi lưu trữ và thông báo thành công.
-
-### Các tác nhân:
-- Giáo viên: Người tạo và quản lý bài học mới cho khóa học.
-- Hệ thống iLearn: Hệ thống quản lý bài học, xử lý các tệp tải lên và lưu trữ thông tin bài học.
-- Hệ thống lưu trữ tệp: Hệ thống lưu trữ các tài liệu, video hoặc tệp liên quan đến bài học.
-
-### Mục tiêu:
-- Cung cấp cho giáo viên một giao diện dễ sử dụng để tạo bài học mới.
-- Kiểm tra tính hợp lệ của tài liệu tải lên (định dạng, kích thước).
-- Lưu trữ và hiển thị bài học mới trên hệ thống cho học viên tham gia.
-- Đảm bảo chỉ những giáo viên có quyền mới có thể thêm bài học mới.
-
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Lưu trữ nội dung bài học trong cơ sở dữ liệu.
-- **Tính bảo mật (Security)**: Kiểm tra quyền hạn của giáo viên để đăng nội dung.
-- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Phát hiện và xử lý lỗi khi tải tệp hoặc lưu trữ thông tin.
 
 ### Luồng sự kiện chính:
 1. Giáo viên chọn "Thêm bài học mới" trong giao diện quản lý khóa học.
@@ -264,6 +255,13 @@ https://www.planttext.com/plantuml/png/R9B1QiCm38RlVWeTsqDUe8JIqJBeORs4FO1gQqNWo
 ### Biểu đồ luồng sự kiện:
 ![Giáo viên thêm bài](https://www.planttext.com/plantuml/png/Z58zQnmn5EprAmRt9lqMnf0hOhAuoSAcSAFLofQmLdjejGSkGuehJ8fKATpSSONXuC15gbMHGi7_u_q2_uMWs_CNd4rKIM_cpSnxw27yEUuyTxvl3EF2jmw5v4991zwXO5NRsvgxAvIoEh5UkdCkP89A9bhhNMkGowvhxHVfPdg4SbPppolUIKmUBxp3XB42XqSeCtnK57vOd1qKAguRL76XaKe23OKRVNR0oiGiCdpI5BvRU4NX6kUjQs0L3Pifl8g_xGMyjY_QdmnEto5X5XVmDAmqJ5nR-8GOJM7UVvZfMhQZUPxXSp9lu1t7tvyKhgr2JSFINcmbBkD6A7XrVqVXHi1Jc4yP0m1kF8hqJ8QhAGo5-HP89q_Yampv_Lt_Ni3dL4-j4noEmRx6fHWNOM5sEWkh89BQQwSoGp6QL77PxYVkNVOkslukQJgv6_5ovBqrQV9tDAmme_3jbQYXy4l_VuOjVRkQgxZk8MYuJNDJsC3Gi1oLfAqPEvQsJj_v7m000F__0m00)
 
+### Lớp phân tích
+ 1. Boundary
+    
+ 2. Controller
+    
+ 3. Entity
+### Sơ đồ lớp
 ## 5. Gửi thông báo đến học viên
 
 ### Mô tả:
