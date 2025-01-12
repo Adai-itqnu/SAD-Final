@@ -1,1 +1,7 @@
+## 5. Gửi thông báo đến học viên
 
+### Mô tả:
+- Quản trị viên hoặc giáo viên gửi thông báo đến học viên trong hệ thống iLearn. Quản trị viên hoặc giáo viên có thể chọn nhóm học viên hoặc cá nhân để gửi thông báo, lựa chọn kênh gửi (email, SMS, hoặc thông báo trong hệ thống), và hệ thống sẽ đảm bảo thông báo được gửi đến đúng đối tượng và lưu trữ lịch sử gửi thông báo.
+
+
+![markdown](https://www.planttext.com/plantuml/png/j5JBQjj05DtFLnoyiY4YUrDC-g1fgHieRZvWB4qrG-GxZcOKoBgBBahN9Oj2HEWc4CWYK90MMGZo7_C5_OKoikME4-Eqb2xlp3b7vzovkZ_hsprZUMwBMSPuR7MEthl2LHS4cxlwCqvKSqcxs5TDgHT53zpWQJ9Jz5xmM8gSJNL12SzFqJlGLdrGCRTAq-7h5lbiUSbYJJRNsJhe-U8m4taBNfPCa5Ns5Br38t9ChCvvAbg0FrZMAr2ejmOEBxQHnZfD5QKjPwpJ3ih2a8X6goWOua2wwceESlMPGb9G2YkR6qenRKgzWrYw-WlXgBaaYPFc79JUNRlwcm9v8h6LL3JgGcC88oW9ZVLdmXYU2eyGPBqk9nAPsK4kOZLNWgmPi4uW6eNzmH1lbAi_pc1ptjcpYkvxGJ_K2WMYDNClE4cOfepb0mNfweivCbT_Og6P3Vt74EExwoAq4pIECPvPxBlwIeN7E2uun8ohZ05OMLf_aSTOOST_Fx8dIeLCftxUgtBnaAL2sihr9qKS2sDsNtALYMJ0H6O4ngx-sY4ssXflqiyUi0Gbsn9Ftax-Ec_7-KzfDrXwDAldR4bAxIyqTVNPbh2l_23xKV4hwS_O_v3Qcrrz_4aKhMsx-swEN7LhSUnt9lfMDkSa4RS6fNRLZzZ3gkyMKrULQi3Odg34BzjV0000__y30000)
