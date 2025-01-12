@@ -651,7 +651,6 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 | LoginController            | Login                             |
 | EncryptionService          | EncryptionService Subsystem<br>IEncryptionService Interface |
 | RegistrationController     | Registration                      |
-
 | GroupController<br> JoinGroup <br> AddLesson          | Group Subsystem<br>IGroupController Interface |
 | ProgressController         | Tracking                         |
 | ServiceController          | Service Subsystem<br>IService Interface |
