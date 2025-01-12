@@ -78,18 +78,7 @@
 
 Hệ thống iLearn được đề xuất sử dụng kiến trúc phân lớp (N-tier), bao gồm các thành phần chính:
 
-### Lớp giao diện người dùng (UI Layer)
-- Cung cấp giao diện dựa trên trình duyệt cho người dùng (học sinh, giáo viên, quản trị viên).
-- Hỗ trợ khả năng tùy chỉnh giao diện theo nhóm người dùng.
-
-### Lớp ứng dụng (Application Layer)
-- Chịu trách nhiệm xử lý logic nghiệp vụ của hệ thống.
-- Quản lý các dịch vụ như xác thực, quản lý khóa học, tài liệu, nhóm học tập và chuyển giao đến lớp phù hợp.
-- Cung cấp API để tích hợp với các dịch vụ bên thứ ba.
-
-### Lớp dữ liệu (Data Layer)
-- Quản lý cơ sở dữ liệu người dùng, tài liệu học tập và nhật ký hoạt động.
-- Đảm bảo an toàn dữ liệu và cung cấp khả năng truy vấn hiệu quả.
+![diagram](https://www.planttext.com/plantuml/png/V5FBJiCm4BpxArQvLzmv8CAxKf6AIa-8m-8kmIArqzqrK11Vne5FuXUGNLfeqd3CU6Oyk-DyVNmUYY9hdDUcGVk85K4n7S88byG5l1c0cwaGmz0hyJrQkatGSHGDS_UAweBFo167vmqFxGf_Dx-cPTFKpcR1bljH5ET914QXSZPxbL4VoEkQFI5-SkkBGsGXk4IF5St9QqRFESIc3PRZOKvJCNRJdA3YLem4t67NEXCdP2CxNMRaAX8lrw4asvhsZc0mEEYC1ljGNA2VrIJ0j8WaAeLfxR9NMSwmKO7fi30xbzqhl6PNLSG2z4G-tMWwh2pjsVhVr7Med2zwzDrgadJrAM3pgVI9Emt-rLRfi5TQjdfEojCN9VPOW_pKbARk4BDyL_79uepKFknDD33131KBivkwCVbz9Jc1byWaq71GoWtzQz1wLCbXpC6I20ai8h5BCnoIdwK_zHi00F__0m00)
 
 ---
 
