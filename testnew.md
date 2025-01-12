@@ -257,11 +257,16 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 
 ### Lớp phân tích
  1. Boundary
-    
+    + Attribute:
+    + Method: displayForm(), captureInput(), notifyStatus()
  2. Controller
-    
+    + Attribute: title: String
+    + Method: validateInput(), saveLesson(), addLesson(), notifyStatus()
  3. Entity
+    + Attribute: fileName: String, format: String, size: int, description :String
+    + Method: validate(): boolean.
 ### Sơ đồ lớp
+![Addlesson](https://www.planttext.com/plantuml/png/P951IiKm48RtEKMMxU9Te8JoK10UY9kd1nYRgGwaapAPFAZYoLnu9AyWRP-jhLbbFYPy_qo-Fx-EIK4qTy4q0LAoJwT7XEOLnJft4pDxaA6kxRknq_6K-W33NPIkAA-iWLwpu8dxh0lagDGEPmNDgIYD-J1NmJsc5FasiaeC0SMvzRw8b3HWPSygn2yJIN31-ManAy3xJRqJZkW2WJpeacoNmJba9Lt7QodW0tHRSHkb0zrceJUiBB5EbSVK2FLAaMtrf-lNNfILVOun8F2OO5tmuL3_suRPWx5hPjOOSqJsur_z0000__y30000)
 ## 5. Gửi thông báo đến học viên
 
 ### Mô tả:
