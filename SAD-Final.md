@@ -629,7 +629,7 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 
 
 # 3. Các phần tử thiết kế trong hệ thống iLearn
-| Lớp Phân Tích      | Phần Tử Thiết Kế        |
+| **Lớp Phân Tích**      | **Phần Tử Thiết Kế**        |
 |---------------|---------------|
 | LoginUI | LoginUI |
 | RegistrationUI    | RegistrationUI  |
@@ -647,12 +647,12 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 |UserStorage | UserStorage Subsystem <br> IUserStorage Interface |
 |DatabaseService | DatabaseService Subsystem <br> IDatabaseService Interface |
 | LoginController            | Login                             |
-| EncryptionService          | Encryption Subsystem<br>IEncryptionService Interface |
+| EncryptionService          | EncryptionService Subsystem<br>IEncryptionService Interface |
 | RegistrationController     | Registration                      |
 | NotificationController     | Notification Subsystem<br>INotificationController Interface |
-| GroupController<br> JoinGroup <br> AddLesson          | Group Subsystem<br>IGroupController Interface <br>IAddLesson <br> IJoinGroup|
+| GroupController<br> JoinGroup <br> AddLesson          | Group Subsystem<br>IGroupController Interface |
 | ProgressController         | Tracking                         |
-| ServiceController          | Service Subsystem<br>IServiceController Interface |
+| ServiceController          | Service Subsystem<br>IService Interface |
 
 
 ---
