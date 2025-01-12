@@ -73,6 +73,9 @@
 ---
 
 # 2. Phân tích ca sử dụng
+## Biều đồ ca sử dụng hệ thống Ilearn 
+![Use-case Model](
+https://www.planttext.com/plantuml/png/T5J1RXCn4BtxAqQvznTGIv1QgWX5JU2A7E_Kjh8xZcnlfGfnuj03GgB7YWizv59H0Mgvn48zRCH_-0lu1RIRR7Qp2TTvyzwCtypuRtWwT9vRdsSfI_7SWpTWjLGU4crHU6s8CIwyiT0xYU6JW0jTt54Fk8C1SajeQ_XO5xUc1O-H2zN0GnN375H-IQg2XzmY-PRs5NWLmpL9U9cMobNMwD9vp1WxG-4voHIX1_jotx7SeU0EeRVylFn04aZ5nVsi4ddTVpimKjDEphJuNIUSeTJEesroMiy5htW6KdEOgkA1WogXcdbgDFLDRXqst9ONu5Lnby6a-AeXY-6Bhdb7IJ90vmpjBqantCmgMaqOvPDC-oFdjAIizAuf5yEzBWizaeH9MNfv7HTFj6gqDPDI1IbvPRm-ru9NuzseZEFYrW2fuY5R4ttRmhv5xl7OcdpMujJ6_9TMsjCbnV2px33Sa0J73QH_VkIGnF0TKXt3LRwnAFVcEHVJDhcrH-0L6aYANngyhjvRYUxhOcovc0wjaHQTQyJwSJ7FuQJuHWfUnF1HA7WJmxpnobveWOwzP-jbXuE3Pyq-TOAR7Uh4JviDwI2ZxaZtC5VciVKvRJVG2JOhrG5sXjx1sxFTeQuzOAkBtMvWExRjCbiTxwQvPfY7I4dvu_m3003__mC0).
 
 ## Mô hình kiến trúc
 
