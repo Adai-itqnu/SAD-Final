@@ -1,4 +1,14 @@
--- Entity:
+### Boundary:
+  + LoginUI
+  + RegistrationUI
+  + CourseManagemenUI
+  + TeacherUI
+  + NotificationUI
+  + GroupCreationUI
+  + GroupjoinUI
+  + ParentUI
+  + ServiceUI
+### Entity:
 + UserAccount
 + DatabaseService
 + Course
