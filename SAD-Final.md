@@ -43,7 +43,11 @@
 #### **Dịch vụ cấu hình (Configuration Services)**
 - Cung cấp khả năng tùy chỉnh môi trường học tập:  
   - Tùy chỉnh giao diện và bộ dịch vụ ứng dụng theo nhu cầu từng nhóm người dùng.  
-  - Xác định cách **chia sẻ dịch vụ** giữa học sinh, giáo viên và phụ huynh.  
+  - Xác định cách **chia sẻ dịch vụ** giữa học sinh, giáo viên và phụ huynh.
+## Biều đồ ca sử dụng hệ thống Ilearn 
+![Use-case Model](
+https://www.planttext.com/plantuml/png/T5HDRzD04BtlhnZbth-06eAKWY8Ksi0LRUpjxYhsRBGVbIh4YKCF5H8zLboeK2uL5Q32nIlKWoF-n_u2_WAo4ySR9xtkc_Vc-SsC__c7GsEfjYxFICPEBLW5Md9X8PMQ9LOg98GcLcde7GN_CO4pMTvY3wY14QCQcMxWeInlL0HF64r42uz5y0iGxXn53O-fPcWZxGkm8lWhvF0ygvJhgfDpOrdULBroeVYAO7Nmbr6dVffB9EIO9POYpnZqO9_UE-8CIwXXq5j-Mdv03YX2SJUlDLuFteuKbxXJCol_D0N7Z4jZcMvheaZ02fe3bnHcehod82geORvG4WVAQSDQRfGNM57UvZ0jlqZ8W_yi6ru_JKVC68NxMsBmr_EQrX1Et3INjc-Cv9XN-RRjWh-JLQDVo65QjLvUXU81LqQZD2iLXkbBPUMfJ6Yz0XkLIIXk5A0ex_CrqSOH3ZIZbWsrSlE8qmJpAAsAfqiA_cVbq5yZ1qCLP7z_E4Y3_mwP3Fx2RI9oLZsboImcHxi6LZ05QVbRWfNrzzQY-rnCD4rcOwsuPiQqOeDGB1mSbTzGmBFWBnC1Ru9Vj5dfCvamGzwJzK70mS6JTfz6su-R7UgyHnlIGNP6keSvhCCZwvFRDj1vR5Ug0-mClOF7izsXhZCWgwlUDh3zjfqogM_tKGjaTVyRx-si3nccrK_hFm000F__0m00).
+
 
 ---
 
@@ -120,9 +124,6 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 
 
 ---
-## Biều đồ ca sử dụng hệ thống Ilearn 
-![Use-case Model](
-https://www.planttext.com/plantuml/png/T5HDRzD04BtlhnZbth-06eAKWY8Ksi0LRUpjxYhsRBGVbIh4YKCF5H8zLboeK2uL5Q32nIlKWoF-n_u2_WAo4ySR9xtkc_Vc-SsC__c7GsEfjYxFICPEBLW5Md9X8PMQ9LOg98GcLcde7GN_CO4pMTvY3wY14QCQcMxWeInlL0HF64r42uz5y0iGxXn53O-fPcWZxGkm8lWhvF0ygvJhgfDpOrdULBroeVYAO7Nmbr6dVffB9EIO9POYpnZqO9_UE-8CIwXXq5j-Mdv03YX2SJUlDLuFteuKbxXJCol_D0N7Z4jZcMvheaZ02fe3bnHcehod82geORvG4WVAQSDQRfGNM57UvZ0jlqZ8W_yi6ru_JKVC68NxMsBmr_EQrX1Et3INjc-Cv9XN-RRjWh-JLQDVo65QjLvUXU81LqQZD2iLXkbBPUMfJ6Yz0XkLIIXk5A0ex_CrqSOH3ZIZbWsrSlE8qmJpAAsAfqiA_cVbq5yZ1qCLP7z_E4Y3_mwP3Fx2RI9oLZsboImcHxi6LZ05QVbRWfNrzzQY-rnCD4rcOwsuPiQqOeDGB1mSbTzGmBFWBnC1Ru9Vj5dfCvamGzwJzK70mS6JTfz6su-R7UgyHnlIGNP6keSvhCCZwvFRDj1vR5Ug0-mClOF7izsXhZCWgwlUDh3zjfqogM_tKGjaTVyRx-si3nccrK_hFm000F__0m00).
 
 ## Kết quả phân tích các ca sử dụng:
 
