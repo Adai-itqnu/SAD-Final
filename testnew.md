@@ -210,21 +210,6 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 ### Mô tả:
 - Học viên đăng ký và tham gia một khóa học trên hệ thống iLearn. Học viên sẽ chọn khóa học mong muốn từ danh sách các khóa học, hệ thống kiểm tra tình trạng khóa học (còn chỗ hay không), và nếu còn chỗ, học viên sẽ được thêm vào danh sách khóa học và nhận thông báo xác nhận.
 
-### Các tác nhân:
-- Học viên: Người tham gia khóa học, có thể là học sinh, sinh viên, hoặc người học ngoài.
-- Hệ thống iLearn: Hệ thống quản lý các khóa học, kiểm tra tình trạng khóa học và lưu trữ thông tin đăng ký của học viên.
-- Giảng viên : Người tạo và quản lý các khóa học.
-
-### Mục tiêu:
-- Cho phép học viên đăng ký tham gia các khóa học và lưu trữ thông tin đăng ký vào cơ sở dữ liệu.
-- Cung cấp các thông báo xác nhận tham gia khóa học qua email hoặc thông báo trong hệ thống.
-- Quản lý số lượng học viên tham gia khóa học một cách hiệu quả.
-  
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Lưu trạng thái đăng ký khóa học của học viên.
-- **Quản lý giao dịch (Transaction Management)**: Đảm bảo quá trình thanh toán đăng ký khóa học hoàn tất hoặc bị hủy hoàn toàn.
-- **Định tuyến tin nhắn (Message Routing)**: Gửi thông báo xác nhận đăng ký qua email hoặc thông báo trong hệ thống.
-
 ### Luồng sự kiện chính:
 1. Học viên chọn khóa học muốn tham gia từ danh sách.
 2. Hệ thống kiểm tra tình trạng khóa học (còn chỗ trống hay không).
@@ -237,8 +222,14 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
   - Gửi thông báo đến email hoặc trong hệ thống khi có chỗ trống.
 
 ### Biểu đồ luồng sự kiện:
- ![dangkykhoahoc](https://www.planttext.com/plantuml/png/Z5FBQXin5DthAmvUjGl_W2abE0Qdf6GJWzSQMR54PpH1SsVQB4kN9GkliYfqCDs41jB7QaJ9GiN_eI_eBnHvd6IccD2TaCuvzvnxh_wukuE2kAKoInaNb5iCZeAx5AYqlpO3y0AdL2wa8NREBMcXpxaX3EOoUML8sZCkv1OrbqaVSPYNjf2dqbPw1sbl-gW99vxmeWLCnlt7avpqcHQST6wwGjlx2yPspZ1y6SkFSAY2kpHue_mFZdWMoChWLWQaU8QbvcmkamXlhOnmh8Fxa84i1_clHe5iQ6gpx6gm5Xnfa_48CrjUe0hDbwZgVvebIFTgiiaOmqwDcGtD6bLmxn_KIVbQxwrn7-M_I8odXEDEMk6_6mWLt5LakPLPCW3u9_JhpMtPzQuU1uxAVywnu4QXyBLGMte__rHf61MQcoU9FPyT3-teHfW6TwFlJII-pl7Ers8dp6HQo5wmtok_XWhD7RNnkfAxBHZXA0upJYMuZptfDBWhlPSo3MwjuNz1nEhTnQ7DxMRRzU2-xMlYJFdhxCaEHAEVyEmjrvJgWfupQHQFE_jYE7nenadRpevbnWwaMSHF-HS00F__0m00)
+ ![dangkykhoahoc](https://www.planttext.com/plantuml/png/Z5ExJYCn5Etz5KUfe9WVI1558HAie2CIjUDuOsjd7EIvCuWIKIAAL5GhxIZQ1krAxACQ2r5ubV_m5-ml82U1p210T9PrNlTS-xzxwEV4BHLPohYWcKNd8BXhWLBxMzC1pt5CnKGQOgVSaXRwb1j2vqIEFncIzZCNSeKwaUCsOczMs5mUIrlg3MHzqqODEV4npzU0uO0njh53qekQw69F1NTjy4NvFnpnB90LmSqDIF4CKyrP12QzZG6wEDJ1NMOWoq7-Xr4W6-hAJ9iYR8DEUXWEqCN85kSeG_qzwlg_PWhIBLSs721fkenig1SeWxjurYVbA_sgo_Cu7s8ndX8E6nCB_zj0gE1k8ilDpPG1M4as8nqjxufcVBNT9Kh_ROO9DmgvhuHQyLzqiAyqZ0hrptUPQ2O5c4npsGhxR-uNKA5-e7NaRTIaz_ISqCL1t59iExYhfz1ZNysG1dUZto3j1xVGyFSGlXAjHq7Bk-MgpU1-lLhEIFdRxDt1Ojgls3dZcbATqowJPi8OwqipYH_a4G00__y30000)
 
+ ### Lớp phân tích
+ 1. Boundary
+ 2. Controller
+ 3. entity
+![dangkykhoahoc](
+https://www.planttext.com/plantuml/png/R9B1QiCm38RlVWeTsqDUe8JIqJBeORs4FO1gQqNWoC6M0sNioNRO8-qLXfFGfbbzCFZxPKd-vT_ldrrIZ9fRRuon7bE2VSWnqHiANgWbqVSZrFKvP74OhzijV1eObkFKURo-XjYkrXEps6cET9GkwmrAKFwuDegQqsfjlXuBxODe3DvJXBgsus5MfKVF3dMHCc5Fu_KRyfnqHAL88Oj2KDSaoZfxGmLsa8vk0omwm0gKrTC66eqibuavIZPofnnaeGp-7L1f0sMVA8cRiQd52-c15DcdrVeX2m2dbnxPuzbJqSuX-4aXAUuqcXs9BhH8RUXfflM1tTtWKp6UBPQk6uezss92LlOFBYGIDmyTP_Ja6rJLzj_GfhZP5EzHpxKdNHcp8t7b4_u1003__mC0)
 ## 4. Giáo viên thêm bài học mới
 
 ### Mô tả:
