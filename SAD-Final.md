@@ -198,21 +198,6 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 ### Mô tả:
 - Học viên đăng ký và tham gia một khóa học trên hệ thống iLearn. Học viên sẽ chọn khóa học mong muốn từ danh sách các khóa học, hệ thống kiểm tra tình trạng khóa học (còn chỗ hay không), và nếu còn chỗ, học viên sẽ được thêm vào danh sách khóa học và nhận thông báo xác nhận.
 
-### Các tác nhân:
-- Học viên: Người tham gia khóa học, có thể là học sinh, sinh viên, hoặc người học ngoài.
-- Hệ thống iLearn: Hệ thống quản lý các khóa học, kiểm tra tình trạng khóa học và lưu trữ thông tin đăng ký của học viên.
-- Giảng viên : Người tạo và quản lý các khóa học.
-
-### Mục tiêu:
-- Cho phép học viên đăng ký tham gia các khóa học và lưu trữ thông tin đăng ký vào cơ sở dữ liệu.
-- Cung cấp các thông báo xác nhận tham gia khóa học qua email hoặc thông báo trong hệ thống.
-- Quản lý số lượng học viên tham gia khóa học một cách hiệu quả.
-  
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Lưu trạng thái đăng ký khóa học của học viên.
-- **Quản lý giao dịch (Transaction Management)**: Đảm bảo quá trình thanh toán đăng ký khóa học hoàn tất hoặc bị hủy hoàn toàn.
-- **Định tuyến tin nhắn (Message Routing)**: Gửi thông báo xác nhận đăng ký qua email hoặc thông báo trong hệ thống.
-
 ### Luồng sự kiện chính:
 1. Học viên chọn khóa học muốn tham gia từ danh sách.
 2. Hệ thống kiểm tra tình trạng khóa học (còn chỗ trống hay không).
@@ -225,28 +210,25 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
   - Gửi thông báo đến email hoặc trong hệ thống khi có chỗ trống.
 
 ### Biểu đồ luồng sự kiện:
- ![dangkykhoahoc](https://www.planttext.com/plantuml/png/Z5FBQXin5DthAmvUjGl_W2abE0Qdf6GJWzSQMR54PpH1SsVQB4kN9GkliYfqCDs41jB7QaJ9GiN_eI_eBnHvd6IccD2TaCuvzvnxh_wukuE2kAKoInaNb5iCZeAx5AYqlpO3y0AdL2wa8NREBMcXpxaX3EOoUML8sZCkv1OrbqaVSPYNjf2dqbPw1sbl-gW99vxmeWLCnlt7avpqcHQST6wwGjlx2yPspZ1y6SkFSAY2kpHue_mFZdWMoChWLWQaU8QbvcmkamXlhOnmh8Fxa84i1_clHe5iQ6gpx6gm5Xnfa_48CrjUe0hDbwZgVvebIFTgiiaOmqwDcGtD6bLmxn_KIVbQxwrn7-M_I8odXEDEMk6_6mWLt5LakPLPCW3u9_JhpMtPzQuU1uxAVywnu4QXyBLGMte__rHf61MQcoU9FPyT3-teHfW6TwFlJII-pl7Ers8dp6HQo5wmtok_XWhD7RNnkfAxBHZXA0upJYMuZptfDBWhlPSo3MwjuNz1nEhTnQ7DxMRRzU2-xMlYJFdhxCaEHAEVyEmjrvJgWfupQHQFE_jYE7nenadRpevbnWwaMSHF-HS00F__0m00)
+ ![dangkykhoahoc](https://www.planttext.com/plantuml/png/Z5ExJYCn5Etz5KUfe9WVI1558HAie2CIjUDuOsjd7EIvCuWIKIAAL5GhxIZQ1krAxACQ2r5ubV_m5-ml82U1p210T9PrNlTS-xzxwEV4BHLPohYWcKNd8BXhWLBxMzC1pt5CnKGQOgVSaXRwb1j2vqIEFncIzZCNSeKwaUCsOczMs5mUIrlg3MHzqqODEV4npzU0uO0njh53qekQw69F1NTjy4NvFnpnB90LmSqDIF4CKyrP12QzZG6wEDJ1NMOWoq7-Xr4W6-hAJ9iYR8DEUXWEqCN85kSeG_qzwlg_PWhIBLSs721fkenig1SeWxjurYVbA_sgo_Cu7s8ndX8E6nCB_zj0gE1k8ilDpPG1M4as8nqjxufcVBNT9Kh_ROO9DmgvhuHQyLzqiAyqZ0hrptUPQ2O5c4npsGhxR-uNKA5-e7NaRTIaz_ISqCL1t59iExYhfz1ZNysG1dUZto3j1xVGyFSGlXAjHq7Bk-MgpU1-lLhEIFdRxDt1Ojgls3dZcbATqowJPi8OwqipYH_a4G00__y30000)
 
+ ### Lớp phân tích
+ 1. Boundary
+    + Attribute: 
+    + Method: displayForm(), captureInput(), notifyStatus()
+ 2. Controller
+    + Attribute: 
+    + Method: validateInput(), saveCourse(), listCourses(), notifyStatus()
+ 3. Entity
+    + Attribute: courseId: int, title: String, description: String, startDate: Date, endDate: Date
+    + Method: getDetails(), isAvailable(), enrollStudent(), removeStudent()
+
+### Sơ đồ lớp
+![dangkykhoahoc](https://www.planttext.com/plantuml/png/T991QiGm34NtFeMNaqKk44AOCaCXYwv23w34QX0uSh3bG2WzMHSzKgzGafYPJDfwOV3xihui-Vlpwnm4lCJ1AgKw2o7eYui-u0imz3WWoskjox9raGtukQhqkzBhCXH62_EpyyCfIwo3KQB7ciSeDyXEw6rk12I6KwO-7eqkZiKxQz7hikosmyvb0ai6v90om8JRzHko56H3uJ_d1HtSTLaY2ydzORdkLgKsXIQMn8J4Og4RySHzOWP3vsaKSdnGrfvUGR3GovueijcnL6AFSaK1ik6KFMJHciBJ16IXjRXehNCsASXBnng91baEciV1JRZJ9aTcQRfIVqmspwjVSqXnky7SevHIPsIp_9SV0000__y30000)
 ## 4. Giáo viên thêm bài học mới
 
 ### Mô tả:
 - Giáo viên tạo và đăng tải bài học mới lên hệ thống iLearn. Giáo viên nhập thông tin bài học, tải lên tài liệu (ví dụ: tài liệu học, video, hình ảnh) và hệ thống sẽ kiểm tra tính hợp lệ của tài liệu trước khi lưu trữ và thông báo thành công.
-
-### Các tác nhân:
-- Giáo viên: Người tạo và quản lý bài học mới cho khóa học.
-- Hệ thống iLearn: Hệ thống quản lý bài học, xử lý các tệp tải lên và lưu trữ thông tin bài học.
-- Hệ thống lưu trữ tệp: Hệ thống lưu trữ các tài liệu, video hoặc tệp liên quan đến bài học.
-
-### Mục tiêu:
-- Cung cấp cho giáo viên một giao diện dễ sử dụng để tạo bài học mới.
-- Kiểm tra tính hợp lệ của tài liệu tải lên (định dạng, kích thước).
-- Lưu trữ và hiển thị bài học mới trên hệ thống cho học viên tham gia.
-- Đảm bảo chỉ những giáo viên có quyền mới có thể thêm bài học mới.
-
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Lưu trữ nội dung bài học trong cơ sở dữ liệu.
-- **Tính bảo mật (Security)**: Kiểm tra quyền hạn của giáo viên để đăng nội dung.
-- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Phát hiện và xử lý lỗi khi tải tệp hoặc lưu trữ thông tin.
 
 ### Luồng sự kiện chính:
 1. Giáo viên chọn "Thêm bài học mới" trong giao diện quản lý khóa học.
@@ -260,6 +242,19 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 
 ### Biểu đồ luồng sự kiện:
 ![Giáo viên thêm bài](https://www.planttext.com/plantuml/png/Z58zQnmn5EprAmRt9lqMnf0hOhAuoSAcSAFLofQmLdjejGSkGuehJ8fKATpSSONXuC15gbMHGi7_u_q2_uMWs_CNd4rKIM_cpSnxw27yEUuyTxvl3EF2jmw5v4991zwXO5NRsvgxAvIoEh5UkdCkP89A9bhhNMkGowvhxHVfPdg4SbPppolUIKmUBxp3XB42XqSeCtnK57vOd1qKAguRL76XaKe23OKRVNR0oiGiCdpI5BvRU4NX6kUjQs0L3Pifl8g_xGMyjY_QdmnEto5X5XVmDAmqJ5nR-8GOJM7UVvZfMhQZUPxXSp9lu1t7tvyKhgr2JSFINcmbBkD6A7XrVqVXHi1Jc4yP0m1kF8hqJ8QhAGo5-HP89q_Yampv_Lt_Ni3dL4-j4noEmRx6fHWNOM5sEWkh89BQQwSoGp6QL77PxYVkNVOkslukQJgv6_5ovBqrQV9tDAmme_3jbQYXy4l_VuOjVRkQgxZk8MYuJNDJsC3Gi1oLfAqPEvQsJj_v7m000F__0m00)
+
+### Lớp phân tích
+ 1. Boundary
+    + Attribute:
+    + Method: displayForm(), captureInput(), notifyStatus()
+ 2. Controller
+    + Attribute: title: String
+    + Method: validateInput(), saveLesson(), addLesson(), notifyStatus()
+ 3. Entity
+    + Attribute: fileName: String, format: String, size: int, description :String
+    + Method: validate(): boolean.
+### Sơ đồ lớp
+![Addlesson](https://www.planttext.com/plantuml/png/P951IiKm48RtEKMMxU9Te8JoK10UY9kd1nYRgGwaapAPFAZYoLnu9AyWRP-jhLbbFYPy_qo-Fx-EIK4qTy4q0LAoJwT7XEOLnJft4pDxaA6kxRknq_6K-W33NPIkAA-iWLwpu8dxh0lagDGEPmNDgIYD-J1NmJsc5FasiaeC0SMvzRw8b3HWPSygn2yJIN31-ManAy3xJRqJZkW2WJpeacoNmJba9Lt7QodW0tHRSHkb0zrceJUiBB5EbSVK2FLAaMtrf-lNNfILVOun8F2OO5tmuL3_suRPWx5hPjOOSqJsur_z0000__y30000)
 
 ## 5. Gửi thông báo đến học viên
 
