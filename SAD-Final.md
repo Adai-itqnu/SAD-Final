@@ -368,39 +368,9 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 ### Biểu đồ luồng sự kiện:
   ![Tham gia nhóm học tập](https://www.planttext.com/plantuml/png/f5M_Qjj06D_r53yyjKDUm4C9hS4jQRKqnkruFYdIOUbaf9F1SuSCfOFfq2aqmfH083JGGgbkyA3WzxWdw2kKqqcs7Ck9IpUX-tv_lk_xdVH7BeyJGMAHXe55g8XY318t1aami4PHoXqIpp1qHw-uSECpGbrzDBHen4KS1UZ7KJfvwyPJPaxwbaC46P74HQz-80bwQu0T2NR6A14iuWsSRLa373t3i8iNlfAVE3gdFWdXCGBk5pz2wBSKGkKtauurrBM3BjuNroceogzIS5yV8ImM4Dl89twaybyKr12RbtVprQsI2ufGoGlsTArkxwCnclqk-ahUCCmsocEcv8SG8YPRCAkl0RqkJjhFCIqk8MALPzo3y8kCLK8a47ZJBFILN4mGA7bUOam3GidFNCyZOnO0z71a_BqhCcgcmJNjJytEU8EaBA_DlLxTfiqoxkcvN30unM_kQRq83k4-aYAZlgwyv3wchBYk9hbVFAYeDO1gWOsmNO-nKXuLMOIxkSgNl5pJLTMaRfTgogPkIMDN2MZfjY8h5fibUrfi8p_iuhHHk-EnZjTBlJdDg-J7BVOcmfZqqrbPMpNXCHB1OKgUrsDoWyJTNklO4DvRp7gKJOU1abzOcPvsKB_gQdUe9N9_KuQuyx2lZZ5lbokfJlV6RzSsVmZtlyxtcQezRyUvJ4MWxztzFBKcc1-ARalLOVwVw_lVpWogv5NrzUbOBdUiyjDmelAb05Topa1N6H8bly9HyZi2dJTzvLJ-JM1qw8mnVeJnqIR-oP9fvTZbZlxd_0K00F__0m00)
   
-## 8. Tự động sao lưu dữ liệu hệ thống
-
-### Mô tả:
-- Quá trình sao lưu dữ liệu hệ thống tự động theo một lịch trình định kỳ. Quá trình sao lưu đảm bảo rằng dữ liệu hệ thống được lưu trữ an toàn vào cơ sở dữ liệu dự phòng hoặc trên đám mây, giúp bảo vệ dữ liệu khỏi mất mát do sự cố. Hệ thống kiểm tra tính toàn vẹn của dữ liệu sau khi sao lưu và ghi nhận kết quả sao lưu vào log hệ thống. Nếu sao lưu thất bại, quản trị viên sẽ nhận được thông báo để xử lý.
-
-### Các tác nhân:
-- Hệ thống iLearn: Hệ thống tự động thực hiện sao lưu và kiểm tra tính toàn vẹn của dữ liệu.
-- Quản trị viên hệ thống: Người nhận thông báo khi có lỗi xảy ra trong quá trình sao lưu.
-- Cơ sở dữ liệu chính và dự phòng: Các hệ thống lưu trữ dữ liệu chính và dữ liệu sao lưu.
-
-### Mục tiêu:
-- Sao lưu định kỳ toàn bộ dữ liệu hệ thống để bảo vệ thông tin khỏi mất mát.
-- Kiểm tra tính toàn vẹn của dữ liệu sau khi sao lưu.
-- Cung cấp thông tin về trạng thái sao lưu cho quản trị viên.
-  
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Sao lưu dữ liệu vào cơ sở dữ liệu dự phòng hoặc hệ thống lưu trữ đám mây.
-- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Báo cáo lỗi nếu quá trình sao lưu thất bại.
-
-### Luồng sự kiện chính:
-1. Hệ thống kích hoạt tiến trình sao lưu dữ liệu định kỳ.
-2. Sao lưu cơ sở dữ liệu chính vào cơ sở dữ liệu dự phòng hoặc đám mây.
-3. Kiểm tra tính toàn vẹn của dữ liệu sau sao lưu.
-4. Ghi nhận trạng thái sao lưu (thành công hoặc thất bại) vào log hệ thống.
-
-### Luồng sự kiện phụ:
-- Nếu sao lưu thất bại, hệ thống sẽ gửi thông báo đến quản trị viên để xử lý.
-
-### Biểu đồ luồng sự kiện:
-![Tự động sao lưu](https://www.planttext.com/plantuml/png/d9EzRjH058LxFyLvWOZU1OgibL8iMgqqUO7PiV6COiyau_6ABH45HQfKbAo941AmuYyDdYB5H7cF-mIy0Xel8GwRI41fNPzplkDx_SDVxZUEMzVMLSA5CnPirRYYPa8MULiL5hm1OuamsbbJ8UFYg3rcXLqgKSHPbkJSyGLl2iojghbTJMwUUOFvP3J_fNN6ydAhdTuQpunJJvNWJXazifyb2MFOUuminJHiX8Gqr7SEJb5_gU5i-AWb6cvGNNzkSNL6_bHB797_bcHHE9zaAGvjkyApblgt3ZdvJwWK-PSj7FaF4DST6lAlxqo431ij4ruvJCQ2aP6JOQqbHBZGPG8WHc5lotfegJ_7alppiUlmra2LJLcA9v5u7BeCQtC_Jax-2uvb-AhBHrTdeQjHXpUhmIyYifl-EqotYIccYloB6ivokDWEpeIrnfBwxng2_3k-0_jRpbYA0wbGcHBEKj_fCePrQZUog9fYJ3Hyh0NrdVfxouSqinG7v3T3weKkiGYTYKkFjt3IKdyUJuByAPOglDTR79qd0zA3H_1dscYFMVIloBzITrP_xqx_eS__T8azzWkTnr_r9m000F__0m00)
 
 ---
-## 9. Phụ huynh theo dõi tiến độ học tập của học sinh
+## 8. Phụ huynh theo dõi tiến độ học tập của học sinh
 
 ### Mô tả:
 - Quá trình phụ huynh theo dõi tiến độ học tập của học sinh qua hệ thống iLearn. Sau khi đăng nhập, phụ huynh có thể xem thông tin về điểm số, bài tập, tình trạng tham gia lớp học và nhận xét từ giáo viên của học sinh. Hệ thống cũng cho phép tải xuống báo cáo học tập hoặc liên hệ với giáo viên nếu cần.
