@@ -22,3 +22,14 @@
 + student
 + teacher
 + parent
+### Controler
++ LoginController
++ EncryptionService
++ RegistrationController
++ JoinGroup
++ AddLesson
++ NotificationController
++ GroupController
++ GroupJoinController
++ ProgressController
++ ServiceController:
