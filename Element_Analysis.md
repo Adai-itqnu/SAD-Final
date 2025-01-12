@@ -3,8 +3,6 @@
 | LoginController            | Login                             |
 | EncryptionService          | Encryption Subsystem<br>IEncryptionService Interface |
 | RegistrationController     | Registration                      |
-|                  | JoinGroup                        |
-|                   | AddLesson                            |
 | NotificationController     | Notification Subsystem<br>INotificationController Interface |
 | GroupController<br> JoinGroup <br> AddLesson          | Group Subsystem<br>IGroupController Interface |
 | GroupJoinController        | JoinGroupController                         |
