@@ -797,42 +797,6 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 
 #### **3. Hệ thống con thông báo (Notification Subsystem)**
 
-- **Chức năng**:
-  - Gửi thông báo qua các kênh: email, thông báo trong hệ thống.
-  - Quản lý nội dung thông báo.
-  - Lưu trữ lịch sử gửi thông báo.
-  - Hỗ trợ định tuyến và mở rộng dễ dàng.
-
-- **Thành phần**:
-  - **Notification Formatter**: Xử lý logic gửi thông báo, định tuyến thông báo đến kênh tương ứng.
-  - **Message Queue**: Định dạng nội dung thông báo tùy theo kênh (email, hệ thống).
-  - **Channel Services**:
-        - Email Service: Gửi thông báo qua email.
-        - In-System Notification Service: Gửi thông báo hiển thị trên giao diện.
-  - **Notification Repository**: Lưu trữ lịch sử gửi thông báo vào cơ sở dữ liệu.
-    
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Notifications`**:
-      - Cột: `NotificationID`, `Title`, `Content`, `Channel`, `Status`, `CreatedAt`.
-    - **Bảng `Bảng NotificationLogs`**
-      - Cột: `LogID`, `NotificationID`, `UserID`, `Channel`, `SentAt`, `Status`, `ErrorMessage`.
-
-  - API:
-    - POST `/api/notifications/send`: Gửi thông báo đến người dùng hoặc nhóm người dùng.
-        - Dữ liệu:
-            - title: Tiêu đề thông báo.
-            - content: Nội dung thông báo.
-            - channels: Danh sách kênh gửi.
-            - users: Danh sách ID người nhận.
-    - GET `/api/notifications/history`: Lấy lịch sử gửi thông báo
- 
-    ---
-    ### Sequence Diagram
-    ![](https://www.planttext.com/plantuml/png/d9I_JkD04CRxVOeHLLn4z2aYZZy5keZYu0KsZl6kS6OZUun4URhY2ggKT5WH3GX1GUKjA1pn7lC4lCB9DhRN8f7WkjdHxvkPRqRskttTIqZ6bCuZ8NqoCVoOpJM2J42MWLZ8cBIl5n89TauCwNFjIz86JuFuKll1JeacTRmThYXq4dtqG4d48Aeeluwtr_eLB4oYoSHN5H-tpxxaQ2vrv1OEoaIVESRJguI2kOlfZvmGrG9WE6ximGX2je_wJ1Kl6EuNcHdCs3vDDDk_QPVqHCCFnptFC0BYF3FVqNziesaz86Kmd4hZmS1N1eZj0uPmKToZyaG33yUrsKqgvFmrXQYuXP-bgDgI9shSqQsNRAzH7NAUONZ2zaOVfXXMT5UjatL7W154Ry_fn8IEpSY4BTmpHJ7dAxXa-nj85RUem2z5kwGuloEOSfvfuVfghlC5QzNK-snlFD6g-XMKPli7pnJRQsTOQksvigyuxFZ_CEaS_LElZTErWk6u_bRBLXK8qo8pi5uMArWltvxPhlnwMp3OEe0dzWASbR-1Vm000F__0m00)
-    ---
-    ### Class Diagram
-    ![](https://www.planttext.com/plantuml/png/h5HBJiCm4Dtd55wsY_O0KLKLyP4g1HOK3c2IgHd9cQayqqeLz6GiE19NG6cIDWvGySlEVc-UttYUy_RoEXErGTUbJt9lHSmDAounjufC2mWRpC4y9QRw1AZemWFgBDAeSfYQ3MEHx99FP1kzaQ9wICr20vAhjt8c1TBUvgCb0Y-foL1qSbulfpKO8CSL0caBtmk46ZCEz8f3QLMXk0OHws0mF6ZlaWH98Inj3gOHxRPwkhq7PW-MZXrUbXRzhsNslIptPckX-Y9E5nyRgItCQR4LXV9lBWgKbRVR_vZqBQnOK3bi3rxi1dweVAZBs0qykvYLiJjf8MFNvispcnTnjAZ3x6E7PAMcobIKnPWfG7gcgRcm2dTOGhEhLjSICo443aqKFywlEgOrknO8VKTG9QFNW2qZeS-UxsWqZQxaIrAJcs-974SRqIETDeUJv_4uUXynqejjfDT9KDz1nYwYLfEkEFjXpO2AwgVs3W00__y30000)
 
 #### **4. Hệ thống con quản nhóm học**
 
