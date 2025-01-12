@@ -8,5 +8,5 @@
 | NotificationController     | Notification Subsystem<br>INotificationController Interface |
 | GroupController            | Group Subsystem<br>IGroupController Interface |
 | GroupJoinController        | JoinGroupController                         |
-| ProgressController         | Progress                         |
+| ProgressController         | Tracking                         |
 | ServiceController          | Service Subsystem<br>IServiceController Interface |
