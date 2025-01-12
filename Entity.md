@@ -12,7 +12,7 @@
 + UserAccount
 + DatabaseService
 + Course
-+Lesson
++ Lesson
 + UserStorage
 + NotificationLogStorage
 + NotificationStorage
