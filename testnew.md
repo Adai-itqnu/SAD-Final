@@ -236,7 +236,7 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
     + Method: getDetails(), isAvailable(), enrollStudent(), removeStudent()
 
 ### Sơ đồ lớp
-![dangkykhoahoc](https://www.planttext.com/plantuml/png/R9B1QiCm38RlVWeTsqDUe8JIqJBeORs4FO1gQqNWoC6M0sNioNRO8-qLXfFGfbbzCFZxPKd-vT_ldrrIZ9fRRuon7bE2VSWnqHiANgWbqVSZrFKvP74OhzijV1eObkFKURo-XjYkrXEps6cET9GkwmrAKFwuDegQqsfjlXuBxODe3DvJXBgsus5MfKVF3dMHCc5Fu_KRyfnqHAL88Oj2KDSaoZfxGmLsa8vk0omwm0gKrTC66eqibuavIZPofnnaeGp-7L1f0sMVA8cRiQd52-c15DcdrVeX2m2dbnxPuzbJqSuX-4aXAUuqcXs9BhH8RUXfflM1tTtWKp6UBPQk6uezss92LlOFBYGIDmyTP_Ja6rJLzj_GfhZP5EzHpxKdNHcp8t7b4_u1003__mC0)
+![dangkykhoahoc](https://www.planttext.com/plantuml/png/T991QiGm34NtFeMNaqKk44AOCaCXYwv23w34QX0uSh3bG2WzMHSzKgzGafYPJDfwOV3xihui-Vlpwnm4lCJ1AgKw2o7eYui-u0imz3WWoskjox9raGtukQhqkzBhCXH62_EpyyCfIwo3KQB7ciSeDyXEw6rk12I6KwO-7eqkZiKxQz7hikosmyvb0ai6v90om8JRzHko56H3uJ_d1HtSTLaY2ydzORdkLgKsXIQMn8J4Og4RySHzOWP3vsaKSdnGrfvUGR3GovueijcnL6AFSaK1ik6KFMJHciBJ16IXjRXehNCsASXBnng91baEciV1JRZJ9aTcQRfIVqmspwjVSqXnky7SevHIPsIp_9SV0000__y30000)
 ## 4. Giáo viên thêm bài học mới
 
 ### Mô tả:
