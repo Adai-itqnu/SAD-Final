@@ -58,26 +58,6 @@
 
 ---
 
-## Luồng sự kiện chính  
-
-1. Phụ huynh chọn chức năng **"Theo dõi tiến độ học tập"** trên giao diện.  
-2. Hệ thống hiển thị danh sách các con của phụ huynh.  
-3. Phụ huynh chọn học sinh muốn theo dõi.  
-4. Hệ thống hiển thị:  
-   - Điểm số của học sinh theo môn học.  
-   - Danh sách bài tập đã nộp/chưa nộp.  
-   - Tình trạng tham gia lớp học (đi học đầy đủ, đi trễ, nghỉ học).  
-   - Nhận xét từ giáo viên.  
-5. Phụ huynh tải xuống báo cáo hoặc liên hệ giáo viên nếu cần.  
-
----
-
-## Luồng sự kiện phụ  
-
-- **Không có dữ liệu**: Hiển thị thông báo và hướng dẫn liên hệ giáo viên.  
-- **Lỗi kết nối**: Hiển thị "Không thể kết nối đến máy chủ. Vui lòng thử lại sau."  
-
----
 
 ## Biểu đồ Sequence Diagram  
 
