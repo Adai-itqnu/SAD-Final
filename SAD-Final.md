@@ -216,11 +216,11 @@ Người dùng tạo tài khoản mới để tham gia hệ thống iLearn. Ngư
 ![dangkykhoahoc](https://www.planttext.com/plantuml/png/Z5ExJYCn5Etz5KUfe9WVI1558HAie2CIjUDuOsjd7EIvCuWIKIAAL5GhxIZQ1krAxACQ2r5ubV_m5-ml82U1p210T9PrNlTS-xzxwEV4BHLPohYWcKNd8BXhWLBxMzC1pt5CnKGQOgVSaXRwb1j2vqIEFncIzZCNSeKwaUCsOczMs5mUIrlg3MHzqqODEV4npzU0uO0njh53qekQw69F1NTjy4NvFnpnB90LmSqDIF4CKyrP12QzZG6wEDJ1NMOWoq7-Xr4W6-hAJ9iYR8DEUXWEqCN85kSeG_qzwlg_PWhIBLSs721fkenig1SeWxjurYVbA_sgo_Cu7s8ndX8E6nCB_zj0gE1k8ilDpPG1M4as8nqjxufcVBNT9Kh_ROO9DmgvhuHQyLzqiAyqZ0hrptUPQ2O5c4npsGhxR-uNKA5-e7NaRTIaz_ISqCL1t59iExYhfz1ZNysG1dUZto3j1xVGyFSGlXAjHq7Bk-MgpU1-lLhEIFdRxDt1Ojgls3dZcbATqowJPi8OwqipYH_a4G00__y30000)
 
 ### Lớp phân tích
-- **Boundary**
+- **Boundary:CourseManagementUI**
   - **Method**: displayForm(), captureInput(), notifyStatus()
-- **Controller**
+- **Controller:CourseController**
   - **Method**: validateInput(), saveCourse(), listCourses(), notifyStatus()
-- **Entity**
+- **Entity:Course**
   - **Attributes**: courseId: int, title: String, description: String, startDate: Date, endDate: Date
   - **Methods**: getDetails(), isAvailable(), enrollStudent(), removeStudent()
 
@@ -246,12 +246,12 @@ Người dùng tạo tài khoản mới để tham gia hệ thống iLearn. Ngư
 ![Giáo viên thêm bài](https://www.planttext.com/plantuml/png/Z58zQnmn5EprAmRt9lqMnf0hOhAuoSAcSAFLofQmLdjejGSkGuehJ8fKATpSSONXuC15gbMHGi7_u_q2_uMWs_CNd4rKIM_cpSnxw27yEUuyTxvl3EF2jmw5v4991zwXO5NRsvgxAvIoEh5UkdCkP89A9bhhNMkGowvhxHVfPdg4SbPppolUIKmUBxp3XB42XqSeCtnK57vOd1qKAguRL76XaKe23OKRVNR0oiGiCdpI5BvRU4NX6kUjQs0L3Pifl8g_xGMyjY_QdmnEto5X5XVmDAmqJ5nR-8GOJM7UVvZfMhQZUPxXSp9lu1t7tvyKhgr2JSFINcmbBkD6A7XrVqVXHi1Jc4yP0m1kF8hqJ8QhAGo5-HP89q_Yampv_Lt_Ni3dL4-j4noEmRx6fHWNOM5sEWkh89BQQwSoGp6QL77PxYVkNVOkslukQJgv6_5ovBqrQV9tDAmme_3jbQYXy4l_VuOjVRkQgxZk8MYuJNDJsC3Gi1oLfAqPEvQsJj_v7m000F__0m00)
 
 ### Lớp phân tích
-- **Boundary**
+- **Boundary:TeacherUI**
   - **Method**: displayForm(), captureInput(), notifyStatus()
-- **Controller**
+- **Controller:LessonController**
   - **Attributes**: title: String
   - **Methods**: validateInput(), saveLesson(), addLesson(), notifyStatus()
-- **Entity**
+- **Entity:Lesson**
   - **Attributes**: fileName: String, format: String, size: int, description: String
   - **Methods**: validate(): boolean
 
