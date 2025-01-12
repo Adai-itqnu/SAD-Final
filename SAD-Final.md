@@ -95,26 +95,20 @@ Hệ thống iLearn được đề xuất sử dụng kiến trúc phân lớp (
 
 ---
 
-### 3. Cơ chế quản lý giao dịch (Transaction Management)
-Đảm bảo tính toàn vẹn và an toàn của giao dịch trong hệ thống.
-
-
----
-
-### 4. Kiểm soát và đồng bộ hóa tiến trình (Process Control and Synchronization)
+### 3. Kiểm soát và đồng bộ hóa tiến trình (Process Control and Synchronization)
 Đảm bảo các tác vụ được thực hiện theo thứ tự và tránh xung đột.
 
 
 
 ---
 
-### 5. Bảo mật (Security)
+### 4. Bảo mật (Security)
 Bảo vệ dữ liệu người dùng và hệ thống khỏi các cuộc tấn công.
 
 
 ---
 
-### 6. Giao diện cũ (Legacy Interface)
+### 5. Giao diện cũ (Legacy Interface)
 Đảm bảo giao diện đơn giản, quen thuộc với người dùng đã sử dụng hệ thống trước đó.
 
 
