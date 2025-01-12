@@ -61,6 +61,93 @@
 
 ---
 
+# Kết quả phân tích của Use Case 6: Tạo nhóm học tập
+
+## Lớp phân tích
+
+### **Entity (Thực thể)**
+
+#### a. **Group (Nhóm)**  
+- **Mô tả**: Đại diện cho một nhóm học tập được tạo trên hệ thống.  
+- **Thuộc tính**:  
+  - `groupID`  
+  - `groupName`  
+  - `creatorID`  
+  - `memberList`  
+  - `creationDate`  
+- **Phương thức**:  
+  - `getGroupDetails()`  
+  - `addMember(memberID)`  
+  - `removeMember(memberID)`  
+
+#### b. **Member (Thành viên)**  
+- **Mô tả**: Đại diện cho người dùng trong nhóm học tập.  
+- **Thuộc tính**:  
+  - `memberID`  
+  - `email`  
+  - `name`  
+  - `status`  
+- **Phương thức**:  
+  - `getMemberDetails()`  
+  - `updateStatus(newStatus)`  
+
+---
+
+### **Boundary (Ranh giới)**
+
+#### a. **GroupCreationUI**  
+- **Mô tả**: Cung cấp giao diện để giáo viên hoặc học sinh tạo nhóm học tập.  
+- **Thuộc tính**: *(Chưa được liệt kê)*  
+- **Phương thức**:  
+  - `displayGroupForm()`  
+  - `captureGroupDetails()`  
+  - `showNotification()`  
+
+---
+
+### **Control (Điều khiển)**
+
+#### a. **GroupController**  
+- **Mô tả**: Điều phối các tương tác giữa giáo viên, hệ thống iLearn, cơ sở dữ liệu và các dịch vụ thông báo.  
+- **Thuộc tính**: *(Chưa được liệt kê)*  
+- **Phương thức**:  
+  - `createGroup(groupDetails)`  
+  - `inviteMembers(memberList)`  
+  - `handleErrors(errorType)`  
+
+---
+
+### **Utility (Tiện ích)**
+
+#### a. **NotificationService**  
+- **Mô tả**: Gửi thông báo đến các thành viên được mời tham gia nhóm học tập.  
+- **Thuộc tính**:  
+  - `notifications`  
+  - `recipientList`  
+- **Phương thức**:  
+  - `sendNotification(details)`  
+  - `trackNotificationStatus()`  
+
+---
+
+## Trách nhiệm
+
+### **GroupCreationUI**  
+- Xử lý tương tác của người dùng để nhập thông tin và tạo nhóm học tập.  
+
+### **GroupController**  
+- Điều phối các quy trình tạo nhóm, mời thành viên, và xử lý lỗi.  
+
+### **Group**  
+- Đại diện và lưu trữ thông tin về nhóm học tập.  
+
+### **Member**  
+- Đại diện và lưu trữ thông tin về các thành viên trong nhóm.  
+
+### **NotificationService**  
+- Gửi thông báo đến các thành viên được mời tham gia nhóm học tập.  
+
+
 ![markdown](https://www.planttext.com/plantuml/png/h9D1Rjim44NtFCM7LkqY5_0Y26m5HXVnHie1nkJO9a2H1ZboexDbqIFr2WKfAX5Gjvjs8q2SDt_-V4e_ttyy9Q4eu-0KQGaHFPE-S0GbzFMeaz6mbtpKgMCOlQ4ueTd7C5vtaKbiyA_VcbpVxrwL3bvYS0imlpcE5L3inSg4fYMX8oKkv-rsfNm8OazM5-6Euytg6JfqIlLuUCnZi477ZhMWAHuOPLoZSktX4JqsQ6swEffmpXMSGXpMxSzUEDQQOI7hqjAyts63Abk0B-NPpjHNjTzbgjrc4tIh32J0r9rKk_tGARwGwCO6QTIQKpgDparLvT2LLRo1zJSh3B_QFcNHWOSZnwGENUOpNWAQGCSmIXrUcajFvVfFhWgdV8bt7CnnB65L00EdH6TUvzbTmlUF-jgcKkG4pp66Y0jvuwm_Bujx6XWsmOnNbt5M078od_UOPRaqBqDdvBUBdA5c9KmkCfa9_6QJf4QnD_VDl9GGmGDPbxtZb3-tV_ToN_SlHfRF7Zfupph7XnDPn__1p9-rPqDFx4t-rNy1003__mC0)
 
 ![markdown](https://www.planttext.com/plantuml/png/T5D1JiCm4Bpd5JcQGtw0K2K2g1BqKdZ0DbvI2yUErfjK5U9b77WINq2sapHEGow9PtTdTcVZt--VZMCWxXgTPPK6v_8dibsRVsQvV_PCojHvxR5jUOtjeC44hGY1BOsvpyhnxGis1wIxl0bl3yLW2OonG5dZ3n6kaKCF9J8exSHDX47AI2GYpxOS0eIDxV4gzZKE52EBYSQy1CG6b4uGivpFCN3dfaOZzwBJhfN0k0-Pmk0fViqw2kFT3uE_RSVMf7AjXdE8FbfgHhuAMku8rqnnHtlQMLRlgWfauah56YQhzSM0O7Wa4_MCSc1KfbSykEd4PML3-0X6QdmWikG4-jVhkSMPQWaC1t0uoZde_nSZP5AO94nhzON9KgVIIMi--HwfLzL55erCZ969C1DK7qbvt5OWZpUWA8O_9vvdHXR5tNA5gpcZ5Ql1bTwpoRj98OM6VjR6deMp3HhfB_GV0000__y30000)
