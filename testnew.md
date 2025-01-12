@@ -712,3 +712,6 @@ Với các hướng mở rộng này, hệ thống hứa hẹn sẽ trở thành
 * https://arxiv.org/pdf/1411.3948
 * https://www.dropbox.com/scl/fi/ffls77bnutw9gmzo73ahq/Architecture-proposal.pdf?rlkey=oye4s9hldeweosuxwigsm2wpy&e=1&dl=0%2F
 
+
+
+
