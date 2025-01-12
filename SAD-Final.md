@@ -127,290 +127,506 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 
 ## Kết quả phân tích các ca sử dụng:
 
-## 1. Đăng nhập hệ thống
-### Mô tả: 
-- Người dùng nhập thông tin đăng nhập để xác thực và truy cập vào hệ thống iLearn. Sau khi xác thực thành công, người dùng sẽ được chuyển đến giao diện chính của hệ thống.
-  
-### Các tác nhân:
-- Người dùng (học sinh, giáo viên, phụ huynh, quản trị viên): Người cần đăng nhập để truy cập vào hệ thống.
-- Hệ thống iLearn: Hệ thống kiểm tra thông tin đăng nhập, xác thực người dùng và cấp quyền truy cập.
+# 1. Đăng nhập hệ thống
 
-### Mục tiêu:
-- Cho phép người dùng truy cập vào hệ thống iLearn một cách bảo mật.
-- Xác thực thông tin đăng nhập của người dùng và cung cấp quyền truy cập tương ứng.
-  
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Lưu thông tin người dùng và quyền truy cập trong cơ sở dữ liệu.
-- **Bảo mật (Security)**: Xác thực thông tin đăng nhập và bảo mật thông tin tài khoản.
-- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Xử lý lỗi đăng nhập (ví dụ: sai mật khẩu, tài khoản không tồn tại).
-  
+## Mô tả:
+Người dùng nhập thông tin đăng nhập để xác thực và truy cập vào hệ thống iLearn. Sau khi xác thực thành công, người dùng sẽ được chuyển đến giao diện chính của hệ thống.
 
-### Luồng sự kiện chính:
-1. Người dùng nhập tên đăng nhập và mật khẩu.
-2. Hệ thống xác thực thông tin với cơ sở dữ liệu (kiểm tra tài khoản và mật khẩu).
-3. Nếu thông tin hợp lệ:
-   - Hệ thống tạo JWT token và lưu trữ trên cookies của người dùng.
-   - Chuyển người dùng đến giao diện chính.
-4. Nếu thông tin không hợp lệ:
-   - Hiển thị thông báo lỗi.
-   - Ghi log lỗi vào hệ thống để theo dõi.
+### Analysis Classes:
+#### 1. Entity:
+- **UserAccount**: Lớp này đại diện cho tài khoản người dùng trong hệ thống. Nó chứa thông tin về tên đăng nhập, mật khẩu đã mã hóa và vai trò của người dùng.
+  - **Attributes**: username, passwordHash, role
+  - **Methods**: validateCredentials(), getUserDetails()
 
-### Luồng sự kiện phụ:
-- Nếu kết nối đến cơ sở dữ liệu bị gián đoạn, hệ thống sẽ hiển thị thông báo lỗi kết nối và yêu cầu thử lại sau.
-  
-### Biểu đồ luồng sự kiện:
- ![Login](https://www.planttext.com/plantuml/png/b9C_YXin6CLxdU9TO2_W8gp1iFb7cXqpjQnHHc9cfMH6Cd4PjaYHogH86GzB25amII0Ga0eNCdiFdI1N29Azu0dP8iqWzBtlq-yzQNxxtNblQ6ViLKieCxh3lESTQ8yvMMYhAjgjKFB54sLuzv8odaebOLgPJhUOMYCkURUKXyAKLDJG1UqvPlSBscD6o1ndZr1Ey494jtq54suLzklzjQgX3blBiC5LT5k3HaJtrP8ojKmdk8X-Ax4AjnOikYyMRyB0O4JqFnZ8DAbc4nITNM4PtMS58y9FLSD81HCs4etGqTqea1dE3YEBBheRBAD_-x2OjWR5wOw9_aFwka5csFqwE5MFcG4W4vKJ5D4D6a_B0aOtNEKUamzkejiPlBPfRKJOA06MA79xjZsVuFdTTvkxbs6ZmRHk9E_p42RiAlhh561qEuLQKerAHlzEWOcmLOBmjkTZ-kReyyH4glnY8mFegHoRoC37a1PXq6YZ_oX7f8zbfZ4Y-lSFIEzlwK98jBe-L8xExWRqqNz25VqtjCc69LnL9D_0inoLYduj_wd48XrQop2aE7HqWnhp_urp33zF_0yNEVYJDvXaMxGfnmnxpbML_g4_0000__y30000)
+#### 2. Boundary:
+- **LoginUI**: Lớp này đại diện cho giao diện người dùng trong quá trình đăng nhập. Nó hiển thị trang đăng nhập, thu thập thông tin từ người dùng và hiển thị thông báo lỗi khi có sự cố.
+  - **Methods**: displayLoginPage(), captureLoginInput(), displayErrorMessage(), LoginNotification()
+
+#### 3. Control:
+- **LoginController**: Lớp này kiểm soát luồng công việc của quá trình đăng nhập. Nó nhận yêu cầu từ giao diện người dùng, xác thực thông tin đăng nhập, tạo token phiên làm việc và ghi lại các lần đăng nhập.
+  - **Methods**: handleLoginRequest(), verifyUser(), createSessionToken(), logLoginAttempt()
+- **EncryptionService**: Cung cấp các phương thức để mã hóa và kiểm tra mật khẩu an toàn.
+  - **Methods**: hashPassword(password), verifyPassword(password, hash)
+
+### Responsibility:
+1. **LoginUI**: Hiển thị giao diện đăng nhập và thu thập thông tin từ người dùng.
+2. **ErrorNotification**: Thông báo lỗi cho người dùng khi đăng nhập thất bại.
+3. **LoginController**: Xử lý luồng công việc đăng nhập, bao gồm xác thực thông tin người dùng và tạo phiên làm việc.
+4. **UserAccount**: Đại diện cho tài khoản người dùng và lưu trữ thông tin xác thực.
+5. **EncryptionService**: Cung cấp các phương thức để mã hóa và kiểm tra mật khẩu an toàn.
+
+### Biểu đồ Sequence Diagram
+![Login Sequence Diagram](https://www.planttext.com/plantuml/png/X9AzJiCm58LtFyLz0LuW0m8X10Z4GYknfeuLMwJNnRskoDo1WOc92QaHGWYaIY2nu0mTNF4UVW9U0INzeN_0wEISSpyVtwzojDEbs91jPopcf0qqkyAmbhQOn2Q74vqgR1unhf6CpYRdlSaX4uO994LvRThbN5kakNGVkSaxf3IU2TDJN31MoM1hUvOQGSFO77XmmmwaAjQGg51U8unlntrC0MNrXqtLbR4AYE1GXRAFG3AKDq0cndJ5iJRdjFuE9Fqxfa3gZn4hDupW89H31Rb_iHNfazra_T7FAATjJAzuPODxfCNvc7w-Xl9UGU8_C6KB5jZQHD4mmJqi1f0VABYGEhW7t0InLdy4vxxWTMjl7Dh13GakP73FbgrfDpCS1pSYkBGLoTLF5eipMiecwGSeWLUi35PpbXSWk493Hoh_Wf3vGHjwrGhmcMtnsVUapUk77zy6DyAbZU7I3r4oaNN52afTV2kuGls7CkcsvGiDMIZlvlfVLs-Y4fYm7O69RMVV0000__y30000)
+
+### Biểu đồ Class Diagram
+![Login Class Diagram](https://www.planttext.com/plantuml/png/P95DJWCn38NtEKMMiEWD8jIgLA8Ie8hI0vYCEnEHIGRRAHgXdem5H-8AAEbCwSyoxzd-dftVxvyf2v2arYlhWLbl66bcRKn1j34On4b_T_UbjDOwCLA05ikZ0-RFIDK3S5C4YlxWxC2x2WJdX5KU09vlRejJe-JvzoZWYhXN0_OnrYvibjgOjvWge2EpSjnvw8k_WXg7IHOwIOH5NeOkoQ0FvGkYI4_8_DzHIf-ZkAsp82w6A_my1g7eFP8snXuUOum6GkKFk1VyICWZS8VajdtUQan6289hP7OnlCPtpA1i-5YN_fa8jbtkF-8NmLBVvL1hf9spg8r9ulp9xHlWPZMS_0nz8kwLElk-oUHoCNMvw5YoMLvPkVqgc9fYg5Bh_m000F__0m00)
 
 ---
 
-## 2. Đăng ký tài khoản
+# 2. Đăng ký tài khoản
 
-### Mô tả:
-- Người dùng tạo tài khoản mới để tham gia hệ thống iLearn. Người dùng sẽ cung cấp thông tin cá nhân, bao gồm tên, email, mật khẩu, và các thông tin cần thiết khác. Sau khi thông tin được xác thực và lưu trữ trong cơ sở dữ liệu, người dùng sẽ nhận thông báo thành công và có thể tiếp tục sử dụng hệ thống.
+## Mô tả:
+Người dùng tạo tài khoản mới để tham gia hệ thống iLearn. Người dùng sẽ cung cấp thông tin cá nhân, bao gồm tên, email, mật khẩu, và các thông tin cần thiết khác. Sau khi thông tin được xác thực và lưu trữ trong cơ sở dữ liệu, người dùng sẽ nhận thông báo thành công và có thể tiếp tục sử dụng hệ thống.
 
-### Các tác nhân: 
-- Người dùng (học sinh, giáo viên, phụ huynh): Người cần đăng ký tài khoản mới để truy cập vào hệ thống iLearn.
-- Hệ thống iLearn: Hệ thống tiếp nhận thông tin từ người dùng, kiểm tra tính hợp lệ của thông tin và lưu trữ vào cơ sở dữ liệu.
-### Mục tiêu:
-- Cho phép người dùng tạo tài khoản mới và truy cập vào hệ thống iLearn.
-- Lưu trữ thông tin tài khoản vào cơ sở dữ liệu một cách an toàn và bền vững.
-  
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Lưu trữ thông tin tài khoản mới trong cơ sở dữ liệu.
-- **Error Handling**: Xử lý các lỗi liên quan đến dữ liệu đầu vào hoặc kết nối hệ thống.
-  
-### Luồng sự kiện chính:
+### Analysis Classes:
+#### 1. Entity:
+- **UserAccount**: Đại diện cho tài khoản người dùng với các thông tin cơ bản như tên, email, mật khẩu được mã hóa và vai trò trong hệ thống.
+  - **Attributes**: name, email, passwordHash, role
+  - **Methods**: validateCredentials(), getUserDetails()
+- **DatabaseService**: Quản lý việc lưu trữ thông tin người dùng vào cơ sở dữ liệu.
+  - **Methods**: saveUser(user: User), checkUserExists(email: String)
 
-1. Người dùng truy cập giao diện đăng ký tài khoản.
-2. Nhập thông tin đăng ký bao gồm tên, email, mật khẩu, và các thông tin cần thiết khác.
-3. Lưu thông tin vào cơ sơ dữ liệu
-4. Gửi thông báo đăng ký thành công và chuyển về giao diện chính
+#### 2. Boundary:
+- **RegistrationUI**: Đại diện cho giao diện người dùng để đăng ký tài khoản mới.
+  - **Methods**: displayRegistrationPage(), captureRegistrationInput(), displayErrorMessage(), displaySuccessMessage()
 
-### Luồng sự kiện phụ
-- Dữ liệu không hợp lệ
-- Lỗi kết nối cơ sở dữ liệu:
+#### 3. Control:
+- **RegistrationController**: Quản lý luồng xử lý của quá trình đăng ký tài khoản.
+  - **Methods**: handleRegistrationRequest(), validateUserData(), saveUserAccount(), sendConfirmationEmail()
 
-### Biểu đồ luồng sự kiện:
- ![Đăng ký tài khoản](https://www.planttext.com/plantuml/png/b5JFYjf07BxFKtnuQi7r0JoKfGJQOl5YhRsEIJH39fCbcInuzh27NkgfXnwgI5cw85rAJncAXyY-npn1Nw7C9Ex66fHwYiptzpU_v8_QNgQI9ZABEA6kZ1CCKpy1JJ4aupWJ7arc6FdZDqBwoOIwlZaQ4JSMCecv1G_yv9gL1mFYKKd7DFNXx1ze2kSHtuybcp2NIXQB6gzFo10NBp3gubsIpU3gV7E5AQCnFARLZS1kiPkBASBYDnaPvB2BrqohkO0CjFg8IPn4TT1UhXzOAHaKlyGKajMLy4mMTw8DFwACjn7fV2CH1Zh_dhNHwNIUbrQ3BbvfjM6O5NUPYNQR8JJU4MH2SLqimH_kive76LIytXDC5XiH8D1gVGMkrGrShMufFAr-W9kE6Q5SmddwNmCJ0B2YJXTl3yqWYoL36CGwNmj4MdrX9bCCzs65LAkl1nv6oFZiHPOYW6kax8dvERWemtyeLYw4cPzuB7WCjwdw-n5LiSR5AguFkf7Ph-wnxdF8BzQO6jb3ir6JMQD3uwRKMQtTfyQCBNkhRf3DB76tqFbM7EoZ6vZxj4u-J_tzF7N-JMAiynKxdkTBuyYr-ioEzkLyFyixNOnRwLQlaWsqclzhrC7xZ84NFol01jnaxRJA8i8Zjanz2SEItBIBPuAU2kcSScWHayI-3ZsTRoM4LWlMkC_78p-J3E4PnRFH_ojIMUNI5vxvmFu5003__mC0)
+### Responsibility:
+1. **RegistrationUI**: Giao diện đăng ký tài khoản mới
+2. **RegistrationController**: Xử lý luồng công việc trong quá trình đăng ký
+3. **UserAccount**: Đại diện cho tài khoản người dùng và lưu trữ thông tin xác thực và thông tin đăng nhập
+4. **DatabaseService**: Quản lý việc lưu trữ thông tin người dùng vào cơ sở dữ liệu và kiểm tra sự tồn tại của người dùng
+
+### Biểu đồ Sequence Diagram
+![Registration Sequence Diagram](https://www.planttext.com/plantuml/png/h9I_Rjim4CPtFiMDCf2yW8OYHHEq7PgXJO2kDCMAX6ag84z6CsV8qCdeqAbe3KyjODH3bue8EiZmU_09yWe1QRULPJb_a0hGGjnztzsFTxnslmyiKeFbK17Ai31mQhaX_QBK6JNdy9hdqgAXA0jz-fAmGgCfrCRnizMPuePmZHBFeyHJnefIuv-ZGugqJor_myr8Cav8Y87z9os355vvzmNGK9t3Ohouq3aCwYko6HNoGduABwHt5nfGUFS1tXLcs4pQPN4iV3Kx0nJrJvq3Ijr8WWJhxteF-91AjGT3NyqG1i9NtyfUHnNT759uxjrCTZiGqfrqczo8AfbHvA6ZG3Bf4QeG3htx0KfwTrd2OEKbl9kUWVBkaW303i4kA1iabNUVv9P04_oQeVBLfDaduShoZRhkNL1hGb9WWhD1S3jwBotQ95v9Bwg4ve_pvToxpnAo-bSSbdeAwDr73HYAYd7XQ-d2_YsSZuB5Rgd7q8IaMtpLq3rGn_R3DKzOJ8caMn2OMCxfVwAm7gY7SMXiVWedlfeKi1XxDvQ0eT2fpfiXa0XgHMl9xZRPcXHBHt4raj9oyq_X8Js_hISCT22jGItdPPZfhre02n0UEm3h_UZN4SVVf-PEY-OKd3GqjXAvpaZu3xZEmaj-0m00__y30000)
+
+### Biểu đồ Class Diagram
+![Registration Class Diagram](https://planttext.com/plantuml/png/V59BRi8m4Dtd55w61HT04QBGI6LHgG9nWAaz3LOTEvqPqwAAatNH8_KALKW0XtwMypxsUsD_VNpEM80arYxJ3fZL2YlBGY0s-CrI5SKyH6-0zjEfUi-KKiPous2VwXwWmdpKaXeQYOGfkVHDb8xjhILHe7jaFjjwOXsrHkOBTSX-IRK8NYWuXwIAeXzEuRRWZHjSlyANYDm7s86p1WGtZ7GB0XtAi3iYDrg7w7ifepUBu9yirSTpoXgiIoCb3bKKfHShvnrvg76YraBML-sChJa56c1-3MJkWBSfJi4DZAV02qA3NYmupaSJDG_18VXMKQ4Ssw20xSXslCHiQpu2unffPpN-Y7egdqT6wip32_GMzNCBbs-MXVD1bqHwoBBiwlECnzC_NcwWJ1wqTIIB_KzsLIoReJUnTjy0003__mC0)
 
 ## 3. Học viên tham gia khóa học
 
-### Mô tả:
+### Mô tả
 - Học viên đăng ký và tham gia một khóa học trên hệ thống iLearn. Học viên sẽ chọn khóa học mong muốn từ danh sách các khóa học, hệ thống kiểm tra tình trạng khóa học (còn chỗ hay không), và nếu còn chỗ, học viên sẽ được thêm vào danh sách khóa học và nhận thông báo xác nhận.
 
-### Luồng sự kiện chính:
+### Luồng sự kiện chính
 1. Học viên chọn khóa học muốn tham gia từ danh sách.
 2. Hệ thống kiểm tra tình trạng khóa học (còn chỗ trống hay không).
 3. Lưu thông tin học viên vào danh sách học viên tham gia khóa học.
 4. Gửi thông báo xác nhận đến email hoặc thông báo trong hệ thống cho học viên.
 
-### Luồng sự kiện phụ:
+### Luồng sự kiện phụ
 - Nếu khóa học không còn chỗ trống:
   - Gợi ý các khóa học tương tự hoặc thêm học viên vào danh sách chờ (waitlist).
   - Gửi thông báo đến email hoặc trong hệ thống khi có chỗ trống.
 
-### Biểu đồ luồng sự kiện:
- ![dangkykhoahoc](https://www.planttext.com/plantuml/png/Z5FBQXin5DthAmwpIXRp0rwOO1kIakvYo5hMg9ReZ0OqToPu6R8CMNYLLQ63wIQqa3vM8qeMAluFVK5_eSXsad59GtT2kkTnpxtwxHwEAkAMwY9dN51faPm4ToFGQ7zd4l0APrHdqX0RbRN9k5qWEPUpDuQaVSU5t9ISonaRbuPicICPbxMjv9cqZTuzRs-ODAHfWMJ2YSzujNsRZ1XZEmcamqY50SOgk1k3zyf_vuXdWQ8ERcb0YXUOQyvYOJhSSME0KntSLG6o7EG_6mMoeMlDl4_2TjNf49CH1fZQUe4cT9yYh_zXvY2zfyec8wHzbQaDtGfDS9TF_AHygrzKUMhdlr2CvuJJNiV2VpCGAhZRY79BCsS0DfHzIs_NztNVldgU7nh_iKJ6ZKBbMw4s-ByoE5OQHeNkowj8z9q2O3Alv9xRNqk_WWhT0sqzFtjDXuyxX05EufXYtC5TFxgU-RP47joj_WVeEBYLXly9uLknjnMqlbzluWpkwulfJ9M_ArxjBBhzW8CBhYdN5HqoQJB6s94qMVmLVm000F__0m00)
+### Biểu đồ luồng sự kiện
+![dangkykhoahoc](https://www.planttext.com/plantuml/png/Z5ExJYCn5Etz5KUfe9WVI1558HAie2CIjUDuOsjd7EIvCuWIKIAAL5GhxIZQ1krAxACQ2r5ubV_m5-ml82U1p210T9PrNlTS-xzxwEV4BHLPohYWcKNd8BXhWLBxMzC1pt5CnKGQOgVSaXRwb1j2vqIEFncIzZCNSeKwaUCsOczMs5mUIrlg3MHzqqODEV4npzU0uO0njh53qekQw69F1NTjy4NvFnpnB90LmSqDIF4CKyrP12QzZG6wEDJ1NMOWoq7-Xr4W6-hAJ9iYR8DEUXWEqCN85kSeG_qzwlg_PWhIBLSs721fkenig1SeWxjurYVbA_sgo_Cu7s8ndX8E6nCB_zj0gE1k8ilDpPG1M4as8nqjxufcVBNT9Kh_ROO9DmgvhuHQyLzqiAyqZ0hrptUPQ2O5c4npsGhxR-uNKA5-e7NaRTIaz_ISqCL1t59iExYhfz1ZNysG1dUZto3j1xVGyFSGlXAjHq7Bk-MgpU1-lLhEIFdRxDt1Ojgls3dZcbATqowJPi8OwqipYH_a4G00__y30000)
 
- ### Lớp phân tích
- 1. Boundary
-    + Attribute: 
-    + Method: displayForm(), captureInput(), notifyStatus()
- 2. Controller
-    + Attribute: 
-    + Method: validateInput(), saveCourse(), listCourses(), notifyStatus()
- 3. Entity
-    + Attribute: courseId: int, title: String, description: String, startDate: Date, endDate: Date
-    + Method: getDetails(), isAvailable(), enrollStudent(), removeStudent()
+### Lớp phân tích
+- **Boundary**
+  - **Method**: displayForm(), captureInput(), notifyStatus()
+- **Controller**
+  - **Method**: validateInput(), saveCourse(), listCourses(), notifyStatus()
+- **Entity**
+  - **Attributes**: courseId: int, title: String, description: String, startDate: Date, endDate: Date
+  - **Methods**: getDetails(), isAvailable(), enrollStudent(), removeStudent()
 
 ### Sơ đồ lớp
 ![dangkykhoahoc](https://www.planttext.com/plantuml/png/T991QiGm34NtFeMNaqKk44AOCaCXYwv23w34QX0uSh3bG2WzMHSzKgzGafYPJDfwOV3xihui-Vlpwnm4lCJ1AgKw2o7eYui-u0imz3WWoskjox9raGtukQhqkzBhCXH62_EpyyCfIwo3KQB7ciSeDyXEw6rk12I6KwO-7eqkZiKxQz7hikosmyvb0ai6v90om8JRzHko56H3uJ_d1HtSTLaY2ydzORdkLgKsXIQMn8J4Og4RySHzOWP3vsaKSdnGrfvUGR3GovueijcnL6AFSaK1ik6KFMJHciBJ16IXjRXehNCsASXBnng91baEciV1JRZJ9aTcQRfIVqmspwjVSqXnky7SevHIPsIp_9SV0000__y30000)
+
 ## 4. Giáo viên thêm bài học mới
 
-### Mô tả:
+### Mô tả
 - Giáo viên tạo và đăng tải bài học mới lên hệ thống iLearn. Giáo viên nhập thông tin bài học, tải lên tài liệu (ví dụ: tài liệu học, video, hình ảnh) và hệ thống sẽ kiểm tra tính hợp lệ của tài liệu trước khi lưu trữ và thông báo thành công.
 
-### Luồng sự kiện chính:
+### Luồng sự kiện chính
 1. Giáo viên chọn "Thêm bài học mới" trong giao diện quản lý khóa học.
 2. Nhập thông tin bài học (tiêu đề, mô tả) và tải lên tài liệu hoặc video.
 3. Hệ thống kiểm tra định dạng và kích thước tệp tải lên.
 4. Lưu thông tin bài giảng và tài liệu liên quan vào cơ sở dữ liệu.
 5. Hiển thị thông báo thành công cho giáo viên.
 
-### Luồng sự kiện phụ:
+### Luồng sự kiện phụ
 - Nếu tệp tải lên không hợp lệ, hệ thống sẽ hiển thị thông báo lỗi và yêu cầu thử lại.
 
-### Biểu đồ luồng sự kiện:
+### Biểu đồ luồng sự kiện
 ![Giáo viên thêm bài](https://www.planttext.com/plantuml/png/Z58zQnmn5EprAmRt9lqMnf0hOhAuoSAcSAFLofQmLdjejGSkGuehJ8fKATpSSONXuC15gbMHGi7_u_q2_uMWs_CNd4rKIM_cpSnxw27yEUuyTxvl3EF2jmw5v4991zwXO5NRsvgxAvIoEh5UkdCkP89A9bhhNMkGowvhxHVfPdg4SbPppolUIKmUBxp3XB42XqSeCtnK57vOd1qKAguRL76XaKe23OKRVNR0oiGiCdpI5BvRU4NX6kUjQs0L3Pifl8g_xGMyjY_QdmnEto5X5XVmDAmqJ5nR-8GOJM7UVvZfMhQZUPxXSp9lu1t7tvyKhgr2JSFINcmbBkD6A7XrVqVXHi1Jc4yP0m1kF8hqJ8QhAGo5-HP89q_Yampv_Lt_Ni3dL4-j4noEmRx6fHWNOM5sEWkh89BQQwSoGp6QL77PxYVkNVOkslukQJgv6_5ovBqrQV9tDAmme_3jbQYXy4l_VuOjVRkQgxZk8MYuJNDJsC3Gi1oLfAqPEvQsJj_v7m000F__0m00)
 
 ### Lớp phân tích
- 1. Boundary
-    + Attribute:
-    + Method: displayForm(), captureInput(), notifyStatus()
- 2. Controller
-    + Attribute: title: String
-    + Method: validateInput(), saveLesson(), addLesson(), notifyStatus()
- 3. Entity
-    + Attribute: fileName: String, format: String, size: int, description :String
-    + Method: validate(): boolean.
+- **Boundary**
+  - **Method**: displayForm(), captureInput(), notifyStatus()
+- **Controller**
+  - **Attributes**: title: String
+  - **Methods**: validateInput(), saveLesson(), addLesson(), notifyStatus()
+- **Entity**
+  - **Attributes**: fileName: String, format: String, size: int, description: String
+  - **Methods**: validate(): boolean
+
 ### Sơ đồ lớp
 ![Addlesson](https://www.planttext.com/plantuml/png/P951IiKm48RtEKMMxU9Te8JoK10UY9kd1nYRgGwaapAPFAZYoLnu9AyWRP-jhLbbFYPy_qo-Fx-EIK4qTy4q0LAoJwT7XEOLnJft4pDxaA6kxRknq_6K-W33NPIkAA-iWLwpu8dxh0lagDGEPmNDgIYD-J1NmJsc5FasiaeC0SMvzRw8b3HWPSygn2yJIN31-ManAy3xJRqJZkW2WJpeacoNmJba9Lt7QodW0tHRSHkb0zrceJUiBB5EbSVK2FLAaMtrf-lNNfILVOun8F2OO5tmuL3_suRPWx5hPjOOSqJsur_z0000__y30000)
 
-## 5. Gửi thông báo đến học viên
+##5: Gửi thông báo đến học viên
 
-### Mô tả:
-- Quản trị viên hoặc giáo viên gửi thông báo đến học viên trong hệ thống iLearn. Quản trị viên hoặc giáo viên có thể chọn nhóm học viên hoặc cá nhân để gửi thông báo, lựa chọn kênh gửi (email, SMS, hoặc thông báo trong hệ thống), và hệ thống sẽ đảm bảo thông báo được gửi đến đúng đối tượng và lưu trữ lịch sử gửi thông báo.
+## Lớp phân tích
 
-### Các tác nhân:
-- Quản trị viên/giáo viên: Người gửi thông báo, có quyền truy cập vào giao diện quản lý hệ thống.
-- Học viên: Người nhận thông báo.
-- Hệ thống iLearn: Hệ thống định tuyến và gửi thông báo đến học viên qua các kênh khác nhau.
-- Hệ thống gửi email/SMS: Các dịch vụ bên ngoài hoặc hệ thống nội bộ chịu trách nhiệm gửi thông báo qua email hoặc SMS.
+### **Boundary (Ranh giới)**
 
-### Mục tiêu:
-- Cung cấp cho quản trị viên hoặc giáo viên một cách dễ dàng để gửi thông báo đến học viên.
-- Đảm bảo thông báo được gửi đúng đối tượng và qua kênh chính xác.
-- Lưu trữ thông tin lịch sử gửi thông báo để theo dõi.
-  
-### Cơ chế phân tích:
-- **Định tuyến tin nhắn (Message Routing)**: Định tuyến thông báo đến đúng học viên hoặc nhóm học viên.
-- **Phân phối (Distribution)**: Phân phối thông báo qua nhiều kênh (email, SMS, thông báo trong hệ thống).
-- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Xử lý lỗi khi không gửi được thông báo.
-
-### Luồng sự kiện chính:
-1. Quản trị viên hoặc giáo viên chọn "Gửi thông báo" trên giao diện quản lý.
-2. Chọn nhóm học viên hoặc cá nhân nhận thông báo.
-3. Nhập nội dung thông báo và chọn kênh gửi (email, SMS, thông báo trong hệ thống).
-4. Hệ thống định tuyến và gửi thông báo đến người nhận.
-5. Lưu thông tin lịch sử gửi thông báo vào cơ sở dữ liệu.
-
-### Luồng sự kiện phụ:
-- Nếu không gửi được thông báo qua một kênh, hệ thống sẽ:
-  - Ghi nhận lỗi vào log.
-  - Thử lại gửi qua kênh khác (nếu có).
-
-### Biểu đồ luồng sự kiện:
-  ![Gửi thông báo](https://www.planttext.com/plantuml/png/b5J1Qjj05BphAuQS4d1-G8SIDuQqKBa76zphUhtHBf6VMcbbyB7qq4FemQVIGo5kA8KKqq0A1UcGmuRyntv1Vw6i53jIegJjGR3elPatCs_PtyNbNgfPehDfv36kumJToLJHosGe69SY0KlH7NhZEAC9I-OOYV5pqY8vP5ousiZZCUaaZj2FjJfKd6aLqq0aCrKrzBq9qspCKe7U-i1Iz3QuGAGf2nM5-v8HYSXL0y_h3h7x12CV-z8M7mXR1xPOAMXfVbA8iLd6Mzx8jNI7FfufMxmZQ6cBOnp6oHIyGb5uVMwBpmeaRRuYpCn9TNmDiiKdXKb6uRrP9Ct55ExCCLFcZ21Zc__Yu6RfYb-eSv-bBgspddzapaWYTD8hjNqVbP6vESl0RVujgyfrkDTthJqVBwxFCqIsEEOIgIrMzIPiZst-G-DguKXsl1vsA_vNPidNVgCx11Lpi1PHftkJiHkvLmjpkZQmBQPCHHqCWa6dqQwJc4ANqViozWM5EnwBT0knbkQ49BZxum50qAPq4qApjzGxyZ5CR7wAcItUGYSsNrPvBriGxPUYBgZqrp9FHAberM_phnfZcozLK_zJLuviyL6rx72ZlkVZGAgRlfavYH75DNE1Zw5qkwqeRjTm95qyssJpompSNEoKcDkC8oS8TGTtmINWVnDlf5wBuNxxW-CUM45ZR-5ZT5goUPdxPSbPMqnbUcRpxoLjSp6FBsUTLmle7svP2-hlDwqSNrcWYUU-FK4JzzR-0G00__y30000)
-  
-## 6. Tạo nhóm học tập
-
-### Mô tả:
-- Giáo viên hoặc học viên sử dụng hệ thống để tạo một nhóm học tập, bao gồm việc nhập thông tin nhóm, thêm các thành viên, và gửi thông báo mời tham gia nhóm. Hệ thống sẽ đảm bảo nhóm được lưu trữ trong cơ sở dữ liệu, các thành viên được mời sẽ nhận thông báo, và các lỗi liên quan đến việc tạo nhóm (như tên nhóm bị trùng, thành viên không tồn tại, hoặc lỗi kết nối) sẽ được phát hiện và xử lý.
-
-### Các tác nhân:
-- Giáo viên/Học viên: Người tạo nhóm và mời các thành viên tham gia.
-- Hệ thống iLearn: Hệ thống quản lý nhóm và kiểm tra tính hợp lệ của thông tin.
-- Thành viên nhóm: Những người nhận được lời mời tham gia nhóm học tập.
-- Hệ thống cơ sở dữ liệu: Lưu trữ thông tin nhóm và các thành viên.
-
-### Mục tiêu:
-- Tạo một nhóm học tập cho các học viên tham gia cùng nhau học.
-- Cho phép giáo viên hoặc học viên thêm các thành viên vào nhóm.
-- Gửi thông báo mời thành viên tham gia nhóm.
-- Lưu trữ thông tin nhóm học tập vào cơ sở dữ liệu.
-  
-### Cơ chế phân tích:
-- **Bảo mật (Security)**: Xác minh danh tính người dùng qua email hoặc số điện thoại.
-- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Xử lý các lỗi như tạo nhóm thất bại, thành viên không tồn tại, hoặc lỗi kết nối.
-- **Tính bền vững (Persistency)**: Lưu thông tin nhóm vào cơ sở dữ liệu.
-  
-### Luồng sự kiện chính:
-1. Giáo viên hoặc học sinh chọn "Tạo nhóm" trên giao diện.
-2. Nhập thông tin về nhóm.
-3. Hệ thống lưu nhóm vào cơ sở dữ liệu.
-4. Hệ thống gửi thông báo đến các thành viên được mời.
-5. Hệ thống kiểm tra mã xác minh hợp lệ và cho phép đặt lại mật khẩu.
-6. Hệ thống Hiển thị thông báo thành công và chuyển người dùng đến giao diện nhóm vừa tạo.
-
-### Luồng sự kiện phụ:
-- Tên nhóm bị trùng:
-- Danh sách thành viên có lỗi (email không tồn tại).
--Kết nối cơ sở dữ liệu thất bại:
-
-### Biểu đồ luồng sự kiện:
- ![Tạo nhóm học tập](https://www.planttext.com/plantuml/png/b9InYXin54Nx-OgB-_q15s5934v8S8grSLgDHbw97Kj6ep5i6L9i4LAO52cpWma1Wyb2qcHKkD3Y_z0Nv1U2PkprJDQBIJVmvfvxtzEJ_jZDUMQ8DlaqZGWrIcF82ELClzKN9a-OD20PHb6iSfaGVOqnYrz9m_I4K1PAuuWgQRHAqTSgdrqmFHTrfHybn92OP0oz_GV9q7iG39GH4q694KesT8Ce6k7i6SPTlE3UVfBe37rPA4ZkVauxqJWKHrsy5Dv-a33Ssu-OA3s5EVpsW1XmNwvdCDpzafSmGjPrpDqj4Y8vCbTG7kgtacCkt4hM3lqk-jwk1QxTAWVrvVUyPK1IWw5RxNbNEmFjVilBckxj3wJ2sviStDlb3ActDn40z8D1huitsxlyQ3G5kYsGUVkrYQcqFPpLwTwvWaA6zYJI7IZqG0FkO3FOzx7pYLsXSB_mvKQ21aIhzI0Rx0OyR0csTzukAIuhrax_I5evZhiOQbykCVVsFOpsPH7wuwuGZpCUFSrcr7eczUHRQfPch7a2SQMivj_Eqe2btduHC4-BZiQfLPs6r_t2BM6y_IohPA9Jf-aTNwWQS2BK4ykuNopUtg2JO_iN6Z6PHDNIllRbna1wkn17jop0ocy6SMYi5Vhv0Nnr0l8_8SDbQLuoxkqQQUKUGfypcOJdwIy0003__mC0)
-
-## 7. Tham gia nhóm học tập 
-
-### Mô tả: 
-- Người dùng (học viên hoặc giáo viên) tham gia vào một nhóm học tập có sẵn trong hệ thống, bằng cách nhập mã tham gia hoặc chọn từ danh sách nhóm được mời. Hệ thống sẽ kiểm tra tính hợp lệ của mã tham gia, lưu thông tin thành viên vào nhóm, và gửi thông báo đến các thành viên về việc tham gia của người dùng mới. Các lỗi như mã tham gia không hợp lệ hoặc nhóm không tồn tại sẽ được xử lý.
-
-### Các tác nhân:
-- Người dùng (Học viên/Giáo viên): Người muốn tham gia nhóm học tập.
-- Hệ thống iLearn: Hệ thống quản lý nhóm học tập và xác thực mã tham gia.
-- Chủ nhóm: Người tạo và quản lý nhóm học tập, nhận thông báo khi có thành viên mới.
-- Các thành viên nhóm: Những người đã là thành viên trong nhóm, nhận thông báo khi có thành viên mới tham gia.
-
-### Mục tiêu:
-- Tham gia một nhóm học tập bằng cách nhập mã tham gia nhóm hoặc chọn nhóm từ danh sách mời.
-- Lưu thông tin người dùng vào nhóm trong cơ sở dữ liệu.
-- Gửi thông báo đến chủ nhóm và các thành viên về việc người dùng mới tham gia nhóm.
-- Cung cấp giao diện nhóm học tập cho người dùng sau khi tham gia thành công.
-
-### Cơ chế phân tích:
-- **Bảo mật (Security)**: Xác minh quyền truy cập của người dùng trước khi tham gia nhóm.
-- **Tính bền vững (Persistency)**: Lưu thông tin thành viên mới vào danh sách nhóm trong cơ sở dữ liệu.
-- **Xử lý lỗi (Error Handling)**: Xử lý các lỗi như mã tham gia không hợp lệ hoặc nhóm không tồn tại.
-  
-### Luồng sự kiện chính:
-1. Người dùng chọn chức năng "Tham gia nhóm học tập" trên giao diện hệ thống.
-2. Hệ thống Yêu cầu người dùng nhập mã tham gia nhóm (hoặc chọn từ danh sách nhóm được mời tham gia).
-3. Hệ thống kiểm tra thông tin mã tham gia:
-4. Hệ thống Lưu thông tin người dùng vào danh sách thành viên của nhóm trong cơ sở dữ liệu.
-5. Hệ thống Gửi thông báo đến chủ nhóm và các thành viên về việc người dùng mới tham gia.
-6. Hệ thống Hiển thị thông báo thành công và chuyển người dùng đến giao diện nhóm học tập.
-### Luồng sự kiện phụ:
-- Mã tham gia không hợp lệ
-- Nhóm không tồn tại
-- Người dùng đã là thành viên
-- Kết nối cơ sở dữ liệu thất bại
-
-### Biểu đồ luồng sự kiện:
-  ![Tham gia nhóm học tập](https://www.planttext.com/plantuml/png/f5M_Qjj06D_r53yyjKDUm4C9hS4jQRKqnkruFYdIOUbaf9F1SuSCfOFfq2aqmfH083JGGgbkyA3WzxWdw2kKqqcs7Ck9IpUX-tv_lk_xdVH7BeyJGMAHXe55g8XY318t1aami4PHoXqIpp1qHw-uSECpGbrzDBHen4KS1UZ7KJfvwyPJPaxwbaC46P74HQz-80bwQu0T2NR6A14iuWsSRLa373t3i8iNlfAVE3gdFWdXCGBk5pz2wBSKGkKtauurrBM3BjuNroceogzIS5yV8ImM4Dl89twaybyKr12RbtVprQsI2ufGoGlsTArkxwCnclqk-ahUCCmsocEcv8SG8YPRCAkl0RqkJjhFCIqk8MALPzo3y8kCLK8a47ZJBFILN4mGA7bUOam3GidFNCyZOnO0z71a_BqhCcgcmJNjJytEU8EaBA_DlLxTfiqoxkcvN30unM_kQRq83k4-aYAZlgwyv3wchBYk9hbVFAYeDO1gWOsmNO-nKXuLMOIxkSgNl5pJLTMaRfTgogPkIMDN2MZfjY8h5fibUrfi8p_iuhHHk-EnZjTBlJdDg-J7BVOcmfZqqrbPMpNXCHB1OKgUrsDoWyJTNklO4DvRp7gKJOU1abzOcPvsKB_gQdUe9N9_KuQuyx2lZZ5lbokfJlV6RzSsVmZtlyxtcQezRyUvJ4MWxztzFBKcc1-ARalLOVwVw_lVpWogv5NrzUbOBdUiyjDmelAb05Topa1N6H8bly9HyZi2dJTzvLJ-JM1qw8mnVeJnqIR-oP9fvTZbZlxd_0K00F__0m00)
-  
+#### a. **NotificationUI**  
+- **Mô tả**: Giao diện cho phép giáo viên hoặc quản trị viên gửi thông báo đến học viên.  
+- **Thuộc tính**: *(Chưa được liệt kê)*  
+- **Phương thức**:  
+  - `sendNotification()`  
+  - `displayResult()`  
 
 ---
-## 8. Phụ huynh theo dõi tiến độ học tập của học sinh
 
-### Mô tả:
-- Quá trình phụ huynh theo dõi tiến độ học tập của học sinh qua hệ thống iLearn. Sau khi đăng nhập, phụ huynh có thể xem thông tin về điểm số, bài tập, tình trạng tham gia lớp học và nhận xét từ giáo viên của học sinh. Hệ thống cũng cho phép tải xuống báo cáo học tập hoặc liên hệ với giáo viên nếu cần.
+### **Control (Điều khiển)**
 
-### Các tác nhân:
-- Phụ huynh: Người theo dõi tiến độ học tập của học sinh.
-- Hệ thống iLearn: Cung cấp thông tin về học sinh cho phụ huynh.
-- Học sinh: Người mà phụ huynh theo dõi tiến độ học tập.
-- Giáo viên: Cung cấp nhận xét và thông tin về học sinh.
-
-### Mục tiêu:
-- Cung cấp thông tin chi tiết về tiến độ học tập của học sinh cho phụ huynh.
-- Tạo điều kiện cho phụ huynh theo dõi các yếu tố quan trọng như điểm số, bài tập, và sự tham gia lớp học của học sinh.
-- Cung cấp báo cáo học tập và liên hệ với giáo viên khi cần thiết.
-### Cơ chế phân tích:
-- **Tính bền vững (Persistency)**: Lưu trữ dữ liệu về điểm số, bài tập và các nhận xét trong cơ sở dữ liệu.
-- **Phát hiện lỗi (Error Detection/Handling/Reporting)**: Hiển thị thông báo lỗi nếu không truy xuất được dữ liệu.
-- **Bảo mật (Security)**: Xác thực phụ huynh trước khi cho phép truy cập dữ liệu học sinh.
-
-### Luồng sự kiện chính:
-1. Phụ huynh đăng nhập vào hệ thống bằng tài khoản đã được cấp.
-2. Phụ huynh chọn chức năng "Theo dõi tiến độ học tập".
-3. Hệ thống hiển thị danh sách các con của phụ huynh (nếu có nhiều hơn một học sinh).
-4. Phụ huynh chọn học sinh muốn theo dõi.
-5. Hệ thống hiển thị:
-    Điểm số của học sinh theo môn học.
-    Danh sách bài tập đã nộp/chưa nộp.
-    Tình trạng tham gia lớp học (đi học đầy đủ, đi trễ, nghỉ học).
-    Nhận xét từ giáo viên.
-6. Nếu cần, phụ huynh tải xuống báo cáo học tập hoặc nhấn nút "Liên hệ giáo viên".
-
-### Luồng sự kiện phụ:
-- Nếu không có dữ liệu: Hệ thống hiển thị thông báo, hướng dẫn phụ huynh liên hệ với giáo viên.
-- Nếu có lỗi kết nối: Hệ thống hiển thị "Không thể kết nối đến máy chủ. Vui lòng thử lại sau."
-
-
-### Biểu đồ luồng sự kiện:
-![Theo Doi Tien Do Hoc Tap](https://www.planttext.com/plantuml/png/b5RDRjf04BxxAKO-jLBQ1-1GHGfIM-M209NsQ6pNkyACaRr6uLZbmA6AL4vLrKD124L96_KlkNWF71RbFVO9-WhLhY7sKaEQ2w3T-RwP-RwTNVxmvM72d9Yb_T1oN1R5q71Y7nau2JIiRfIYvyGZwFZTbyZy-AtZ-cghOxaHiZWAr-4jFnxIVAjbUGvpkaxYGttpmqcWVeTe-eCeBYEQbcKruCapwDHWzM5rYW4WaTdL08PY6W6HV0oCI3x1m7921g_5pDKBFzMNc281LrnZO040T1HHgmRF9R-YC1ANARWoEq_Xf43fm9OAhDVWc4f-sWSMEuhi6WDW564rATMXu-lm96VMwVK60XDJ2ZqIoMoEgj3v04B9nvi4UKzbWC5hLk-7YR_LcymM3Beocr6JCMzkNMvNp2ALzICj16ZKu8Ng2pNNUx1DNSlCJ-5LIY4KlrJdHF8h2FMoRVdeMLhmRV2Mv1llZeZaPmWkaVp21TGOkqty23nnGu5HcIsL0f9_KbgTkS0KeMtuzgPmp7EGG29cBbc79rJbbVpSWG6HV04a7I4nt6p7wGY6CbjWDLm7gvxgrUJYDoGokq4TPzZUZcKsXw7ax_Om6oxzDwBIilsGBSr9qK8_LPC2RAExcQLfAYpvTmYfvEEqxCWTf5cXQZKaprTHgDPw1qOh3OcOhW-IgNdJKD2OpNna4yad1z1L8wZv3ZP3TY8kc47OhBAaACg8hJJZuIat1hLbDgTmearPpwghFiewF4APBNDFyF6_nPYUCPdDeeAeki_yWYYohIPYdYEtwVDcZr8C5FzYKC6iBwRZN7yr8BkKQ-w-dkpo4UZb6psYlF0aNs1Wtsz1cMuefa1kVqZ-6GFmPFOL8QJYKi_160AgOzH2qGDwLbKl5IUsQkBjwlQBidTVpVkdV4FCnBT-VYsFoiFCuWW3umMqypRGAwxdOvaj6Q3a4mhkxKmTqY_6d5Oz9FlU4UZTmxZxeSdnzeDAsl42GUAawrVeq4TF_KFv2m00__y30000)
+#### a. **NotificationController**  
+- **Mô tả**: Điều phối các tác vụ liên quan đến việc gửi thông báo, xác thực người nhận, và lưu thông tin thông báo.  
+- **Thuộc tính**: *(Chưa được liệt kê)*  
+- **Phương thức**:  
+  - `sendNotification()`  
+  - `validateRecipients()`  
+  - `saveNotification()`  
+  - `logNotification()`  
 
 ---
+
+### **Entity (Thực thể)**
+
+#### a. **UserStorage**  
+- **Mô tả**: Quản lý và cung cấp thông tin về các học viên đủ điều kiện nhận thông báo.  
+- **Thuộc tính**: *(Chưa được liệt kê)*  
+- **Phương thức**:  
+  - `getValidRecipients()`  
+
+#### b. **NotificationStorage**  
+- **Mô tả**: Lưu trữ thông tin chi tiết về thông báo được gửi.  
+- **Thuộc tính**:  
+  - `title`  
+  - `content`  
+  - `createdAt`  
+- **Phương thức**:  
+  - `saveNotification()`  
+
+#### c. **NotificationLogStorage**  
+- **Mô tả**: Ghi lại trạng thái gửi thông báo và thời điểm gửi.  
+- **Thuộc tính**:  
+  - `sentAt`  
+  - `status`  
+- **Phương thức**:  
+  - `saveLog()`  
+
+---
+
+## Trách nhiệm
+
+### **NotificationUI**  
+- Hiển thị giao diện nhập nội dung thông báo và kết quả gửi thông báo.  
+
+### **NotificationController**  
+- Điều phối quy trình gửi thông báo, xác minh người nhận, lưu thông tin, và ghi nhật ký.  
+
+### **UserStorage**  
+- Cung cấp danh sách người nhận hợp lệ.  
+
+### **NotificationStorage**  
+- Lưu trữ thông tin nội dung thông báo được tạo.  
+
+### **NotificationLogStorage**  
+- Ghi lại thông tin nhật ký gửi thông báo, bao gồm trạng thái và thời gian gửi.  
+
+![markdown](https://www.planttext.com/plantuml/png/j5JBQjj05DtFLnoyiY4YUrDC-g1fgHieRZvWB4qrG-GxZcOKoBgBBahN9Oj2HEWc4CWYK90MMGZo7_C5_OKoikME4-Eqb2xlp3b7vzovkZ_hsprZUMwBMSPuR7MEthl2LHS4cxlwCqvKSqcxs5TDgHT53zpWQJ9Jz5xmM8gSJNL12SzFqJlGLdrGCRTAq-7h5lbiUSbYJJRNsJhe-U8m4taBNfPCa5Ns5Br38t9ChCvvAbg0FrZMAr2ejmOEBxQHnZfD5QKjPwpJ3ih2a8X6goWOua2wwceESlMPGb9G2YkR6qenRKgzWrYw-WlXgBaaYPFc79JUNRlwcm9v8h6LL3JgGcC88oW9ZVLdmXYU2eyGPBqk9nAPsK4kOZLNWgmPi4uW6eNzmH1lbAi_pc1ptjcpYkvxGJ_K2WMYDNClE4cOfepb0mNfweivCbT_Og6P3Vt74EExwoAq4pIECPvPxBlwIeN7E2uun8ohZ05OMLf_aSTOOST_Fx8dIeLCftxUgtBnaAL2sihr9qKS2sDsNtALYMJ0H6O4ngx-sY4ssXflqiyUi0Gbsn9Ftax-Ec_7-KzfDrXwDAldR4bAxIyqTVNPbh2l_23xKV4hwS_O_v3Qcrrz_4aKhMsx-swEN7LhSUnt9lfMDkSa4RS6fNRLZzZ3gkyMKrULQi3Odg34BzjV0000__y30000)
+
+---
+![markdown](https://www.planttext.com/plantuml/png/b5AzQiCm4Dxr54ScP_0BX602dG8cWqkwNwsh42Ww8vq39kJ9ElIH-Wf5BgLsek9qbExxFUdp_MCN1OFq9wTQXp72wi1YtsoBOjaVzolORb-vznh3K5LmKG1bgG008daznHRh3Om3RMFdS6WezawAzKPTLKxxYRq4Tev2ycY_JmzQdD5PZK8DjRQpv2Kcdv62PyfI79kx-zzWnqZXMJYWePI6l5YvwMj8NfBjt3FVRK4g6pAlLBDvGAncywDnztvbMVsz-3byEXbfixKiOBFz_y6PD5KxyZfzoIy0003__mC0)
+
+---
+
+## 6: Tạo nhóm học tập
+
+## Lớp phân tích
+
+### **Entity (Thực thể)**
+
+#### a. **Group (Nhóm)**  
+- **Mô tả**: Đại diện cho một nhóm học tập được tạo trên hệ thống.  
+- **Thuộc tính**:  
+  - `groupID`  
+  - `groupName`  
+  - `creatorID`  
+  - `memberList`  
+  - `creationDate`  
+- **Phương thức**:  
+  - `getGroupDetails()`  
+  - `addMember(memberID)`  
+  - `removeMember(memberID)`  
+
+#### b. **Member (Thành viên)**  
+- **Mô tả**: Đại diện cho người dùng trong nhóm học tập.  
+- **Thuộc tính**:  
+  - `memberID`  
+  - `email`  
+  - `name`  
+  - `status`  
+- **Phương thức**:  
+  - `getMemberDetails()`  
+  - `updateStatus(newStatus)`  
+
+---
+
+### **Boundary (Ranh giới)**
+
+#### a. **GroupCreationUI**  
+- **Mô tả**: Cung cấp giao diện để giáo viên hoặc học sinh tạo nhóm học tập.  
+- **Thuộc tính**: *(Chưa được liệt kê)*  
+- **Phương thức**:  
+  - `displayGroupForm()`  
+  - `captureGroupDetails()`  
+  - `showNotification()`  
+
+---
+
+### **Control (Điều khiển)**
+
+#### a. **GroupController**  
+- **Mô tả**: Điều phối các tương tác giữa giáo viên, hệ thống iLearn, cơ sở dữ liệu và các dịch vụ thông báo.  
+- **Thuộc tính**: *(Chưa được liệt kê)*  
+- **Phương thức**:  
+  - `createGroup(groupDetails)`  
+  - `inviteMembers(memberList)`  
+  - `handleErrors(errorType)`  
+
+---
+
+### **Utility (Tiện ích)**
+
+#### a. **NotificationService**  
+- **Mô tả**: Gửi thông báo đến các thành viên được mời tham gia nhóm học tập.  
+- **Thuộc tính**:  
+  - `notifications`  
+  - `recipientList`  
+- **Phương thức**:  
+  - `sendNotification(details)`  
+  - `trackNotificationStatus()`  
+
+---
+
+## Trách nhiệm
+
+### **GroupCreationUI**  
+- Xử lý tương tác của người dùng để nhập thông tin và tạo nhóm học tập.  
+
+### **GroupController**  
+- Điều phối các quy trình tạo nhóm, mời thành viên, và xử lý lỗi.  
+
+### **Group**  
+- Đại diện và lưu trữ thông tin về nhóm học tập.  
+
+### **Member**  
+- Đại diện và lưu trữ thông tin về các thành viên trong nhóm.  
+
+### **NotificationService**  
+- Gửi thông báo đến các thành viên được mời tham gia nhóm học tập.  
+
+
+![markdown](https://www.planttext.com/plantuml/png/h9D1Rjim44NtFCM7LkqY5_0Y26m5HXVnHie1nkJO9a2H1ZboexDbqIFr2WKfAX5Gjvjs8q2SDt_-V4e_ttyy9Q4eu-0KQGaHFPE-S0GbzFMeaz6mbtpKgMCOlQ4ueTd7C5vtaKbiyA_VcbpVxrwL3bvYS0imlpcE5L3inSg4fYMX8oKkv-rsfNm8OazM5-6Euytg6JfqIlLuUCnZi477ZhMWAHuOPLoZSktX4JqsQ6swEffmpXMSGXpMxSzUEDQQOI7hqjAyts63Abk0B-NPpjHNjTzbgjrc4tIh32J0r9rKk_tGARwGwCO6QTIQKpgDparLvT2LLRo1zJSh3B_QFcNHWOSZnwGENUOpNWAQGCSmIXrUcajFvVfFhWgdV8bt7CnnB65L00EdH6TUvzbTmlUF-jgcKkG4pp66Y0jvuwm_Bujx6XWsmOnNbt5M078od_UOPRaqBqDdvBUBdA5c9KmkCfa9_6QJf4QnD_VDl9GGmGDPbxtZb3-tV_ToN_SlHfRF7Zfupph7XnDPn__1p9-rPqDFx4t-rNy1003__mC0)
+
+![markdown](https://www.planttext.com/plantuml/png/T5D1ReGm3BppYXpfWHz4QANILYkrUq5zW9Uukr53WXp3QbNrPJtqIVr2HG8KMCe5F7PcF3Rv-VhUUGRYjZP9KXdmNZoHQniX9LhMVCrpyP68_YcPj3s9Kv_U5xVO0MfSe1KXiAEnzbbxbYzO7v5oKOTt3yLa0OpnW7Qs3o9yGWxj5CYWZK_l8WnAHQ8qykoB8K5OkmvlSf-ZjvZvtznuP05Y3Tei4BkswXcuzLFFKMRLTDieO2n3PMhn4hzcpGMdzyCCNlT2ogDhhGAQzQcqRmnSG-cZeteahw3Xbd1hMFxiBWV7-arNWJczaNIMoHaJ1bF5u4ynB2KIZupQTfg7AKyoPx3Au0EH2zWaKG334JmAALlMPZ5r3zsIcP19umhiguQLpdZdbagaJbVR4cZLodt0cQ1wNt34nGI5U0MoRFXVOZmRKvRbwsrjrepUDvCR1f9fM9F24XhwsV8-IoSxjAg_qRy0003__mC0)
+
+
+# 7. Tham gia nhóm học tập  
+
+## Các lớp phân tích  
+
+### 1. Entity  
+- **Group**: Đại diện cho nhóm học tập trong hệ thống.  
+  - **Thuộc tính**:  
+    - `groupID`  
+    - `groupName`  
+    - `members`  
+  - **Phương thức**:  
+    - `getGroupDetails()`  
+    - `addMember(userID)`  
+- **User**: Đại diện cho thành viên trong nhóm.  
+  - **Thuộc tính**:  
+    - `userID`  
+    - `role` (Student/Teacher)  
+  - **Phương thức**:  
+    - `getMemberDetails()`  
+
+### 2. Boundary  
+- **GroupJoinUI**: Giao diện cho phép người dùng tham gia nhóm học tập.  
+  - **Thuộc tính**: *(không có trong mô tả)*  
+  - **Phương thức**:  
+    - `displayJoinOptions()`  
+    - `captureJoinCode()`  
+    - `displaySuccessMessage()`  
+    - `displayErrorMessage()`  
+
+### 3. Control  
+- **GroupJoinController**: Điều phối tương tác giữa người dùng, hệ thống iLearn, và các dịch vụ backend.  
+  - **Thuộc tính**: *(không có trong mô tả)*  
+  - **Phương thức**:  
+    - `verifyJoinCode(code)`  
+    - `addUserToGroup(userID, groupID)`  
+    - `notifyGroupMembers(groupID, userID)`  
+
+### 4. Utility
+- **NotificationService**: Gửi thông báo đến các thành viên trong nhóm về việc tham gia của thành viên mới.  
+  - **Thuộc tính**:  
+    - `notifications`  
+    - `recipientList`  
+  - **Phương thức**:  
+    - `sendNotification(details)`  
+    - `trackNotification()`  
+
+---
+
+## Responsibility 
+
+### 1. GroupJoinUI:  
+- Cung cấp giao diện cho người dùng để nhập mã tham gia hoặc chọn nhóm từ danh sách mời.  
+- Hiển thị thông báo thành công hoặc lỗi khi tham gia nhóm.  
+
+### 2. GroupJoinController:  
+- Xác minh mã tham gia và kiểm tra quyền truy cập.  
+- Thêm người dùng vào danh sách thành viên của nhóm.  
+- Gửi thông báo đến các thành viên hiện tại và chủ nhóm.  
+
+### 3. Group:  
+- Đại diện và lưu trữ thông tin nhóm học tập.  
+- Quản lý danh sách thành viên.  
+
+### 4. User:  
+- Đại diện và lưu trữ thông tin thành viên trong nhóm.  
+
+### 5. NotificationService:  
+- Gửi thông báo đến các thành viên nhóm về việc tham gia của người dùng mới.  
+
+---
+
+
+## Squence Diagram
+![tham gia nhom hoc](https://www.planttext.com/plantuml/png/b9E_Jm8n5CVt_XKlxCQTmP0mu8_88YIkfNVIncjBoeE4sO71E3Wvk4ZOC4owI0U6-e_qB_1VCFKuEF4ESBnt_Rpljz_t-cMNjJvIWmEP4CfG6sZtOqCwUg0YQaRGC7hGEzT2jSy8qmgDJZQrUbf8OaDYXG9NnxEForXsDh-Q6iMDO1I5LbUn6GeM4nB4uEWaBrE5ElVsGK6bnQc4hg2Wk7kJ4AeCq2_clGh90O4FVQfmAhozKu3Sstj0zp42bhPIF50WtVGOiwRexIj4L77ekmdZnLQQQn0oS5kw88qgDBoTYn9iSswDL-4YM9U0XXPGfJANRXfYcVOWyNQyHwB5tKm2SlUYE0o5cocGtZwBFHhNRiBI04EosotAD0kcdQM2tBshBdJSHCFderyi5R2WyQjj0N-Gm-wsnCvGiZ6tSfPMDbYe7B1cNK4rHCBRSLYphJqbX2RuCwNrsjscKhcfGUfbvv1BgNzSBF7sIUIvygVpXufLH6gnYWOo-GO00F__0m00) .
+
+---
+
+## Class Diagram
+![Tham gia nhom hoc](
+https://www.planttext.com/plantuml/png/V99DRi8m48NtFeMNiCW5gWWXGLMbAdH1EO2nXyYgOqVZCL9KSR8kUgHUeV9F2QIeE_jxutdpR7z_VYqz2QJG6IQDy9u_eGizhskmf6bOB3uOvvotaJRhSRqL7QHT1zq1q6S5A1rV0mbj_6oUg51gaufcStPcnIQJAn-UZO87RDOFV4UeRPiGEWCte0NAnqUVIz_a_-oqtJUyhWykA85ZTwLzRyGGzTUUjBE_CqhHKq28miefABIKxuAKuFq6l1VjH7j4T3WgV-TOEKleZ4bXPTvSvZa1wkCmSHLAxJtWcqiz2hIEz75896U_IRsDgfOYHje1dhG4NjU1jBc-szIZLEK7Gv2wrs3fHNjAn8DLrzsAFQ6GxnD-PgnybghYvK4pcUJcLRNW-KR-qUza6AltJQowTwji2LR5x_i3003__mC0)
+
+
+## 8. Phụ huynh theo dõi tiến độ học tập của học sinh  
+
+## Các lớp phân tích  
+
+### 1. Entity  
+- **Student**: Đại diện cho học sinh trong hệ thống.  
+  - **Thuộc tính**:  
+    - `studentID`  
+    - `name`  
+    - `progress` (Điểm số, bài tập, tình trạng tham gia)  
+  - **Phương thức**:  
+    - `getProgress()`  
+- **Parent**: Đại diện cho phụ huynh trong hệ thống.  
+  - **Thuộc tính**:  
+    - `parentID`  
+    - `children` (Danh sách học sinh)  
+  - **Phương thức**:  
+    - `viewChildProgress(studentID)`  
+- **Teacher**: Đại diện cho giáo viên cung cấp nhận xét.  
+  - **Thuộc tính**:  
+    - `teacherID`  
+    - `name`  
+  - **Phương thức**:  
+    - `addComment(studentID, comment)`  
+
+### 2. Boundary  
+- **ParentUI**: Giao diện cho phép phụ huynh theo dõi tiến độ học tập.  
+  - **Phương thức**:  
+    - `displayLogin()`  
+    - `displayProgress()`  
+    - `downloadReport()`  
+    - `contactTeacher()`  
+
+### 3. Control  
+- **ProgressController**: Điều phối truy vấn dữ liệu tiến độ học tập và giao tiếp với các lớp khác.  
+  - **Phương thức**:  
+    - `fetchStudentProgress(studentID)`  
+    - `generateReport(studentID)`  
+    - `sendMessageToTeacher(teacherID, message)`  
+
+---
+
+## Responsibility  
+
+### 1. ParentUI:  
+- Hiển thị giao diện để phụ huynh theo dõi tiến độ.  
+- Cung cấp tùy chọn tải xuống báo cáo hoặc liên hệ giáo viên.  
+
+### 2. ProgressController:  
+- Lấy dữ liệu tiến độ từ cơ sở dữ liệu.  
+- Xử lý yêu cầu liên hệ giáo viên và tạo báo cáo.  
+
+### 3. Student:  
+- Lưu trữ và cung cấp thông tin tiến độ học tập.  
+
+### 4. Teacher:  
+- Cung cấp nhận xét và phản hồi.  
+
+---
+
+
+## Biểu đồ Sequence Diagram  
+
+![Phu huynh theo doi tien do](
+https://www.planttext.com/plantuml/png/b9EnQkGm48PxFSMGFY-mHGYak5i88P0Dt9MEhBC4pYZ8ut1RfzZYEBYKrwq98H1Ojaab5ocqBw8do2i4sRfppDfijXnhlfdvVy-yrQ_71IM6okkS9PoqWVF422HsfKjC4pEFyUMKSOraT0xdHcT65CL96-V2C86aQ0uNLAQ1ZU5C95mAmrXR0WwF_XURmERFvWupGEdjwWPktLA3zFK2IFhw7hF8N4uxQW9VbQ_li4dv1Mc24WfNSHd0tnmAXNAmrKbun-siM7nBpWI-k-SIkBTF9P1qBvW1AGHIthuYREvz_PTjOw5OT602fzu-pY7rzHfovUj5sQTZ7XoE330ptZwCuyFDEyKjFZhwBcixaB4a9vXv-w3WobKQkAiqWuZrcvv9RnyHq5a26Y4-PxctbUx3-vhDPR_0_dxlRjyf_-BhbO8VAXVZagFFhPK_osR9FsGBJ5klJvLxRdPr0PaApxVXmoSiFnWc3_RpFckaaCBcCjTDuq7ryRZ_YUyHyMtKxM-kuktbXytSsQhJ-n7i9YNfbYY1XwKTiNrelHlpUspu2SS2q_8wVmS00F__0m00)
+
+---
+
+## Biểu đồ Class Diagram  
+
+![Phu huynh theo doi tien do](
+https://www.planttext.com/plantuml/png/Z951JiGm34NtEOMNCulUeAgGogOII2EOEO1fJ5ifZIl7PJH2d8m5H-8Ag6a6MkY2NVpZlF_jVBv_t0H5qR5tfdOO0ZpgQCahv3bvxVHI5Ay6023CUdKRAuyznSCWt0Y548k6z93gtTwycOGye6mHXoWdODrspWhvMBnqT2udOOjs9AnRaWKEPfxE5xyJehKbzprv_PlfL46UF_5eKRvZsIuC3Yztt7H-jrzAYpHHvRDtZFQ11fO93jCSx1LhJI5NZkbroLw5dOiZJEt2xkhzJ5gtwGT-t6nQhYT1fPLT86_lAGHiwCWhqxHqu2o3wwUQZGoGPSK_6X8xOK_L96-CPBu0003__mC0)
+
+
+
+
+## Các lớp phân tích  
+
+### 1. Thực thể (Entity)  
+- **Service**: Đại diện cho các dịch vụ được cấu hình.  
+  - **Thuộc tính**:  
+    - `serviceID`  
+    - `name`  
+    - `configurationOptions`  
+  - **Phương thức**:  
+    - `configure(options)`  
+
+### 2. Biên (Boundary)  
+- **ServiceUI**: Giao diện cấu hình dịch vụ.  
+  - **Phương thức**:  
+    - `displayServices()`  
+    - `updateConfiguration()`  
+
+### 3. Điều khiển (Control)  
+- **ServiceController**: Quản lý các yêu cầu cấu hình dịch vụ.  
+  - **Phương thức**:  
+    - `getServiceList()`  
+    - `updateServiceConfiguration(serviceID, options)`  
+
+---
+
+## Biểu đồ Sequence Diagram  
+![Cấu hình dịch vụ](
+https://www.planttext.com/plantuml/png/b92nIWCn6CVtFCNt0ds13bAee0vEMgZZDHSkWUkNaaiEEtVeK0IT7UmDHH2xEJM3G_eYtnFu2dAMzb8ugOu9-Vt_-V--_6Uli8cnRfopX5jjO508mqRQOPgOATm8Koek1bUCQxH6v_kR_kwO2yC4McKFJnch4w1prh1Ts3vkPvW1Ijgi9r26fGP9VWvMad_2h0sv9ly2cKeqf8hy787JPkL0XdUKa99VS0ab-HKxC550yxikt8KtLyEl3j849HIXugq93HGbTU7Mk2dSEzgiR1ImXw3Jtdh-vwhZsPUA_0n_n2pYkXP3VKd-0UFuscmzTJtPgRQnj9EYBiYlrP7cCVbdTK9F_qJTRuA6eU8xh5uRbYY1Xm_C_gd8oXg2KQZqSKnFOEh6-JS0003__mC0)
+
+
+---
+
+## Biểu đồ Class Diagram  
+
+![Cấu hình dịch vụ](
+https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rACX6AU38N7iahIF-jkXbctdlplTVZcGSIdc9Zc3GY13YXlsg9m7aaRJHrMNPZ001XDChzS5dHuB18Po-wZbwGTlROzZDi3DmbxCwszAe4piykAk4NljAXDQAR4c6N36fibI0iFal-y0fdoJjZq0FdSZncReqqfGuwq0QxVd_JVxcGfXdCVRDVbRs-o6kSvMXLRCmR003__mC0).
+
+
+
+
 
 # 3. Các phần tử thiết kế trong hệ thống iLearn
 
