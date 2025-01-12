@@ -1,41 +1,92 @@
-8. Phụ huynh theo dõi tiến độ học tập của học sinh
-Mô tả:
+# Phụ huynh theo dõi tiến độ học tập của học sinh  
 
-    Quá trình phụ huynh theo dõi tiến độ học tập của học sinh qua hệ thống iLearn. Sau khi đăng nhập, phụ huynh có thể xem thông tin về điểm số, bài tập, tình trạng tham gia lớp học và nhận xét từ giáo viên của học sinh. Hệ thống cũng cho phép tải xuống báo cáo học tập hoặc liên hệ với giáo viên nếu cần.
+## Các lớp phân tích  
 
-Các tác nhân:
+### 1. Entity  
+- **Student**: Đại diện cho học sinh trong hệ thống.  
+  - **Thuộc tính**:  
+    - `studentID`  
+    - `name`  
+    - `progress` (Điểm số, bài tập, tình trạng tham gia)  
+  - **Phương thức**:  
+    - `getProgress()`  
+- **Parent**: Đại diện cho phụ huynh trong hệ thống.  
+  - **Thuộc tính**:  
+    - `parentID`  
+    - `children` (Danh sách học sinh)  
+  - **Phương thức**:  
+    - `viewChildProgress(studentID)`  
+- **Teacher**: Đại diện cho giáo viên cung cấp nhận xét.  
+  - **Thuộc tính**:  
+    - `teacherID`  
+    - `name`  
+  - **Phương thức**:  
+    - `addComment(studentID, comment)`  
 
-    Phụ huynh: Người theo dõi tiến độ học tập của học sinh.
-    Hệ thống iLearn: Cung cấp thông tin về học sinh cho phụ huynh.
-    Học sinh: Người mà phụ huynh theo dõi tiến độ học tập.
-    Giáo viên: Cung cấp nhận xét và thông tin về học sinh.
+### 2. Boundary  
+- **ParentUI**: Giao diện cho phép phụ huynh theo dõi tiến độ học tập.  
+  - **Phương thức**:  
+    - `displayLogin()`  
+    - `displayProgress()`  
+    - `downloadReport()`  
+    - `contactTeacher()`  
 
-Mục tiêu:
+### 3. Control  
+- **ProgressController**: Điều phối truy vấn dữ liệu tiến độ học tập và giao tiếp với các lớp khác.  
+  - **Phương thức**:  
+    - `fetchStudentProgress(studentID)`  
+    - `generateReport(studentID)`  
+    - `sendMessageToTeacher(teacherID, message)`  
 
-    Cung cấp thông tin chi tiết về tiến độ học tập của học sinh cho phụ huynh.
-    Tạo điều kiện cho phụ huynh theo dõi các yếu tố quan trọng như điểm số, bài tập, và sự tham gia lớp học của học sinh.
-    Cung cấp báo cáo học tập và liên hệ với giáo viên khi cần thiết.
+---
 
-Cơ chế phân tích:
+## Responsibility  
 
-    Tính bền vững (Persistency): Lưu trữ dữ liệu về điểm số, bài tập và các nhận xét trong cơ sở dữ liệu.
-    Phát hiện lỗi (Error Detection/Handling/Reporting): Hiển thị thông báo lỗi nếu không truy xuất được dữ liệu.
-    Bảo mật (Security): Xác thực phụ huynh trước khi cho phép truy cập dữ liệu học sinh.
+### 1. ParentUI:  
+- Hiển thị giao diện để phụ huynh theo dõi tiến độ.  
+- Cung cấp tùy chọn tải xuống báo cáo hoặc liên hệ giáo viên.  
 
-Luồng sự kiện chính:
+### 2. ProgressController:  
+- Lấy dữ liệu tiến độ từ cơ sở dữ liệu.  
+- Xử lý yêu cầu liên hệ giáo viên và tạo báo cáo.  
 
-    Phụ huynh đăng nhập vào hệ thống bằng tài khoản đã được cấp.
-    Phụ huynh chọn chức năng "Theo dõi tiến độ học tập".
-    Hệ thống hiển thị danh sách các con của phụ huynh (nếu có nhiều hơn một học sinh).
-    Phụ huynh chọn học sinh muốn theo dõi.
-    Hệ thống hiển thị: Điểm số của học sinh theo môn học. Danh sách bài tập đã nộp/chưa nộp. Tình trạng tham gia lớp học (đi học đầy đủ, đi trễ, nghỉ học). Nhận xét từ giáo viên.
-    Nếu cần, phụ huynh tải xuống báo cáo học tập hoặc nhấn nút "Liên hệ giáo viên".
+### 3. Student:  
+- Lưu trữ và cung cấp thông tin tiến độ học tập.  
 
-Luồng sự kiện phụ:
+### 4. Teacher:  
+- Cung cấp nhận xét và phản hồi.  
 
-    Nếu không có dữ liệu: Hệ thống hiển thị thông báo, hướng dẫn phụ huynh liên hệ với giáo viên.
-    Nếu có lỗi kết nối: Hệ thống hiển thị "Không thể kết nối đến máy chủ. Vui lòng thử lại sau."
+---
 
-Biểu đồ luồng sự kiện:
+## Luồng sự kiện chính  
 
-Theo Doi Tien Do Hoc Tap
+1. Phụ huynh chọn chức năng **"Theo dõi tiến độ học tập"** trên giao diện.  
+2. Hệ thống hiển thị danh sách các con của phụ huynh.  
+3. Phụ huynh chọn học sinh muốn theo dõi.  
+4. Hệ thống hiển thị:  
+   - Điểm số của học sinh theo môn học.  
+   - Danh sách bài tập đã nộp/chưa nộp.  
+   - Tình trạng tham gia lớp học (đi học đầy đủ, đi trễ, nghỉ học).  
+   - Nhận xét từ giáo viên.  
+5. Phụ huynh tải xuống báo cáo hoặc liên hệ giáo viên nếu cần.  
+
+---
+
+## Luồng sự kiện phụ  
+
+- **Không có dữ liệu**: Hiển thị thông báo và hướng dẫn liên hệ giáo viên.  
+- **Lỗi kết nối**: Hiển thị "Không thể kết nối đến máy chủ. Vui lòng thử lại sau."  
+
+---
+
+## Biểu đồ Sequence Diagram  
+
+![Phu huynh theo doi tien do](
+https://www.planttext.com/plantuml/png/b9EnQkGm48PxFSMGFY-mHGYak5i88P0Dt9MEhBC4pYZ8ut1RfzZYEBYKrwq98H1Ojaab5ocqBw8do2i4sRfppDfijXnhlfdvVy-yrQ_71IM6okkS9PoqWVF422HsfKjC4pEFyUMKSOraT0xdHcT65CL96-V2C86aQ0uNLAQ1ZU5C95mAmrXR0WwF_XURmERFvWupGEdjwWPktLA3zFK2IFhw7hF8N4uxQW9VbQ_li4dv1Mc24WfNSHd0tnmAXNAmrKbun-siM7nBpWI-k-SIkBTF9P1qBvW1AGHIthuYREvz_PTjOw5OT602fzu-pY7rzHfovUj5sQTZ7XoE330ptZwCuyFDEyKjFZhwBcixaB4a9vXv-w3WobKQkAiqWuZrcvv9RnyHq5a26Y4-PxctbUx3-vhDPR_0_dxlRjyf_-BhbO8VAXVZagFFhPK_osR9FsGBJ5klJvLxRdPr0PaApxVXmoSiFnWc3_RpFckaaCBcCjTDuq7ryRZ_YUyHyMtKxM-kuktbXytSsQhJ-n7i9YNfbYY1XwKTiNrelHlpUspu2SS2q_8wVmS00F__0m00)
+
+---
+
+## Biểu đồ Class Diagram  
+
+![Phu huynh theo doi tien do](
+https://www.planttext.com/plantuml/png/Z951JiGm34NtEOMNCulUeAgGogOII2EOEO1fJ5ifZIl7PJH2d8m5H-8Ag6a6MkY2NVpZlF_jVBv_t0H5qR5tfdOO0ZpgQCahv3bvxVHI5Ay6023CUdKRAuyznSCWt0Y548k6z93gtTwycOGye6mHXoWdODrspWhvMBnqT2udOOjs9AnRaWKEPfxE5xyJehKbzprv_PlfL46UF_5eKRvZsIuC3Yztt7H-jrzAYpHHvRDtZFQ11fO93jCSx1LhJI5NZkbroLw5dOiZJEt2xkhzJ5gtwGT-t6nQhYT1fPLT86_lAGHiwCWhqxHqu2o3wwUQZGoGPSK_6X8xOK_L96-CPBu0003__mC0)
