@@ -64,8 +64,13 @@ Responsibility:
 2. RegistrationController: Xử lý luồng công việc trong quá trình đăng ký
 3. UserAccount: Đại diện cho tài khoản người dùng và lưu trữ thông tin xác thực và thông tin đăng nhập
 4. DatabaseService: Quản lý việc lưu trữ thông tin người dùng vào cơ sở dữ liệu và kiểm tra sự tồn tại của người dùng
+---
+- Squence Diagram
+  ![](
+https://www.planttext.com/plantuml/png/h9I_Rjim4CPtFiMDCf2yW8OYHHEq7PgXJO2kDCMAX6ag84z6CsV8qCdeqAbe3KyjODH3bue8EiZmU_09yWe1QRULPJb_a0hGGjnztzsFTxnslmyiKeFbK17Ai31mQhaX_QBK6JNdy9hdqgAXA0jz-fAmGgCfrCRnizMPuePmZHBFeyHJnefIuv-ZGugqJor_myr8Cav8Y87z9os355vvzmNGK9t3Ohouq3aCwYko6HNoGduABwHt5nfGUFS1tXLcs4pQPN4iV3Kx0nJrJvq3Ijr8WWJhxteF-91AjGT3NyqG1i9NtyfUHnNT759uxjrCTZiGqfrqczo8AfbHvA6ZG3Bf4QeG3htx0KfwTrd2OEKbl9kUWVBkaW303i4kA1iabNUVv9P04_oQeVBLfDaduShoZRhkNL1hGb9WWhD1S3jwBotQ95v9Bwg4ve_pvToxpnAo-bSSbdeAwDr73HYAYd7XQ-d2_YsSZuB5Rgd7q8IaMtpLq3rGn_R3DKzOJ8caMn2OMCxfVwAm7gY7SMXiVWedlfeKi1XxDvQ0eT2fpfiXa0XgHMl9xZRPcXHBHt4raj9oyq_X8Js_hISCT22jGItdPPZfhre02n0UEm3h_UZN4SVVf-PEY-OKd3GqjXAvpaZu3xZEmaj-0m00__y30000)
+  
 
-
+---
 - CLass Diagram:
   ![diagram](https://planttext.com/plantuml/png/V59BRi8m4Dtd55w61HT04QBGI6LHgG9nWAaz3LOTEvqPqwAAatNH8_KALKW0XtwMypxsUsD_VNpEM80arYxJ3fZL2YlBGY0s-CrI5SKyH6-0zjEfUi-KKiPous2VwXwWmdpKaXeQYOGfkVHDb8xjhILHe7jaFjjwOXsrHkOBTSX-IRK8NYWuXwIAeXzEuRRWZHjSlyANYDm7s86p1WGtZ7GB0XtAi3iYDrg7w7ifepUBu9yirSTpoXgiIoCb3bKKfHShvnrvg76YraBML-sChJa56c1-3MJkWBSfJi4DZAV02qA3NYmupaSJDG_18VXMKQ4Ssw20xSXslCHiQpu2unffPpN-Y7egdqT6wip32_GMzNCBbs-MXVD1bqHwoBBiwlECnzC_NcwWJ1wqTIIB_KzsLIoReJUnTjy0003__mC0)
   
