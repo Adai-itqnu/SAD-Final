@@ -3,7 +3,7 @@
 | LoginUI | LoginUI |
 | RegistrationUI    | RegistrationUI  |
 |CourseManagementUI  |  CourseManagementUI  |
-| TeacherUI | ITeacherUI   |
+| TeacherUI | TeacherUI   |
 | ParentUI | ParentUI |
 |NotificationUI | NotificationUI |
 |GroupCreationUI <br> GroupJoinUI | GroupManagementUI SubSystem <br> IGroupManagementUI Interface|
