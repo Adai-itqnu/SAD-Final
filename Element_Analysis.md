@@ -1,12 +1,12 @@
 | **Lớp Phân Tích**         | **Phần Tử Thiết Kế**                         |
 |----------------------------|----------------------------------------------|
-| LoginController            | LoginController                             |
+| LoginController            | Login                             |
 | EncryptionService          | Encryption Subsystem<br>IEncryptionService Interface |
-| RegistrationController     | RegistrationController                      |
-| JoinGroup                  | JoinGroupController                         |
-| AddLesson                  | LessonController                            |
+| RegistrationController     | Registration                      |
+| JoinGroup                  | JoinGroup                        |
+| AddLesson                  | AddLesson                            |
 | NotificationController     | Notification Subsystem<br>INotificationController Interface |
 | GroupController            | Group Subsystem<br>IGroupController Interface |
-| GroupJoinController        | GroupJoinController                         |
-| ProgressController         | ProgressController                          |
+| GroupJoinController        | JoinGroupController                         |
+| ProgressController         | Progress                         |
 | ServiceController          | Service Subsystem<br>IServiceController Interface |
