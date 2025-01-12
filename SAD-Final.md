@@ -96,102 +96,44 @@ Hệ thống iLearn được đề xuất sử dụng kiến trúc phân lớp (
 ## Các cơ chế phân tích
 
 ### 1. Cơ chế tính bền vững (Persistency)
-Đảm bảo hệ thống hoạt động ổn định, có thể mở rộng và tiết kiệm tài nguyên.
+Đảm bảo hệ thống hoạt động ổn định, lưu trữ và duy trì dữ liệu để có thể truy cập được ngay cả khi ứng dụng, hệ thống, hoặc thiết bị bị tắt.
 
-#### Ứng dụng trong iLearn
-- **Kiến trúc linh hoạt**:
-  - Sử dụng kiến trúc Microservices để các thành phần hoạt động độc lập, giảm tải và dễ dàng nâng cấp.
-- **Hỗ trợ mở rộng**:
-  - Triển khai trên đám mây (AWS, Azure) để tăng khả năng đáp ứng khi số lượng người dùng tăng cao.
-
-#### Ví dụ
-Trong mùa thi, lượng truy cập tăng mạnh, hệ thống tự động thêm máy chủ để duy trì hiệu năng ổn định.
 
 ---
 
 ### 2. Cơ chế định tuyến tin nhắn (Message Routing)
 Đảm bảo thông tin và yêu cầu được gửi đúng nơi, đúng lúc.
 
-#### Ứng dụng trong iLearn
-- **Thông báo sự kiện**:
-  - Gửi thông báo tự động (qua email, ứng dụng) đến đúng nhóm người dùng khi có sự kiện mới (bài giảng mới, hạn nộp bài tập).
-- **Hệ thống hàng đợi tin nhắn**:
-  - Sử dụng RabbitMQ hoặc Kafka để xử lý thông báo và giao tiếp giữa các dịch vụ trong hệ thống.
-
-#### Ví dụ
-Khi giáo viên thêm tài liệu mới, hệ thống gửi thông báo đến tất cả học sinh trong lớp qua email.
-
 ---
 
 ### 3. Cơ chế quản lý giao dịch (Transaction Management)
 Đảm bảo tính toàn vẹn và an toàn của giao dịch trong hệ thống.
 
-#### Ứng dụng trong iLearn
-- **Thanh toán học phí**:
-  - Sử dụng các nền tảng thanh toán trực tuyến (Stripe, PayPal) và cơ chế kiểm tra để xác nhận giao dịch thành công trước khi đăng ký khóa học.
-- **Đăng ký khóa học**:
-  - Áp dụng nguyên tắc ACID để đảm bảo dữ liệu không bị lỗi khi người dùng thực hiện đăng ký hoặc hủy bỏ.
-
-#### Ví dụ
-Một học sinh thanh toán phí khóa học. Nếu quá trình thanh toán thất bại, hệ thống không thêm họ vào danh sách học viên.
 
 ---
 
 ### 4. Kiểm soát và đồng bộ hóa tiến trình (Process Control and Synchronization)
 Đảm bảo các tác vụ được thực hiện theo thứ tự và tránh xung đột.
 
-#### Ứng dụng trong iLearn
-- **Quản lý chỉnh sửa tài nguyên**:
-  - Sử dụng cơ chế khóa (lock) khi giáo viên chỉnh sửa tài liệu để tránh hai người cùng thay đổi.
-- **Đồng bộ hóa giao dịch**:
-  - Đảm bảo tiến trình đăng ký khóa học hoàn tất trước khi tài liệu được phân phối cho học sinh.
 
-#### Ví dụ
-Nếu hai giáo viên chỉnh sửa cùng một bài tập, chỉ một người được phép thay đổi tại một thời điểm.
 
 ---
 
 ### 5. Bảo mật (Security)
 Bảo vệ dữ liệu người dùng và hệ thống khỏi các cuộc tấn công.
 
-#### Ứng dụng trong iLearn
-- **Xác thực**:
-  - Sử dụng OAuth 2.0 và JWT để quản lý phiên đăng nhập của người dùng.
-- **Mã hóa dữ liệu**:
-  - Mã hóa mật khẩu và dữ liệu nhạy cảm bằng AES-256.
-- **Bảo vệ khỏi tấn công**:
-  - Tường lửa ứng dụng web (WAF) để ngăn chặn SQL Injection, XSS, hoặc CSRF.
-
-#### Ví dụ
-Học sinh đăng nhập và hệ thống sử dụng JWT để xác minh danh tính mà không tiết lộ thông tin nhạy cảm.
 
 ---
 
 ### 6. Giao diện cũ (Legacy Interface)
 Đảm bảo giao diện đơn giản, quen thuộc với người dùng đã sử dụng hệ thống trước đó.
 
-#### Ứng dụng trong iLearn
-- **Thiết kế tối giản**:
-  - Giữ lại bố cục quen thuộc (menu bên trái, nội dung ở giữa) để người dùng không phải làm quen lại từ đầu.
-- **Hỗ trợ thiết bị cũ**:
-  - Tối ưu giao diện để tương thích với các trình duyệt và thiết bị cấu hình thấp.
-
-#### Ví dụ
-Học sinh sử dụng trình duyệt cũ vẫn có thể truy cập giao diện iLearn mà không bị lỗi hiển thị.
 
 ---
 
 ### 7. Phát hiện lỗi (Error Detection)
 Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của hệ thống.
 
-#### Ứng dụng trong iLearn
-- **Giám sát hệ thống**:
-  - Sử dụng công cụ như Prometheus hoặc New Relic để theo dõi hiệu năng và cảnh báo khi có lỗi.
-- **Quản lý lỗi người dùng**:
-  - Hiển thị thông báo lỗi rõ ràng (ví dụ: "Sai mật khẩu", "Khóa học đã hết chỗ").
-
-#### Ví dụ
-Khi người dùng nhập sai mật khẩu nhiều lần, hệ thống cảnh báo và khóa tài khoản tạm thời.
 
 ---
 
