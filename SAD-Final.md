@@ -641,7 +641,7 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 |Course  |  Course  |
 | Lesson | Lesson  |
 |NotificationLogStorage <br> NotificationStorage <br> NotificationController <br>UserStorage| Storage Subsystem <br>  IStorage Interface |
-| LoginController  <br> RegistrationController  | IAuthentication <br> IAUthentication Interface |
+| LoginController  <br> RegistrationController  | IAuthentication Subsystem <br> IAUthentication Interface |
 | ProgressController  |  Tracking |
 
 
