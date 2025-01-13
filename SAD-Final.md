@@ -633,7 +633,7 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 ## 3.1 Các lớp phân tích thành các phần tử thiết kế
 | **Lớp Phân Tích**      | **Phần Tử Thiết Kế**        |
 |---------------|---------------|
-| LoginUI <br>ParentUI <br>TeacherUI <br>RegistrationUI <br>CourseManagementUI <br>GroupCreationUI <br>GroupJoinUI <br>ServiceUI <br>NotificationUI | UserUI Subsystem<br> IUser Interface|
+| LoginUI <br>ParentUI <br>TeacherUI <br>RegistrationUI <br>CourseManagementUI <br>GroupCreationUI <br>GroupJoinUI <br>ServiceUI <br>NotificationUI <br>ProgressController | User Subsystem<br> IUser Interface|
 |   GroupController<br> JoinGroup <br> AddLesson | Group Subsystem<br>IGroupController Interface |
 |  ServiceController <br> DatabaseService <br>EncryptionService | Service Subsystem<br>IService Interface|
 | Parent <br> Teacher<br>Student<br>Member<br>UserAccount| UserAccount |
@@ -642,8 +642,6 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 | Lesson | Lesson  |
 |NotificationLogStorage <br> NotificationStorage <br> NotificationController <br>UserStorage| Storage Subsystem <br>  IStorage Interface |
 | LoginController  <br> RegistrationController  | IAuthentication Subsystem <br> IAUthentication Interface |
-| ProgressController  |  Tracking |
-
 
 
 ---
