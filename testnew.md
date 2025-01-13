@@ -687,5 +687,18 @@ Với các hướng mở rộng này, hệ thống hứa hẹn sẽ trở thành
 * https://www.dropbox.com/scl/fi/ffls77bnutw9gmzo73ahq/Architecture-proposal.pdf?rlkey=oye4s9hldeweosuxwigsm2wpy&e=1&dl=0%2F
 
 
+# Interface `IAuthentication`
 
+`IAuthentication` cung cấp các phương thức để thực hiện các chức năng xác thực người dùng, bao gồm đăng nhập, đăng xuất, xác thực token, và đặt lại mật khẩu. 
 
+## Phương thức
+
+### 1. `Login(username: string, password: string): string`
+
+### 2. `Logout(token: string): bool
+
+### 3. `ValidateToken(token: string): bool`
+
+### 4. `ResetPassword(userId: int, email: string): bool`
+## Lớp
+![](https://www.planttext.com/plantuml/png/UhzxVsPUIMfHMc9ogeAdOsb9HcfUIMPoOabcVfv2DPS26FZafsVcQPGMfnRb9UQcMYaKbnHbvgNhA1Ga5XUNvnUbm4GqOGo4llpI4esI_EpKF2GrIVdvEL0LOOavcIc99QaX82Nu50Qb5gUM143j0pl5CyLA8JElH4SXDJSnCmTTLoq0003__mC0)
