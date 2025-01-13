@@ -3,3 +3,11 @@
 
 
 ![sequence](https://www.planttext.com/plantuml/png/h5HDIyD04BtdLmozMC46_9OSIa4K2gMNs9DuM3RJi93Enjr9It-R1t-IVq7IMhk9sHXhRybCvhrzi-_bu-rzP5aOBXPP82Hh0pEB9iY5OILLBeXXgbdDbHIiDCt6tjQz9ZOworgcOzP6fEZjJtJwsoT1S08nlXP84c6k3KY3WXMb82W1YvIKp-HEb89WCApfYE0y15CYMOwH4hVRbveOYS-Wi6Z6oMcv6hKKZFLb1DNtEir-9n5SX9lZ7S3ZR3PehjTv8xWCjvl1FGUlS_GmL61XqAB281U6W71L1KYm6RZZWR-kFOAh4AnOOcLBxcrw1Eniqr3h8iSMKgArFXKxz8vYzZQEu7ghPwBJYempwCKFqwUUHuuJXERo4KGv75vT3QdPWRFWmeljSsoPaC5myuk9854spyGQfAQvCejM7vLHgmL_gN1LpxhrXlqct0ouPTi_IgvlGqYHgy17ZlEtc-v-SZrgKsfkf_ndFCWbV7uvE2P-EtLa-9ElgiPeCTO8AIaMsIS0003__mC0)
+
+
+# Notification System
+
+### 
+
+- Người dùng muốn đọc thông báo.
+- Hệ thống lấy thông báo đã lưu trữ và gửi cho người dùng.
