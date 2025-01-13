@@ -633,15 +633,17 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 ## 3.1 Các lớp phân tích thành các phần tử thiết kế
 | **Lớp Phân Tích**      | **Phần Tử Thiết Kế**        |
 |---------------|---------------|
-| LoginUI <br>ParentUI <br>TeacherUI <br>RegistrationUI <br>CourseManagementUI <br>GroupCreationUI <br>GroupJoinUI <br>ServiceUI <br>NotificationUI <br>ProgressController | User Subsystem<br> IUser Interface|
-|   GroupController<br> JoinGroup <br> AddLesson | Group Subsystem<br>IGroupController Interface |
+| LoginUI <br>ParentUI <br>TeacherUI <br>RegistrationUI <br>CourseManagementUI   <br>ServiceUI <br>NotificationUI <br>ProgressController | UserManagement Subsystem<br> IUser Interface|
+|   GroupController<br> JoinGroup <br> AddLesson  | Group Subsystem<br>IGroupController Interface |
 |  ServiceController <br> DatabaseService <br>EncryptionService | Service Subsystem<br>IService Interface|
 | Parent <br> Teacher<br>Student<br>Member<br>UserAccount| UserAccount |
 | Group  | Group  |
 |Course  |  Course  |
 | Lesson | Lesson  |
 |NotificationLogStorage <br> NotificationStorage <br> NotificationController <br>UserStorage| Storage Subsystem <br>  IStorage Interface |
-| LoginController  <br> RegistrationController  | IAuthentication Subsystem <br> IAUthentication Interface |
+| LoginController  <br> RegistrationController  | Authentication Subsystem <br> IAUthentication Interface |
+
+
 
 
 ---
@@ -684,180 +686,9 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 
 # 4.Thiết kế hệ thống con cho iLearn
 
-#### **1. Hệ thống con quản lý người dùng (User Management Subsystem)**
-
-- **Chức năng**:
-  - Quản lý thông tin tài khoản (tạo, sửa, xóa).
-  - Xác thực người dùng (login, logout, MFA).
-  - Phân quyền theo vai trò (học sinh, giáo viên, quản trị viên).
-
-- **Thành phần**:
-  - **Authentication Service**: Xử lý xác thực bằng OAuth 2.0 và JWT.
-  - **User Profile Management**: Lưu trữ và xử lý thông tin người dùng (họ tên, email, vai trò).
-  - **Role-Based Access Control (RBAC)**: Kiểm soát quyền hạn truy cập.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Users`**:
-      - Cột: `UserID`, `Email`, `PasswordHash`, `Role`, `Status`, `CreatedAt`, `UpdatedAt`.
-    - **Bảng `Roles`**:
-      - Cột: `RoleID`, `RoleName`, `Description`.
-    - **Bảng `Permissions`**:
-      - Cột: `PermissionID`, `RoleID`, `ServiceAccess`.
-
-  - API:
-    - POST `/api/auth/login`: Xác thực và trả JWT.
-    - GET `/api/users/{id}`: Lấy thông tin người dùng.
-    - PUT `/api/users/{id}`: Cập nhật thông tin người dùng.
-   
-    ### Sequence Diagram
-    ![UserManagementSubSystemSequenceDiagram](https://www.planttext.com/plantuml/png/b5B1Ji904BtlLqmuGGA1UEo1WDGe2jAa5RqEfUbkf5kotKBu1iyUFH32mOE962-s1mzD_8_z0d_1j8fQqnwyxMRUU_FUpBp7hvr0ef2XDoDeIr_0HU08m03EtRT75TynFNdXBfcZaCncS-GIAbsZ3ySedIMkAYcqf-9RxdQD_XzOAAd39RDHCf-3wOW5ivsCeQlungPZ5M-lahLjKHNlx3nPHuaJ33xXFLCV499p18tsJryDZ95fGHFdh8cXfCsPxp9ElkifkAYb1kaRPFO1IPDdxe9a7Af77h9P7OOgUf1mJLLq7zP8aKJcmzG76bWYNC52HLiE4nNjk0jEAaBIAZHA7HogQCF1fGpuLpwOPW7t7WmCWgKlfYSOq3gCaO4KoLEv6xqygCSupUdzKyHIqTe7BzdiPpL9rZwSNbebElaT3GjulrRKQETlJeE3LWj6Pr0j8DP8n-7Jz6e_0000__y30000)
-
-    ---
-    ### Class Diagram
-    ![UserManagementSubsystemClassDiagram](https://www.planttext.com/plantuml/png/T5HBRjim4Dtp50GtbOiaGBTQ577j0icYWHkx1vX8Ouc8HAgSOMgZwCcww95wXOBKNtQr4jyySjwR6VBlxp_tnE3OrvKGx-Ic0YAvrL0ugENHElcDqCalOA306WtBlN-XCp7MGcIH70a_XOnVM3nkKwaDTyZd6dILIcAdJT5XEo3wOLt-05GkGi-smWMqPs1F2t3Z41ZpDQSo1qRMDVOIclm_aHDaNFeiQRhq_P6hLBvOMo4OyQjt5NGChi9YxYeWJr0lfMwHCgSRrjOi8WMOh_wC9cdGrPeeCdR3_ogLRrRdO_unDAWOeKijSsIFxardkCuofB5mmzbhpoKQrXa4eHrvI9E3AKm9JOBJpjt8ArMREGpxJXuuOVkAW_tUMCjvrLYpWyYuu5tq80pJpjcZhd0oWBtE2iw7qfhYeCrJuQtUUbCaEezrMALnSyVCe34byCZoXAvbh6RoJXQk7JNlpFEdzMOG4GmT7BIjTPFPlP7KrlMwmNXfr0SbRs-bUg_QSKkbAe6KY8j9S38BgLGv7hL1Kk9w6-_kFhPNCfMg6tWLqrrMSahzxi5KPoMYkn3e5GM7P86L4FTeyl1E_0C00F__0m00)
-
-#### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
-
-- **Chức năng**:
-  - Tạo, sửa, xóa khóa học.
-  - Quản lý tài liệu học tập và bài tập.
-  - Gán học viên và giáo viên vào khóa học.
-
-- **Thành phần**:
-  - **Course Service**: Quản lý thông tin khóa học và logic liên quan.
-  - **Resource Manager**: Quản lý tài liệu và bài tập.
-  - **Enrollment Manager**: Quản lý danh sách học viên và giáo viên.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Courses`**:
-      - Cột: `CourseID`, `Name`, `Description`, `TeacherID`, `CreatedAt`.
-    - **Bảng `Enrollments`**:
-      - Cột: `EnrollmentID`, `CourseID`, `UserID`, `Role` (Student/Teacher).
-    - **Bảng `Resources`**:
-      - Cột: `ResourceID`, `CourseID`, `FilePath`, `UploadedAt`.
-
-  - API:
-    - POST `/api/courses`: Tạo khóa học mới.
-    - GET `/api/courses/{id}`: Lấy thông tin khóa học.
-    - POST `/api/courses/{id}/enroll`: Gán học viên/giáo viên vào khóa học.
-   
-    ---
-    ### Class Diagram
-    ![CourseManagementSubsystemClassDiagram](https://www.planttext.com/plantuml/png/j9JFQjmm4CRlVef1bsn24iXLb2LbdPAIFvHialjKcjW2MGgI7BAKFbaFVQIyGbXRMkrg3Q6K-6IFVXfztyp8Rt_-7i12e_TGAsmSTl1a7Inixpp13Hfig2CJODd_z2iVgAigCU0H-LN1y8oVtsiEoeGOkyMEEFZWb6bYg2Old7eEoffYvPvGjEHsComSOI3vDN2G62YeZk9AQAcxHtMjg9yvyhPtWZZSnRT33YzMoSY-MYpHU4pYVYTNAS76LmeKkYRSVbEQVc1e2ryFpzgYdFQ0wXCiN1XdjHwQbapaqCSs7dpPX3khopOsQ2wjU5HaPilGo_LPVa_8c7r9xaLj5JIWlMejNben4mF08xXhMECgOKeceoEOIx9FJ7Tpd6ENDVp3y6XS9NJKc-j-hNpuadRD_wTJfK29fhbQvHh53CVGv-uSWzjgp9xe6asxHD7MGwffxLd0FAkF6wYScItvyUwpCmOd9y2EMBut75YBdaqWMtF9WIaZT2zfGwOnEJsTfryB1zODTV6iAZkvndRFD5AlmVsQhj7TipTmTKv6zfsktW400F__0m00)
-
-    ---
-    ### Sequence Diagram
-    ![CourseManagementSubsystemSequenceDiagram](https://www.planttext.com/plantuml/png/V5AzJiCm4Dxz59-wG2Mgx1qGb02g4AAYHMAzkYQnIC_WEA0ACJ4pyG94R4XCCAL3Xpo9du1NG4b1RVaRBD-TlZ_h_3wTRQMEhCl6YLX3NrrcYgL2g2coDCQPiTXbQv94SmJ2IQgi42ITiVDwQ38UaPsWiTthOf-SkgP90vHYkzVzR8KqxAn9q9XBZHKx719Jf6mDNOm_fqAnqsw2HaYEXfIg6XPsXAXCqTfSKc-ZTzGV8A0B7KYJsLIbmOqUtGQgLXKBPCNxOTN6VfapOZ-zbxZIvJC7aIvpCwznLJuQdCVbAyqXueT0fHfssZZGVdetXhEqZ8VpqmU6yqMkHTX1w_SCWxXyumXEymfvVQT-K3Ti_kqxy4LkCFJ54oEATNr6n37M5vHkk84lgOrwSTLzR1BL_2VKQPbBSEoB5uQBoqUE8QkOlsNvjf83NymSBZDVF2q5wcTIgZGDzaWdcLNDbTsqDkjWArmXjXIFgh_v0G00__y30000)
-    
 
 
-#### **3. Hệ thống con thông báo (Notification Subsystem)**
 
-
-#### **4. Hệ thống con quản nhóm học**
-
-- **Chức năng**:
-  - Tạo, chỉnh sửa, và xóa nhóm học tập.
-  - Quản lý thành viên trong nhóm.
-  - Gửi thông báo đến thành viên nhóm.
-
-- **Thành phần**:
-  - **Group Service**: Quản lý các nghiệp vụ liên quan đến nhóm học tập.
-  - **Notification Service**: Gửi thông báo đến thành viên nhóm qua nhiều kênh (email, hệ thống).
-  - **Group Repository**: Lưu trữ thông tin nhóm và thành viên trong cơ sở dữ liệu.
-  - **User Service**: Hỗ trợ tìm kiếm thông tin thành viên.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Groups`**:
-      - Cột: `GroupID`, `GroupName`, `CreatedBy`, `CreatedAt`.
-    - **Bảng `GroupMembers`**:
-      - Cột: `MemberID`, `GroupID`, `UserID`, `JoinedAt`.
-   - **Bảng `Notifications`**:
-      - Cột: `NotificationID`, `GroupID`, `Message`, `SentAt`.
-
-
-  - API:
-    - POST `/api/groups/create`: Tạo nhóm học tập mới.
-    - POST `/api/groups/{groupId}/send-notification`: Gửi thông báo đến tất cả thành viên nhóm.
-    - GET `/api/groups/{groupId}/add-member`: Thêm thành viên vào nhóm.
-    - DELETE `/api/groups/{groupId}/remove-member/{userId}`: Xóa thành viên khỏi nhóm.
-
----
-### Sequence Diagram
-![](https://www.planttext.com/plantuml/png/X5HDQzj04BtlhtZu54DDxpwOX0ICQMjCwq8BXRAMjzOIQ-MkLYu-bXnwBZdqK4fZGYWOGWFjfTg33oh-7_CB-XVAIlwG79bSX3Hwy-QzcTdzPvV7aU7QnC6OSS-46jtHwexiD_dsBFsZHk0HNaP2imdNHdfomfL1xQJNGPiRyO7FQWvnqkkiFykujWxZ2Lu8FPMUo91PP1semZuNap2I9jGvSHRSnSePtT38TzBZHeQgLAJuexBMwMgEYEnt3Cd-n5YI_HHdcMVSy06F16FED1gjWZKqyJfTnF0e-H73-EaYSCyhvMCgquN2DBqAeVpqL_167OsSyixm4U98wCwmpWf4ZLQf3sZYr8zdP2yKZAHaES5iMuYLa9lCNKlGn1D9zYA0qJolZatnEji7DrfRYsYYh-CPffJSA6Vajnh1I9Lpi2siKLcphocvnfJin_kfZ8yDkfaIG_PImL0obmn0sNObyTFLNLoaB7Ku8FjLLZLtottOwu5v3IYvLgCy-Pa81a976Ti3_b-bSm_Af-GsaxYZzfpoIg_T-rk99jfaR-N6y22TX_ZxcPBb0UD5lrLyZLPsMdE_MqPJb2R6aLXFvtpTvWU6LC4u9ll5wQaT8ghLcL13jhUz--Sftw9pIfO6xsFtVjGlQ7tSzocvCMv6Sra-GJjPFTzD43xPIrcaOiT23TsrzXy00F__0m00)
-
----
-### Class Diagram
-![](https://www.planttext.com/plantuml/png/j5HBQiCm4Dtd528h1v8Sm8GGGjiGQBEesmEerjWCM5AGv81fUx8kUgHUeKYoZULFQHRnpc-UPjwy6Uddwtkd3LMcvCKiBQZMv5M38kypOhzIWpgoc2H6eSWz9YY7405EiGWX9OiUgP0vYcWHauj4raAoD2tsEQiL79Gipus4tFxqDJZmD12IAg06sBwANHSUvC3VGEcOFA8s6ujlksnNBEesjVGHgNoMG39bxCdbYwmr8mG5N5xWRquEnbMz0qEnqDQ0kelGWcSuIur6ggenGzDBBTWv47jUa3n3mHowhuuiwhctg4zuAeC26WE6n6OcA0oeZAP0Jj9WXYarA4K2we8fjC90i6uuug0rpJkUAaZnZ21CQ4ZRyRrTefjMI2fjWD-qnC6w66PTvSqeu_vKVLmC1JNBEgBrwjtjpBjTtXSvElGb-STIFoZ9hplj6gmcplGixZZgtg7LQbi_1p6PeoQqliv4PlEP3xIKpdM9oTnU5KPGrBIa7agGa5D1Sz1Jb31XgIrpR7qs7-lrzFvQuVnS00TX_aemlPwz30En4sUyu1q8PX_tNm000F__0m00)
-
-#### **5. Hệ thống Sao Lưu Dữ Liệu**
-
-- **Chức năng**:
-  - Tự động sao lưu dữ liệu định kỳ để đảm bảo tính toàn vẹn và khả năng khôi phục khi có sự cố.
-  - Quản lý lịch sử sao lưu và trạng thái sao lưu.
-
-- **Thành phần**:
-  - **Backup Scheduler**:
-      - Lên lịch tự động sao lưu dữ liệu định kỳ.
-      - Gửi thông báo khi quá trình sao lưu hoàn tất hoặc thất bại.
-  - **Storage Service**: Lưu trữ bản sao dữ liệu lên cơ sở dữ liệu dự phòng hoặc nền tảng đám mây (AWS S3, Google Cloud Storage).
-  - **Integrity Checker**:
-      - Kiểm tra tính toàn vẹn dữ liệu sau khi sao lưu.
-      - So sánh bản sao với dữ liệu gốc để phát hiện lỗi hoặc hỏng hóc.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Backups`**:
-      - Cột: `BackupID`, `BackupTime`, `Status`, `FilePath`, `ErrorLog`.
-    - **Bảng `BackupSettings`**:
-      - Cột: `ScheduleID`, `Frequency`, `StorageLocation`.
-
-
-  - API:
-    - POST `/api/backup/run`: Chạy sao lưu dữ liệu ngay lập tức.
-    - GET `/api/backup/history`: Lấy lịch sử các bản sao lưu trước đây.
-    - POST `/api/backup/schedule`: Tạo hoặc cập nhật lịch sao lưu.
-
---- 
-### Sequence Diagram 
-![](https://www.planttext.com/plantuml/png/P9AnJiD038RtF8N7CY3s3AWK8OHW8dc1QthAdPBS1STNgIDYOEx4IbGXndPWkWmTKlKz_0Iy0eegeLwxsl_t-xVbtsuxRaWWkQgCH4OMuMPMQQCRGa4MereWwKpNmX1CH5QuEbaq9AkWaP15aSj4ubndCcWz698vQbhSAfaLCZIyGxJuB6kB936AWibmUHqCZ672VasmMxB_Tj082-L-uw9ZpS24MM9uscySpBXRGwcvUpyYG-N0deQDuL5pzrO1eGWyTij-TJ0vHSvZfyX-1NFkNg5WloLuSKEX-7S-Mo6uGmofwdzC3jE-jK38lZKvaEfR3QDKzPz6GJO8hbB5_ejWohxL5sUcmQrZk5SQIku-D8mC-wq32kYnDBFX9Vu0003__mC0)
-
----
-### Class Diagram
-![](https://www.planttext.com/plantuml/png/P5593i8m3Bpd5Jx2WIyW5Y71bRuWIarh4MBak4K8yJ8EF8ale409j1mzdh4zuyVjFejgHPk3Dnvt2ieWLDKA9Gaw9Gx6UHiZBApRDyV2rLWs7WKk1W0WTlMxEng_mC1Ak_EyF50OZStLT1CAPR4L5YWjEVmCi6rVBAX2-0Dc_IOeLa9wNjRezla4bwhS-nMiH5YsU6JHpFPSlU2yBNK_I5Q-boyvgB3_kfKcz6vj2KzhYihIxVtJJIRJON8TwPjaulIpCOEe4cFetlp5aLWzosQ6eKoVVG800F__0m00)
-#### **6. Hệ thống con giam sát và theo dõi tiến độ học tập**
-
-- **Chức năng**:
-  - Hiển thị tiến độ học tập của học sinh.
-  - Lưu trữ và truy xuất thông tin học tập.
-  - Tạo báo cáo học tập theo yêu cầu.
-
-- **Thành phần**:
-  - **Progress Tracker**: Theo dõi tiến độ học tập (bài tập đã hoàn thành, điểm số).
-  - **Report Generator**: Tạo báo cáo tiến độ học tập chi tiết.
-  - **Data Access Service**: Truy cập dữ liệu từ cơ sở dữ liệu.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `StudentProgress`**:
-      - Cột: `ProgressID`, `StudentID`, `CourseID`, `CompletedTasks`, `TotalTasks`,`LastUpdated`.
-    - **Bảng `StudentReports`**:
-      - Cột: `ReportID`, `StudentID`, `CourseID`, `GeneratedAt`, `ReportPath`.
-
-  - API:
-    - POST `/api/progress/report/{id}`: Tạo báo cáo tiến độ học tập.
-    - GET `/api/progress/student/{id}`: Truy xuất tiến độ học tập của học sinh.
-
----
-### Sequence Diagram
-![](https://www.planttext.com/plantuml/png/Z5EnIWD15EptArwP5Fx05H9HqK8an3IMcysIMtAtUxpR2wOK2mknI2MM8OI0A29skqYAou-yB_0Nv8XWBdS9DjlCctapixlVVjbABKURnH7ZmXg4DaUfBKiuMYLKmhM5Dfe1oZIz6gTMnYNeX5j-94G1IXmf8KjeHoO6xPdK4harMC9E4Gsk1oGojbuB1uTRsmAupbyo4EGM6QJaFy0gSaiDFVBF8CWlE8Ja7mMaIeUiJ2xaAWu3wEQlCMXoqmJwvDyXKkJliqrXLc7LEUiYkHcCoD_krAdwMGSDu5oHlzDWG_8F9Sh_gkZbKmEYE7wvgqdzlgqx2A1BRcfsyRUcTnHuGMu-BcKMuOPaVNkTYf7Q-keix2d-ByTgai_05k7sj7wSwK7Hu3pPO3OYfOS5TQRW9YC_qOCcgn4fFTa0BaDoRnQ6-HT4v9yKD3IvPGOY_soobjJzubFz0000__y30000)
-
----
-### Class Diagram
-![](https://www.planttext.com/plantuml/png/b5HjIWCn4FsVK-Hd1Nk18gK5HGI5Oki1mcRS1hF9EZFR8kB9_E6Hl8BaezqssuBzix0lRzwRcRpTt--V6R52xXehH6KLaLme1CVoKqWfvSR0Te6-HY0Q4NSQ73_eYJIEhoPouusED8Jt3eYVeVN8PtXVUuEij_mWXYORrS3BL7RUhY3aEWUe6CvP9xmtlrMivbKLx04tfeBi_mfShI-pZYL9FwWEYnuDyKquclR-YN-VklQudpvDKMXSopOR1fL3mHEJ5Ir6vV5U82j6xDWaGfNlaE0OQLeB37gbw8rwd3qhMs1M4R-qMZ7eITWmh4m3vSov8Oml5xUpsv2Uyu55BxXGl0xNXCRLSQNQRvtrIey6-Rj3z9XwWjq5M5z7U0JX-GH4geQTte52_ZZ6usaHOr6aEZ06MJj5AW8Xoe3yM-XeB37CUU2KCJvbbdCbPk1q-2ty0G00__y30000)
 # **5. Thiết kế các lớp**
 
 ![](https://www.planttext.com/plantuml/png/b5TBZjiu4Dth5BMp3DWN40QDz3Vfm1qqOWUpPalLCc69zB2e3emW9yjYZZHN6F0ZYwJSSjihiKXMlNfyHPR_-_Fl9z9CwQvjicm6otT_sGn-42fuOeBLsABGiEvUw40Qs-cDMTam8hZkz1Q5vYNJN8ergZTU8lpA0A2HDHSvjemt1Qorug9Um9uH_PIgwYtp0hx-lV7BPQTpBNSeh75Um9labPbxOmslcCQDcOoNt4ZP81FPxnwHoSV4NvgFnxi27eKsm_iGY34yUoXV66r3-tVPO3XUQwOx2Yst2fd6wbeNSCSqsc3xAZ51ZTf0k4FDU4DvDy2P5nQbMTJPVMOKBbX0GfiACFMy73CsW2tb5dgGiXb-OssKpHrIgVZUd5PW1aR4Qs4sn3Wc0p-ZQZaHbu9S_C6Ge0Y6NYFNPOaKichu2Xpc9lB0rugJ_ikjlJ80Pl0T6wivsl8zPQTrk5nUMQOBQAt0ARDgDsPtobj6DiNCScZi0OJ2iq9JDPJDu5PsYl3I6kf9zBijV-ux8EjZfxVS82ktaTh74eNIcbo8N0IE5r2DtIv0HqxdXKSwgDQxAaFG2pZhUIIZUw5aqrZYB0l3E4mefIOfxwHg0QsJjUug53h5U5RY0A2mbMzuti6u795af_mjkEn7Kwayy0QVcOvkeH_xHh8gFi7EsdgFAQRNn4i0BAqMhpcZzu7i0hWecwx2QBwFvcl5ZoWB3cseCaSwLl1oo8uqc6ddq1QKBBbH9lpaUlj-OMKp-2OrV_K5_O6AwkcFjjaZ22q1wnkkuul-LWfjUGXCMoO4DfS-1q0egZ1ihiDW2oZZK0ieuq1EOUJllKUXhqOo2zslPErINSawl3rE9vvKpgaSKUZmTHldVA-KL4z8nEgex1fPHtcBCOIa_2ZoFI7Qw62Dg1862XFyn38dJJ9ArN9ISP-LxFQNtUFzQRYjzWpiPy2l7QSNkTVCpU7yZMttvtNgPU6dUn_pme6mhtbLFM7xWifjcxgsZZVTHpSS1MYZkLsd4qzqzbLo4UTtXBcHGP8Ne7rGiltWpjzZGRapCn89KYbiRJ8k_BnFS10I9s3GEgjydMolindSi7BNxM5zjgFkMVKRBA7kEw3G6JRSgE3zsZprdDXwjKKorAhgX7EOZyxMsTUeDHUrR-xMvHQhBkhb7XJ-qw4e3_45AHMhSILT3OOH2RNtx7tbhwa7So6St3_2-2Wqrehhm-qMovqN8PHcu8dh5-Gl8P7nduPK59v_Szun2GMG1ssVjs1T2gHm8DowC_fuLh9MI0GRnSeT5_K5Kl6zoT65Qy7zAEoutRgf3kHMjli6DLORHZiQdaYfMHERLeoq_xCp5B8suFl8EKNnp6CNzIdbEDQ97celbMy7tVTb-Nn6WIhzZ-OS9PK1jL_gPgV1JrmcwM6uticuB8uXJFzaB2SNzorImuMHZfQP9y5C9Xk2LYtxXA8o__F_1m00__y30000)
