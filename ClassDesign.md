@@ -3,35 +3,35 @@
 ### LoginUI
 - **Attributes:** None
 - **Methods:**
-  - `displayLoginForm()`: Display login form to the user.
-  - `submitLogin()`: Send login details to the Authentication subsystem.
+  - `displayLoginForm()`: Hiển thị biểu mẫu đăng nhập cho người dùng.
+  - `submitLogin()`: Gửi thông tin đăng nhập tới hệ thống xác thực.
 
 ### ParentUI
 - **Attributes:** None
 - **Methods:**
-  - `viewParentDashboard()`: Show parent-specific dashboard.
+  - `viewParentDashboard()`: Hiển thị bảng điều khiển dành cho phụ huynh.
 
 ### TeacherUI
 - **Attributes:** None
 - **Methods:**
-  - `viewTeacherDashboard()`: Show teacher-specific dashboard.
+  - `viewTeacherDashboard()`: Hiển thị bảng điều khiển dành cho giáo viên.
 
 ### RegistrationUI
 - **Attributes:** None
 - **Methods:**
-  - `displayRegistrationForm()`: Display the registration form to new users.
-  - `submitRegistration()`: Send registration data to the system.
+  - `displayRegistrationForm()`: Hiển thị biểu mẫu đăng ký cho người dùng mới.
+  - `submitRegistration()`: Gửi dữ liệu đăng ký vào hệ thống.
 
 ### CourseManagementUI
 - **Attributes:** None
 - **Methods:**
-  - `displayCourseList()`: Show a list of courses to the user.
-  - `manageCourse()`: Manage course operations like enrollment.
+  - `displayCourseList()`: Hiển thị danh sách các khóa học cho người dùng.
+  - `manageCourse()`: Quản lý các hoạt động liên quan đến khóa học như đăng ký.
 
 ### NotificationUI
 - **Attributes:** None
 - **Methods:**
-  - `viewNotifications()`: Display notifications to the user.
+  - `viewNotifications()`: Hiển thị thông báo cho người dùng.
 
 ---
 
@@ -40,41 +40,41 @@
 ### GroupController
 - **Attributes:** None
 - **Methods:**
-  - `joinGroup(groupId)`: Allow a user to join a specific group.
-  - `addLesson(groupId, lessonData)`: Add a lesson to a specific group.
+  - `joinGroup(groupId)`: Cho phép người dùng tham gia một nhóm cụ thể.
+  - `addLesson(groupId, lessonData)`: Thêm bài học vào một nhóm cụ thể.
 
 ### ServiceController
 - **Attributes:** None
 - **Methods:**
-  - `manageServices()`: Coordinate system services (e.g., notifications, encryption).
+  - `manageServices()`: Điều phối các dịch vụ hệ thống (ví dụ: thông báo, mã hóa).
 
 ### DatabaseService
 - **Attributes:** None
 - **Methods:**
-  - `queryData(query)`: Execute database queries and return results.
-  - `updateData(updateCommand)`: Update data in the database.
+  - `queryData(query)`: Thực hiện truy vấn cơ sở dữ liệu và trả về kết quả.
+  - `updateData(updateCommand)`: Cập nhật dữ liệu trong cơ sở dữ liệu.
 
 ### EncryptionService
 - **Attributes:** None
 - **Methods:**
-  - `encryptData(data)`: Encrypt sensitive information.
-  - `decryptData(data)`: Decrypt sensitive information.
+  - `encryptData(data)`: Mã hóa thông tin nhạy cảm.
+  - `decryptData(data)`: Giải mã thông tin nhạy cảm.
 
 ### NotificationController
 - **Attributes:** None
 - **Methods:**
-  - `createNotification(notificationData)`: Create a new notification for the user.
-  - `deleteNotification(notificationId)`: Remove an existing notification.
+  - `createNotification(notificationData)`: Tạo thông báo mới cho người dùng.
+  - `deleteNotification(notificationId)`: Xóa một thông báo hiện có.
 
 ### LoginController
 - **Attributes:** None
 - **Methods:**
-  - `authenticateUser(credentials)`: Validate user credentials during login.
+  - `authenticateUser(credentials)`: Xác thực thông tin đăng nhập của người dùng.
 
 ### RegistrationController
 - **Attributes:** None
 - **Methods:**
-  - `registerNewUser(userData)`: Handle new user registration.
+  - `registerNewUser(userData)`: Xử lý đăng ký người dùng mới.
 
 ---
 
@@ -82,38 +82,38 @@
 ## Classes:
 ### NotificationLogStorage
 - **Attributes:**
-  - `logs`: Store logs of notifications.
+  - `logs`: Lưu trữ các bản ghi thông báo.
 - **Methods:**
-  - `saveLog(logData)`: Save a new notification log.
-  - `retrieveLog(logId)`: Retrieve a specific log by ID.
+  - `saveLog(logData)`: Lưu một bản ghi thông báo mới.
+  - `retrieveLog(logId)`: Truy xuất một bản ghi cụ thể bằng ID.
 
 ### UserStorage
 - **Attributes:**
-  - `userData`: Store user data.
+  - `userData`: Lưu trữ dữ liệu người dùng.
 - **Methods:**
-  - `saveUser(user)`: Save user data to storage.
-  - `getUser(userId)`: Retrieve user information by ID.
+  - `saveUser(user)`: Lưu dữ liệu người dùng vào bộ nhớ.
+  - `getUser(userId)`: Truy xuất thông tin người dùng bằng ID.
 
 ### Group
 - **Attributes:**
-  - `groupId`: Unique identifier for the group.
-  - `groupName`: Name of the group.
+  - `groupId`: Định danh duy nhất cho nhóm.
+  - `groupName`: Tên của nhóm.
 - **Methods:**
-  - `createGroup(groupData)`: Create a new group.
-  - `deleteGroup(groupId)`: Delete a group.
+  - `createGroup(groupData)`: Tạo một nhóm mới.
+  - `deleteGroup(groupId)`: Xóa một nhóm.
 
 ### Course
 - **Attributes:**
-  - `courseId`: Unique identifier for the course.
-  - `courseName`: Name of the course.
+  - `courseId`: Định danh duy nhất cho khóa học.
+  - `courseName`: Tên của khóa học.
 - **Methods:**
-  - `addCourse(courseData)`: Add a new course.
-  - `removeCourse(courseId)`: Remove a course.
+  - `addCourse(courseData)`: Thêm một khóa học mới.
+  - `removeCourse(courseId)`: Xóa một khóa học.
 
 ### Lesson
 - **Attributes:**
-  - `lessonId`: Unique identifier for the lesson.
-  - `lessonTitle`: Title of the lesson.
+  - `lessonId`: Định danh duy nhất cho bài học.
+  - `lessonTitle`: Tiêu đề của bài học.
 - **Methods:**
-  - `addLesson(lessonData)`: Add lesson content.
-  - `deleteLesson(lessonId)`: Remove a lesson.
+  - `addLesson(lessonData)`: Thêm nội dung bài học.
+  - `deleteLesson(lessonId)`: Xóa một bài học.
