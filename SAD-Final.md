@@ -686,17 +686,27 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 
 # 4.Thiết kế hệ thống con cho iLearn
 
+## 4.1 Hệ thống con quản lý người dùng (UserManagement Subsystem)
+### Chức năng
++ Điều hường người dùng đến các giao diện
+### Biểu đồ luồng sự kiện:
+![](
+https://www.planttext.com/plantuml/png/L8-n3S8m44Nxc-AKAYcoW8ie4fK7y00dvn2HZ6tkpaBCHi58h8023QxV-r__lv-lLOt4sZK1HIk2GLcG59ko05GIs-DUAHi6VohPfAJ4qWDbyTbOpXGPu4ZYl7G-EXI-DLOBVXo27oQ4ZX_-Vmqwt7QjYHu_7NewBz-1w50lvHxyE040h9otuya7003__mC0)
+
+
+### Biểu đồ lớp:
+![user subsystem](
+https://www.planttext.com/plantuml/png/T9H1ReCm44NtdCAxjWjkK5MHM26rLKJA0Lmp8LQCdSwOH56RatNH8_KA5JP9CTZU8EQ_FupjBtw_VrPaETg-Kzc1YprlWTK4-C8rRw43RJVzEvt9GiS-CyOOaze2Rha0LWvWUNlribkDf8FYv_i7LxfaxY4K9sBFffMwBgUq6aenTiqHj0tXeuIJhvTwQsAkD-1Y1xYqZKBALq4hoIAtqim6HAS03lkDEGlJ8y7_aIq_xGaQpMvr3W-5eEi6y2W5B9kDGjJqQgpSIX7P185kfkfqbg7hL8ksNgDf4OWAeoqQfG2dxIroiRyYCNjTnesqCwUw31o5Dr088dpqG7R6iZjMWV9Jx-I1N6sMpCUlFBy6Bwclnx0bWLkkaaGL92Y9BUEIH6yPI1BXXQTtjxWyVthkaFFyARmUBqqh0pBhcrso5UXc-7Fy0G00__y30000)
 
 ## 4.2.Hệ thống con quản lý nhóm học tập(GroupSubsystem)
 **Chức năng**:
 - Quản lý và điều phối các nhóm trong hệ thống.
   
-  ### Biểu đồ luồng sự kiện:
-![](https://www.planttext.com/plantuml/png/b5GnRjim5DrvYeSiQO3w0aOGf4Y0me5He4qlG5E_4XEAL4ZAHT5c2eeCHO5sxfAExH9qBOSCzaLuWbuXa6J9ZYqaxY98x_qllFV-9_-5kqFdkVLbhjWkvjzY-A8pw3IR_-8uBIVkW_EKOwGzsNTS49Fj6qOlhIcB8wEzDKgHnKS6G5ZYdchgcUOv3N7ghTJfNaKcfAWbq-evEdx0dncfUzddA1tPjMgU96DopkZDQbNZGpJy7hjaZxaxCdbXD6dF2YxEUKhOgLKiItPgSmpOnJY67mNMl3D0AEuSUZDv8fMdSm5IyZLzJ9vBvVggBjcAlfCsoKvPXxIQB5sKv7o5RnKtm8l2cYczQHgtRB9qHiB_Hyy37o_Q6NS-EgJrmPFa5RtVTXCMcd8pfSTR-aRGT6ocFyHOEh_Vq0Sh7kJijyPv_7ldaSeORZd4xAU0ghrDPpUzHmoRHsl_qs3GitFzTIShi--lMAPQ7uotMGn_17mMmzKYACo_LnyJ6SDLYKJ6y5aZYU4MIiPmNM8okv78OlWgM3ENrQ6i9rXXNdhLxNrzKnZjIViEggMyBhckVdlTvhKSTnNNGlKI70mEMf0TaawgU-mU003__mC0)
-
 ### Biểu đồ luồng sự kiện:
 ![](https://www.planttext.com/plantuml/png/d5DBJiCm4Dtx5BCaKdk1IgcA0A4Yn8eSmDX3Ot3iO4yAb-0ENRDbsGMBd8GJS0LaDmc4f0MnpCpxp9jnFhPl2q_SKLLenWLP1vb71zn3nahkI0bLSaEmF7UsAa-i8MUrHjTh7kfTM6LYlrSzbl8IlRUcLsrAB4tXEgzV2hYfDmhoz-spW7MziM3o-hM0D6KPJEU3cMR0MzcZLMWjJoUWutV2VeA3m82_vbf9JXWRhKR21jHHymZl9EIeOvSxpdg5Z_l6xO21rLA4GqxOK7R8m2556YSWh24qbB2MsFVRuHiD-TrWD4q3vrAEHfdE8Pk1huH0xvkByG9MYlzwfBlsHNobhZowiEW_7KdaAEvZzUn9UVB_knD6xgXZzsHduF2XGa-XCfosm-qn2a5R1U1bwUpwm2uZkbdeRQKPMw2HuRVy1000__y30000)
 
+### Biểu đồ lớp:
+![](https://www.planttext.com/plantuml/png/b5GnRjim5DrvYeSiQO3w0aOGf4Y0me5He4qlG5E_4XEAL4ZAHT5c2eeCHO5sxfAExH9qBOSCzaLuWbuXa6J9ZYqaxY98x_qllFV-9_-5kqFdkVLbhjWkvjzY-A8pw3IR_-8uBIVkW_EKOwGzsNTS49Fj6qOlhIcB8wEzDKgHnKS6G5ZYdchgcUOv3N7ghTJfNaKcfAWbq-evEdx0dncfUzddA1tPjMgU96DopkZDQbNZGpJy7hjaZxaxCdbXD6dF2YxEUKhOgLKiItPgSmpOnJY67mNMl3D0AEuSUZDv8fMdSm5IyZLzJ9vBvVggBjcAlfCsoKvPXxIQB5sKv7o5RnKtm8l2cYczQHgtRB9qHiB_Hyy37o_Q6NS-EgJrmPFa5RtVTXCMcd8pfSTR-aRGT6ocFyHOEh_Vq0Sh7kJijyPv_7ldaSeORZd4xAU0ghrDPpUzHmoRHsl_qs3GitFzTIShi--lMAPQ7uotMGn_17mMmzKYACo_LnyJ6SDLYKJ6y5aZYU4MIiPmNM8okv78OlWgM3ENrQ6i9rXXNdhLxNrzKnZjIViEggMyBhckVdlTvhKSTnNNGlKI70mEMf0TaawgU-mU003__mC0)
 
 ## 4.3.Hệ thống con dịch vụ (Service Subsystem)
 **Chức năng**:
