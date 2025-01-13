@@ -472,15 +472,11 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 # 4.Thiết kế hệ thống con cho iLearn
 # 4.5.Hệ thống con đăng nhập,đăng kí
 # Chức năng 
-Chức năng xác thực đăng nhập mô tả quy trình để người dùng đăng nhập vào hệ thống. Quy trình này bao gồm các bước sau:
-## 1. Người dùng yêu cầu đăng nhập
-- Người dùng cung cấp tên người dùng (username) và mật khẩu (password) cho hệ thống.
-## 2. Hệ thống xác thực tìm kiếm tài khoản
-- Hệ thống xác thực sẽ gửi yêu cầu tìm kiếm tài khoản người dùng từ cơ sở dữ liệu, dựa trên tên người dùng mà người dùng đã cung cấp.
-## 3. Kiểm tra tài khoản người dùng
-- Nếu tài khoản người dùng tồn tại, hệ thống sẽ tiếp tục kiểm tra mật khẩu.
-- Nếu tài khoản người dùng không tồn tại (null), hệ thống sẽ trả về kết quả đăng nhập thất bại.
+- Hệ thống xác thực kiểm tra  người dùng.
+- Nếu thông tin đúng, đăng nhập thành công và người dùng được truy cập vào hệ thống.
+### Biểu đồ luồng sự kiện:
 ![](https://www.planttext.com/plantuml/png/T98zQiD048NxFSN3bGNn1Lm46z8PqjWvm6Ojj8kbaP16XMiNQPC311oCYmGCAG8XgoA5JEwn9yWLmjfoaFBJpUw-zysROJ-hzr71CkSoYOLKdEQuAi9SP39deqmcYT4Rbwn3OgCacvIcouB3f0TPm3zCbqLNxVrZfTAI-21gpaBu0eFpask8_Tr-HH58ExlB-bm_4IZwU7RLlS6yVgFe38cpEyP2E_jO1g9nUaX37I9sThkSrMipqQcp6xfi21SUy1SqE0GPAuL1Eun7O75a_730txugK1d7GiYOCTFr2qLWGz2kscI8NNKZ09nudJadnbMh19pBpZnTVJEJtqfjAK9_VzlQ3bZNQz9GlcyWmhW8so4Mn_A_BD_iGfhVO6UtZ6jd7qmWGfgBKKXp_ns-0000__y30000)
+### Biểu đồ lớp
 ![](https://www.planttext.com/plantuml/png/p9B1JiCm38RlUGfhfrLQNw2QqCQDSyK3cCo4Y3IPR4S8mPvi1nw9Lq2qAqhR2N4aXoJA7zl_v-Jp_B4JHTRS1UEZ4Z-Y9RZRPtsYgDwY-XJXpS3F2CdvkCv27B6Z1bfb7zq6ZYZoalWmdbGDtAOK26CHpEIyAF4VuZT07VhmIxf-Sp97jC_e25PjVf1NKUfWQdzryM_wsGOKcTreXx1_YNcXx9VvkspVw_egIebwByHxQrEEEY4S2i9eSQdqnfR78y5IuHJAD49Qr5vNXUIcqhnDLLEwBZemS5tjHLtVJ53DoHXZTXGFtt_x2m00__y30000)
 #### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
 
