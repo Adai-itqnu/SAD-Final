@@ -687,7 +687,14 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 # 4.Thiết kế hệ thống con cho iLearn
 
 
-
+## 4.5.Hệ thống con xác thực (Authentication Subsystem)
+## Chức năng 
+- Hệ thống xác thực kiểm tra  người dùng.
+- Nếu thông tin đúng, đăng nhập thành công và người dùng được truy cập vào hệ thống.
+### Biểu đồ luồng sự kiện:
+![](https://www.planttext.com/plantuml/png/T98zQiD048NxFSN3bGNn1Lm46z8PqjWvm6Ojj8kbaP16XMiNQPC311oCYmGCAG8XgoA5JEwn9yWLmjfoaFBJpUw-zysROJ-hzr71CkSoYOLKdEQuAi9SP39deqmcYT4Rbwn3OgCacvIcouB3f0TPm3zCbqLNxVrZfTAI-21gpaBu0eFpask8_Tr-HH58ExlB-bm_4IZwU7RLlS6yVgFe38cpEyP2E_jO1g9nUaX37I9sThkSrMipqQcp6xfi21SUy1SqE0GPAuL1Eun7O75a_730txugK1d7GiYOCTFr2qLWGz2kscI8NNKZ09nudJadnbMh19pBpZnTVJEJtqfjAK9_VzlQ3bZNQz9GlcyWmhW8so4Mn_A_BD_iGfhVO6UtZ6jd7qmWGfgBKKXp_ns-0000__y30000)
+### Biểu đồ lớp
+![](https://www.planttext.com/plantuml/png/p9B1JiCm38RlUGfhfrLQNw2QqCQDSyK3cCo4Y3IPR4S8mPvi1nw9Lq2qAqhR2N4aXoJA7zl_v-Jp_B4JHTRS1UEZ4Z-Y9RZRPtsYgDwY-XJXpS3F2CdvkCv27B6Z1bfb7zq6ZYZoalWmdbGDtAOK26CHpEIyAF4VuZT07VhmIxf-Sp97jC_e25PjVf1NKUfWQdzryM_wsGOKcTreXx1_YNcXx9VvkspVw_egIebwByHxQrEEEY4S2i9eSQdqnfR78y5IuHJAD49Qr5vNXUIcqhnDLLEwBZemS5tjHLtVJ53DoHXZTXGFtt_x2m00__y30000)
 
 # **5. Thiết kế các lớp**
 
