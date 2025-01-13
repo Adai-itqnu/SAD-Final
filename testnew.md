@@ -470,40 +470,18 @@ Phát hiện và xử lý lỗi nhanh chóng để duy trì hoạt động của
 ---
 
 # 4.Thiết kế hệ thống con cho iLearn
-
-#### **1. Hệ thống con quản lý người dùng (User Management Subsystem)**
-
-- **Chức năng**:
-  - Quản lý thông tin tài khoản (tạo, sửa, xóa).
-  - Xác thực người dùng (login, logout, MFA).
-  - Phân quyền theo vai trò (học sinh, giáo viên, quản trị viên).
-
-- **Thành phần**:
-  - **Authentication Service**: Xử lý xác thực bằng OAuth 2.0 và JWT.
-  - **User Profile Management**: Lưu trữ và xử lý thông tin người dùng (họ tên, email, vai trò).
-  - **Role-Based Access Control (RBAC)**: Kiểm soát quyền hạn truy cập.
-
-- **Thiết kế chi tiết**:
-  - Cơ sở dữ liệu:
-    - **Bảng `Users`**:
-      - Cột: `UserID`, `Email`, `PasswordHash`, `Role`, `Status`, `CreatedAt`, `UpdatedAt`.
-    - **Bảng `Roles`**:
-      - Cột: `RoleID`, `RoleName`, `Description`.
-    - **Bảng `Permissions`**:
-      - Cột: `PermissionID`, `RoleID`, `ServiceAccess`.
-
-  - API:
-    - POST `/api/auth/login`: Xác thực và trả JWT.
-    - GET `/api/users/{id}`: Lấy thông tin người dùng.
-    - PUT `/api/users/{id}`: Cập nhật thông tin người dùng.
-   
-    ### Sequence Diagram
-    ![UserManagementSubSystemSequenceDiagram](https://www.planttext.com/plantuml/png/b5B1Ji904BtlLqmuGGA1UEo1WDGe2jAa5RqEfUbkf5kotKBu1iyUFH32mOE962-s1mzD_8_z0d_1j8fQqnwyxMRUU_FUpBp7hvr0ef2XDoDeIr_0HU08m03EtRT75TynFNdXBfcZaCncS-GIAbsZ3ySedIMkAYcqf-9RxdQD_XzOAAd39RDHCf-3wOW5ivsCeQlungPZ5M-lahLjKHNlx3nPHuaJ33xXFLCV499p18tsJryDZ95fGHFdh8cXfCsPxp9ElkifkAYb1kaRPFO1IPDdxe9a7Af77h9P7OOgUf1mJLLq7zP8aKJcmzG76bWYNC52HLiE4nNjk0jEAaBIAZHA7HogQCF1fGpuLpwOPW7t7WmCWgKlfYSOq3gCaO4KoLEv6xqygCSupUdzKyHIqTe7BzdiPpL9rZwSNbebElaT3GjulrRKQETlJeE3LWj6Pr0j8DP8n-7Jz6e_0000__y30000)
-
-    ---
-    ### Class Diagram
-    ![UserManagementSubsystemClassDiagram](https://www.planttext.com/plantuml/png/T5HBRjim4Dtp50GtbOiaGBTQ577j0icYWHkx1vX8Ouc8HAgSOMgZwCcww95wXOBKNtQr4jyySjwR6VBlxp_tnE3OrvKGx-Ic0YAvrL0ugENHElcDqCalOA306WtBlN-XCp7MGcIH70a_XOnVM3nkKwaDTyZd6dILIcAdJT5XEo3wOLt-05GkGi-smWMqPs1F2t3Z41ZpDQSo1qRMDVOIclm_aHDaNFeiQRhq_P6hLBvOMo4OyQjt5NGChi9YxYeWJr0lfMwHCgSRrjOi8WMOh_wC9cdGrPeeCdR3_ogLRrRdO_unDAWOeKijSsIFxardkCuofB5mmzbhpoKQrXa4eHrvI9E3AKm9JOBJpjt8ArMREGpxJXuuOVkAW_tUMCjvrLYpWyYuu5tq80pJpjcZhd0oWBtE2iw7qfhYeCrJuQtUUbCaEezrMALnSyVCe34byCZoXAvbh6RoJXQk7JNlpFEdzMOG4GmT7BIjTPFPlP7KrlMwmNXfr0SbRs-bUg_QSKkbAe6KY8j9S38BgLGv7hL1Kk9w6-_kFhPNCfMg6tWLqrrMSahzxi5KPoMYkn3e5GM7P86L4FTeyl1E_0C00F__0m00)
-
+# 4.5.Hệ thống con đăng nhập,đăng kí
+# Chức năng 
+Chức năng xác thực đăng nhập mô tả quy trình để người dùng đăng nhập vào hệ thống. Quy trình này bao gồm các bước sau:
+## 1. Người dùng yêu cầu đăng nhập
+- Người dùng cung cấp tên người dùng (username) và mật khẩu (password) cho hệ thống.
+## 2. Hệ thống xác thực tìm kiếm tài khoản
+- Hệ thống xác thực sẽ gửi yêu cầu tìm kiếm tài khoản người dùng từ cơ sở dữ liệu, dựa trên tên người dùng mà người dùng đã cung cấp.
+## 3. Kiểm tra tài khoản người dùng
+- Nếu tài khoản người dùng tồn tại, hệ thống sẽ tiếp tục kiểm tra mật khẩu.
+- Nếu tài khoản người dùng không tồn tại (null), hệ thống sẽ trả về kết quả đăng nhập thất bại.
+![](https://www.planttext.com/plantuml/png/T98zQiD048NxFSN3bGNn1Lm46z8PqjWvm6Ojj8kbaP16XMiNQPC311oCYmGCAG8XgoA5JEwn9yWLmjfoaFBJpUw-zysROJ-hzr71CkSoYOLKdEQuAi9SP39deqmcYT4Rbwn3OgCacvIcouB3f0TPm3zCbqLNxVrZfTAI-21gpaBu0eFpask8_Tr-HH58ExlB-bm_4IZwU7RLlS6yVgFe38cpEyP2E_jO1g9nUaX37I9sThkSrMipqQcp6xfi21SUy1SqE0GPAuL1Eun7O75a_730txugK1d7GiYOCTFr2qLWGz2kscI8NNKZ09nudJadnbMh19pBpZnTVJEJtqfjAK9_VzlQ3bZNQz9GlcyWmhW8so4Mn_A_BD_iGfhVO6UtZ6jd7qmWGfgBKKXp_ns-0000__y30000)
+![](https://www.planttext.com/plantuml/png/p9B1JiCm38RlUGfhfrLQNw2QqCQDSyK3cCo4Y3IPR4S8mPvi1nw9Lq2qAqhR2N4aXoJA7zl_v-Jp_B4JHTRS1UEZ4Z-Y9RZRPtsYgDwY-XJXpS3F2CdvkCv27B6Z1bfb7zq6ZYZoalWmdbGDtAOK26CHpEIyAF4VuZT07VhmIxf-Sp97jC_e25PjVf1NKUfWQdzryM_wsGOKcTreXx1_YNcXx9VvkspVw_egIebwByHxQrEEEY4S2i9eSQdqnfR78y5IuHJAD49Qr5vNXUIcqhnDLLEwBZemS5tjHLtVJ53DoHXZTXGFtt_x2m00__y30000)
 #### **2. Hệ thống con quản lý khóa học (Course Management Subsystem)**
 
 - **Chức năng**:
