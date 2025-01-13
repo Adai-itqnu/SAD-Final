@@ -686,6 +686,18 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 
 # 4.Thiết kế hệ thống con cho iLearn
 
+
+## 4.2.Hệ thống con quản lý nhóm học tập(GroupSubsystem)
+**Chức năng**:
+- Quản lý và điều phối các nhóm trong hệ thống.
+  
+  ### Biểu đồ luồng sự kiện:
+![](https://www.planttext.com/plantuml/png/b5GnRjim5DrvYeSiQO3w0aOGf4Y0me5He4qlG5E_4XEAL4ZAHT5c2eeCHO5sxfAExH9qBOSCzaLuWbuXa6J9ZYqaxY98x_qllFV-9_-5kqFdkVLbhjWkvjzY-A8pw3IR_-8uBIVkW_EKOwGzsNTS49Fj6qOlhIcB8wEzDKgHnKS6G5ZYdchgcUOv3N7ghTJfNaKcfAWbq-evEdx0dncfUzddA1tPjMgU96DopkZDQbNZGpJy7hjaZxaxCdbXD6dF2YxEUKhOgLKiItPgSmpOnJY67mNMl3D0AEuSUZDv8fMdSm5IyZLzJ9vBvVggBjcAlfCsoKvPXxIQB5sKv7o5RnKtm8l2cYczQHgtRB9qHiB_Hyy37o_Q6NS-EgJrmPFa5RtVTXCMcd8pfSTR-aRGT6ocFyHOEh_Vq0Sh7kJijyPv_7ldaSeORZd4xAU0ghrDPpUzHmoRHsl_qs3GitFzTIShi--lMAPQ7uotMGn_17mMmzKYACo_LnyJ6SDLYKJ6y5aZYU4MIiPmNM8okv78OlWgM3ENrQ6i9rXXNdhLxNrzKnZjIViEggMyBhckVdlTvhKSTnNNGlKI70mEMf0TaawgU-mU003__mC0)
+
+### Biểu đồ luồng sự kiện:
+![](https://www.planttext.com/plantuml/png/d5DBJiCm4Dtx5BCaKdk1IgcA0A4Yn8eSmDX3Ot3iO4yAb-0ENRDbsGMBd8GJS0LaDmc4f0MnpCpxp9jnFhPl2q_SKLLenWLP1vb71zn3nahkI0bLSaEmF7UsAa-i8MUrHjTh7kfTM6LYlrSzbl8IlRUcLsrAB4tXEgzV2hYfDmhoz-spW7MziM3o-hM0D6KPJEU3cMR0MzcZLMWjJoUWutV2VeA3m82_vbf9JXWRhKR21jHHymZl9EIeOvSxpdg5Z_l6xO21rLA4GqxOK7R8m2556YSWh24qbB2MsFVRuHiD-TrWD4q3vrAEHfdE8Pk1huH0xvkByG9MYlzwfBlsHNobhZowiEW_7KdaAEvZzUn9UVB_knD6xgXZzsHduF2XGa-XCfosm-qn2a5R1U1bwUpwm2uZkbdeRQKPMw2HuRVy1000__y30000)
+
+
 ## 4.3.Hệ thống con dịch vụ (Service Subsystem)
 **Chức năng**:
 - Quản lý và điều phối các dịch vụ trong hệ thống.
@@ -693,14 +705,18 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
    
 ### Biểu đồ luồng sự kiện:
 ![](https://www.planttext.com/plantuml/png/R98zJiCm68Ptd-9L9nXwWGvLrIGJeyl0QDm8MwHEvJYLUW865ZepK5HLI2o0O8g73gvw3v-0ArJkRo9OxUTztiy_ltRLAmpJfXnbX76JQrmNgIPZfetaSioKGOkcUY9v6kNAw3pBKjq2Aq2Z9XKpmsvPaHxe7HFtcqoYk9wEZSnLdKee8Q4LxIverC6DUo_1VVLMOkZj8nUOUBiaD0f0tE_WobSh0-NjJ8QjPmc-UKNXxKi8V22JtZwK9EwZVL2kdzm2zxNOlm6ohqXeOuQHMq2uRzP04tfon-Tbh6URJsyN_1GwEiFO0-7j5uS8g8BHvHGJNoqLBchcluhB-a46vzG9D4slS7CbmDsFkjktjxkxHzrDUhnDYDpD5OolbeRqKZKC7s0B003__mC0)
+
 ### Biểu đồ lớp
 ![](https://www.planttext.com/plantuml/png/T9B13e8m38RlUuh54rvu00_6H3ruD3n16PKiGeTRPoJAatdmaNm5WuA2m0uz_7_Nh-tsl3zMZi6oppEXYT4UGA7SHMZFMg6y2bcVTqgZ1VDMCyLFgeGeG1qXHJbhBqS-TgLZp6TD7PM1SxAnruROcYn3srAcI4FQLyw18CM-KRrZ1xW1XXXSczR5AKE4Yhib4-r6LBoWyenxZxOCJdLSo8YjfdG2kYLbouAreH4iVimW0OP-dKyBE6LNzQB5S8DXU5j-Nqty3zntXvtrVR52Ikh_y0800F__0m00)
+
 ## 4.5.Hệ thống con xác thực (Authentication Subsystem)
 ## Chức năng 
 - Hệ thống xác thực kiểm tra  người dùng.
 - Nếu thông tin đúng, đăng nhập thành công và người dùng được truy cập vào hệ thống.
+  
 ### Biểu đồ luồng sự kiện:
 ![](https://www.planttext.com/plantuml/png/T98zQiD048NxFSN3bGNn1Lm46z8PqjWvm6Ojj8kbaP16XMiNQPC311oCYmGCAG8XgoA5JEwn9yWLmjfoaFBJpUw-zysROJ-hzr71CkSoYOLKdEQuAi9SP39deqmcYT4Rbwn3OgCacvIcouB3f0TPm3zCbqLNxVrZfTAI-21gpaBu0eFpask8_Tr-HH58ExlB-bm_4IZwU7RLlS6yVgFe38cpEyP2E_jO1g9nUaX37I9sThkSrMipqQcp6xfi21SUy1SqE0GPAuL1Eun7O75a_730txugK1d7GiYOCTFr2qLWGz2kscI8NNKZ09nudJadnbMh19pBpZnTVJEJtqfjAK9_VzlQ3bZNQz9GlcyWmhW8so4Mn_A_BD_iGfhVO6UtZ6jd7qmWGfgBKKXp_ns-0000__y30000)
+
 ### Biểu đồ lớp
 ![](https://www.planttext.com/plantuml/png/p9B1JiCm38RlUGfhfrLQNw2QqCQDSyK3cCo4Y3IPR4S8mPvi1nw9Lq2qAqhR2N4aXoJA7zl_v-Jp_B4JHTRS1UEZ4Z-Y9RZRPtsYgDwY-XJXpS3F2CdvkCv27B6Z1bfb7zq6ZYZoalWmdbGDtAOK26CHpEIyAF4VuZT07VhmIxf-Sp97jC_e25PjVf1NKUfWQdzryM_wsGOKcTreXx1_YNcXx9VvkspVw_egIebwByHxQrEEEY4S2i9eSQdqnfR78y5IuHJAD49Qr5vNXUIcqhnDLLEwBZemS5tjHLtVJ53DoHXZTXGFtt_x2m00__y30000)
 
