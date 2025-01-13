@@ -686,7 +686,15 @@ https://www.planttext.com/plantuml/png/R8rD2i8m48NtESKixQ8t2ALGDmN1XVG0CHbB84rAC
 
 # 4.Thiết kế hệ thống con cho iLearn
 
+## 4.3.Hệ thống con dịch vụ (Service Subsystem)
+**Chức năng**:
+- Quản lý và điều phối các dịch vụ trong hệ thống.
 
+   
+### Biểu đồ luồng sự kiện:
+![](https://www.planttext.com/plantuml/png/R98zJiCm68Ptd-9L9nXwWGvLrIGJeyl0QDm8MwHEvJYLUW865ZepK5HLI2o0O8g73gvw3v-0ArJkRo9OxUTztiy_ltRLAmpJfXnbX76JQrmNgIPZfetaSioKGOkcUY9v6kNAw3pBKjq2Aq2Z9XKpmsvPaHxe7HFtcqoYk9wEZSnLdKee8Q4LxIverC6DUo_1VVLMOkZj8nUOUBiaD0f0tE_WobSh0-NjJ8QjPmc-UKNXxKi8V22JtZwK9EwZVL2kdzm2zxNOlm6ohqXeOuQHMq2uRzP04tfon-Tbh6URJsyN_1GwEiFO0-7j5uS8g8BHvHGJNoqLBchcluhB-a46vzG9D4slS7CbmDsFkjktjxkxHzrDUhnDYDpD5OolbeRqKZKC7s0B003__mC0)
+### Biểu đồ lớp
+![](https://www.planttext.com/plantuml/png/T9B13e8m38RlUuh54rvu00_6H3ruD3n16PKiGeTRPoJAatdmaNm5WuA2m0uz_7_Nh-tsl3zMZi6oppEXYT4UGA7SHMZFMg6y2bcVTqgZ1VDMCyLFgeGeG1qXHJbhBqS-TgLZp6TD7PM1SxAnruROcYn3srAcI4FQLyw18CM-KRrZ1xW1XXXSczR5AKE4Yhib4-r6LBoWyenxZxOCJdLSo8YjfdG2kYLbouAreH4iVimW0OP-dKyBE6LNzQB5S8DXU5j-Nqty3zntXvtrVR52Ikh_y0800F__0m00)
 ## 4.5.Hệ thống con xác thực (Authentication Subsystem)
 ## Chức năng 
 - Hệ thống xác thực kiểm tra  người dùng.
